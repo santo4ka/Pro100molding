@@ -86,23 +86,22 @@
         }
         .nav-links { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; margin-top: 15px; }
         .nav-link-item { 
-            text-decoration: none; 
-            color: white; /* Буквы всегда белые */
-            font-weight: bold; 
-            background: var(--gold); /* Фон золотой, как на главной */
-            padding: 12px 20px; 
-            border-radius: 8px; 
-            font-size: 0.8rem;
-            transition: 0.3s;
-            text-transform: uppercase;
-            border: none;
-            display: inline-block;
-        }
+    text-decoration: none; 
+    color: white !important; /* Форсируем белый цвет букв */
+    font-weight: bold; 
+    background: var(--gold); 
+    padding: 12px 20px; 
+    border-radius: 8px; 
+    font-size: 0.8rem;
+    transition: 0.3s;
+    text-transform: uppercase;
+    display: inline-block;
+}
 
-        .nav-link-item:hover { 
-            background: var(--dark); /* При наведении меняется на черный */
-            color: white; /* Буквы остаются белыми */
-        }
+.nav-link-item:hover { 
+    background: var(--dark); 
+    color: white !important;
+}
         }
 
         /* ЦВЕТНЫЕ КНОПКИ СВЯЗИ */
@@ -129,12 +128,12 @@
         <div class="gallery" id="plintus-gallery"></div>
 
         <div class="next-sections">
-            <p style="font-size: 0.8rem; color: #888; text-transform: uppercase; font-weight: bold;">Посмотрите также:</p>
-            <div class="nav-links">
-                <a href="molding.html" class="nav-link-item">МОЛДИНГИ</a>
-                <a href="decor.html" class="nav-link-item">ДЕКОР ПОТОЛКА</a>
-            </div>
-        </div>
+    <p style="font-size: 0.8rem; color: #888; text-transform: uppercase; font-weight: bold; margin-bottom: 20px;">Посмотрите также другие работы:</p>
+    <div class="nav-links">
+        <a href="molding.html" class="nav-link-item">МОЛДИНГИ ДЛЯ СТЕН</a>
+        <a href="decor.html" class="nav-link-item">ДЕКОР ПОТОЛКА</a>
+    </div>
+</div>
     </div>
 </div>
 
