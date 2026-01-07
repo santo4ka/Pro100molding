@@ -3,109 +3,108 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pro100molding | Идеальная геометрия интерьера</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
-<style>
+    <title>Pro100molding | Профессиональный монтаж</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&display=swap" rel="stylesheet">
+    <style>
         :root {
             --gold: #c5a059;
             --dark: #1a1a1a;
         }
 
-        body { font-family: 'Montserrat', sans-serif; margin: 0; background: #f9f9f9; color: #333; overflow-x: hidden; }
+        body { font-family: 'Montserrat', sans-serif; margin: 0; background: #f4f4f4; color: #333; overflow-x: hidden; }
 
-       header { 
+        /* ИСПРАВЛЕННЫЙ БЛОК ШАПКИ */
+        header { 
             position: relative;
             height: 60vh;
-            min-height: 320px;
+            min-height: 350px;
             display: flex;
             align-items: center;
             justify-content: center;
             flex-direction: column;
             color: white;
             text-align: center;
-            /* ОБНОВЛЕННАЯ ССЫЛКА НА ФОТО */
-            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
-                        url('https://images.unsplash.com/photo-1615873968403-89e068629275?auto=format&fit=crop&q=80&w=1600'); 
+            /* Используем максимально надежное фото из CDN */
+            background-color: var(--dark); /* Запасной цвет, если фото не грузится */
+            background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
+                              url('https://images.pexels.com/photos/7031607/pexels-photo-7031607.jpeg?auto=compress&cs=tinysrgb&w=1260'); 
             background-size: cover;
             background-position: center;
             padding: 0 10px;
         }
 
         .logo { 
-            /* Уменьшили минимальный размер с 1.8 до 1.5, чтобы влезло на все телефоны */
-            font-size: clamp(1.5rem, 9vw, 4.5rem); 
+            font-size: clamp(1.4rem, 8vw, 4rem); 
             font-weight: 900; 
-            letter-spacing: 2px; /* Чуть сузили буквы */
+            letter-spacing: 2px; 
             margin: 0;
             text-transform: uppercase;
-            color: #fff;
-            text-shadow: 2px 4px 10px rgba(0,0,0,0.5);
-            white-space: nowrap; /* Запрещаем перенос буквы G */
+            white-space: nowrap; /* Чтобы буква G не переносилась */
+            text-shadow: 2px 4px 15px rgba(0,0,0,0.7);
         }
 
         .slogan {
-            font-size: clamp(0.7rem, 3vw, 1.1rem);
-            margin-top: 10px;
-            font-weight: 400;
+            font-size: clamp(0.7rem, 3vw, 1rem);
+            margin-top: 15px;
+            font-weight: 700;
             letter-spacing: 1px;
             text-transform: uppercase;
-            background: rgba(197, 160, 89, 0.9);
-            padding: 6px 15px;
+            background: var(--gold);
+            padding: 8px 15px;
             border-radius: 4px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
         }
 
-        .container { max-width: 1200px; margin: -40px auto 40px; position: relative; z-index: 10; padding: 0 15px; }
+        .container { max-width: 1100px; margin: -40px auto 40px; position: relative; z-index: 10; padding: 0 15px; }
         
         .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 15px; /* Уменьшили зазоры */
+            gap: 15px;
         }
 
         .service-card {
             background: white;
-            padding: 20px 15px; /* Уменьшили внутренние отступы для компактности */
-            border-radius: 10px;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+            padding: 25px 20px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
             text-align: center;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            min-height: 180px; /* Уменьшили минимальную высоту блока */
-            border-top: 4px solid var(--gold); /* Та самая золотистая окантовка сверху */
+            min-height: 200px;
+            border-top: 5px solid var(--gold); /* Окантовка сверху */
         }
 
-        .service-card h3 {
-            margin: 0 0 8px 0;
-        }
-
+        .service-card h3 { margin: 0 0 10px 0; }
         .service-card h3 a { 
             color: var(--dark); 
             text-decoration: none; 
             font-weight: 700; 
-            font-size: 1rem;
+            font-size: 1.1rem;
             text-transform: uppercase;
         }
 
-        .service-card p { margin-bottom: 15px; font-size: 0.85rem; color: #666; line-height: 1.2; }
+        .service-card p { margin-bottom: 20px; font-size: 0.85rem; color: #666; line-height: 1.4; }
 
         .btn-main {
-            display: inline-block;
+            display: block;
             background: var(--gold);
             color: white;
             padding: 12px 0;
-            width: 100%;
             text-decoration: none;
             border-radius: 6px;
             font-weight: bold;
             text-transform: uppercase;
-            font-size: 0.8rem;
+            font-size: 0.85rem;
+            transition: 0.3s;
         }
 
+        .btn-main:hover { background: var(--dark); }
+
         @media (max-width: 600px) {
-            header { height: 50vh; min-height: 300px; }
+            header { height: 55vh; }
             .container { margin-top: -30px; }
-            .service-card { min-height: 160px; padding: 15px; }
         }
     </style>
 </head>
@@ -120,35 +119,28 @@
     <div class="services-grid">
         <div class="service-card">
             <h3><a href="plintus.html">НАПОЛЬНЫЙ ПЛИНТУС</a></h3>
-            <p>МДФ, Дюрополимер, Скрытый монтаж</p>
-            <a href="plintus.html" class="btn-main">ГАЛЕРЕЯ</a>
+            <p>Идеальная стыковка МДФ и дюрополимера. Скрытый монтаж любой сложности.</p>
+            <a href="plintus.html" class="btn-main">СМОТРЕТЬ РАБОТЫ</a>
         </div>
 
         <div class="service-card">
             <h3><a href="molding.html">СТЕНЫ И МОЛДИНГИ</a></h3>
-            <p>Классические рамки и 3D панели</p>
-            <a href="molding.html" class="btn-main">ГАЛЕРЕЯ</a>
+            <p>Геометрия классических рамок и монтаж современных стеновых панелей.</p>
+            <a href="molding.html" class="btn-main">СМОТРЕТЬ РАБОТЫ</a>
         </div>
 
         <div class="service-card">
             <h3><a href="decor.html">ДЕКОР ПОТОЛКА</a></h3>
-            <p>Карнизы и профессиональная покраска</p>
-            <a href="decor.html" class="btn-main">ГАЛЕРЕЯ</a>
+            <p>Потолочные карнизы с покраской. Аккуратные стыки без трещин.</p>
+            <a href="decor.html" class="btn-main">СМОТРЕТЬ РАБОТЫ</a>
         </div>
     </div>
 </div>
 
-<footer style="text-align: center; padding-bottom: 50px;">
-    <p>Связаться со мной:</p>
-    <a href="https://wa.me/79990000000" style="color: var(--gold); font-weight: bold; font-size: 1.2rem; text-decoration: none;">+7 (999) 000-00-00</a>
+<footer style="text-align: center; padding: 20px 0 50px;">
+    <p style="font-size: 0.9rem; color: #888;">Связаться со мной:</p>
+    <a href="https://wa.me/79990000000" style="background:#25D366; color:white; padding:12px 25px; border-radius:50px; text-decoration:none; font-weight:bold; display:inline-block;">WhatsApp</a>
 </footer>
 
 </body>
 </html>
-
-
-
-
-
-
-
