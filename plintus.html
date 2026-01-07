@@ -14,7 +14,6 @@
 
         body { font-family: 'Montserrat', sans-serif; margin: 0; background: var(--light); color: #333; overflow-x: hidden; }
 
-        /* ШАПКА КАК НА ГЛАВНОЙ */
         header { 
             position: relative;
             height: 45vh;
@@ -26,7 +25,6 @@
             color: white;
             text-align: center;
             background-color: var(--dark);
-            /* Фото специально под категорию ПЛИНТУС */
             background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
                               url('https://images.unsplash.com/photo-1600585152220-90363fe7e115?auto=format&fit=crop&q=80&w=1200'); 
             background-size: cover;
@@ -35,9 +33,11 @@
             border-bottom: 5px solid var(--gold);
         }
 
-        .logo-link { text-decoration: none; color: white; }
-    .logo { 
-            font-size: clamp(1.4rem, 8vw, 4rem); /* Точный размер с главной */
+        .logo-link { text-decoration: none; color: white; display: block; }
+        
+        /* РАЗМЕР ШРИФТА ТОЧНО КАК НА ГЛАВНОЙ */
+        .logo { 
+            font-size: clamp(1.3rem, 7vw, 3.5rem); 
             font-weight: 900; 
             letter-spacing: 2px; 
             text-transform: uppercase;
@@ -45,17 +45,18 @@
             white-space: nowrap;
         }
 
+        /* ПОДЛОЖКА "ГАЛЕРЕЯ РАБОТ" КАК НА ГЛАВНОЙ */
         .slogan-sub {
-            font-size: clamp(1.4rem, 8vw, 4rem) /* Точный размер слогана */  
-            margin-top: 15px;
+            font-size: clamp(0.65rem, 3vw, 0.9rem);
+            margin-top: 12px;
             font-weight: 700;
             letter-spacing: 1px;
             text-transform: uppercase;
             background: var(--gold);
-            padding: 8px 15px;
+            padding: 6px 12px;
             border-radius: 4px;
             box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-            display: inline-block; /* Чтобы подложка была по размеру текста */
+            display: inline-block;
         }
 
         .container { max-width: 1100px; margin: -30px auto 40px; position: relative; z-index: 10; padding: 0 15px; }
@@ -69,7 +70,6 @@
 
         h1 { border-left: 5px solid var(--gold); padding-left: 15px; font-size: 1.3rem; text-transform: uppercase; margin: 0 0 20px 0; }
 
-        /* Галерея */
         .gallery {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -91,7 +91,7 @@
             display: block;
         }
 
-        /* Навигация */
+        /* КНОПКИ НАВИГАЦИИ С БЕЛЫМИ БУКВАМИ */
         .next-sections {
             margin-top: 40px;
             padding-top: 30px;
@@ -100,36 +100,34 @@
         }
         .nav-links { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; margin-top: 15px; }
         .nav-link-item { 
-    text-decoration: none; 
-    color: white !important; /* Форсируем белый цвет букв */
-    font-weight: bold; 
-    background: var(--gold); 
-    padding: 12px 20px; 
-    border-radius: 8px; 
-    font-size: 0.8rem;
-    transition: 0.3s;
-    text-transform: uppercase;
-    display: inline-block;
-}
-
-.nav-link-item:hover { 
-    background: var(--dark); 
-    color: white !important;
-}
+            text-decoration: none; 
+            color: white !important; 
+            font-weight: bold; 
+            background: var(--gold); 
+            padding: 12px 20px; 
+            border-radius: 8px; 
+            font-size: 0.8rem;
+            transition: 0.3s;
+            text-transform: uppercase;
         }
+        .nav-link-item:hover { background: var(--dark); color: white !important; }
 
-        /* ЦВЕТНЫЕ КНОПКИ СВЯЗИ */
+        /* ИСПРАВЛЕННЫЕ КНОПКИ СВЯЗИ (ЦЕНТРИРОВАНИЕ) */
         footer { text-align: center; padding: 40px 0 60px; background: white; }
         .contact-grid { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; padding: 0 15px; max-width: 600px; margin: 0 auto; }
         .btn-contact { 
-            flex: 1; min-width: 120px; 
+            flex: 1; min-width: 120px; max-width: 160px;
             padding: 14px 0; border-radius: 8px; 
             text-decoration: none; font-weight: bold; font-size: 0.85rem; color: white;
-            /* ДОБАВЬТЕ ЭТИ ТРИ СТРОКИ НИЖЕ ДЛЯ ЦЕНТРИРОВАНИЯ */
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
+        }
+
+        @media (max-width: 600px) {
+            header { height: 40vh; min-height: 250px; }
+            .container { margin-top: -20px; }
         }
     </style>
 </head>
@@ -148,12 +146,12 @@
         <div class="gallery" id="plintus-gallery"></div>
 
         <div class="next-sections">
-    <p style="font-size: 0.8rem; color: #888; text-transform: uppercase; font-weight: bold; margin-bottom: 20px;">Посмотрите также другие работы:</p>
-    <div class="nav-links">
-        <a href="molding.html" class="nav-link-item">МОЛДИНГИ ДЛЯ СТЕН</a>
-        <a href="decor.html" class="nav-link-item">ДЕКОР ПОТОЛКА</a>
-    </div>
-</div>
+            <p style="font-size: 0.8rem; color: #888; text-transform: uppercase; font-weight: bold;">Посмотрите также:</p>
+            <div class="nav-links">
+                <a href="molding.html" class="nav-link-item">МОЛДИНГИ</a>
+                <a href="decor.html" class="nav-link-item">ДЕКОР ПОТОЛКА</a>
+            </div>
+        </div>
     </div>
 </div>
 
@@ -167,11 +165,10 @@
 </footer>
 
 <script>
-    // Сюда вставляйте ссылки
+    // Список фото (замените на свои)
     const myPhotos = [
-        "https://i.ibb.co/fdR1Ffsm/photo-1-2026-01-07-15-02-10.jpg",
-"https://i.ibb.co/ymrWcXYN/photo-20-2026-01-07-15-02-10.jpg",
-"https://i.ibb.co/LD2RYJYd/photo-2-2026-01-07-15-02-10.jpg",
+        "https://via.placeholder.com/400x600?text=Плинтус+1",
+        "https://via.placeholder.com/400x600?text=Плинтус+2"
     ];
 
     const container = document.getElementById('plintus-gallery');
