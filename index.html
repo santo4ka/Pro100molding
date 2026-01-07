@@ -13,49 +13,47 @@
 
         body { font-family: 'Montserrat', sans-serif; margin: 0; background: #f4f4f4; color: #333; overflow-x: hidden; }
 
-        /* ИСПРАВЛЕННЫЙ БЛОК ШАПКИ */
         header { 
             position: relative;
-            height: 60vh;
-            min-height: 350px;
+            height: 45vh; /* Уменьшили высоту шапки для компактности */
+            min-height: 280px;
             display: flex;
             align-items: center;
             justify-content: center;
             flex-direction: column;
             color: white;
             text-align: center;
-            /* Используем максимально надежное фото из CDN */
-            background-color: var(--dark); /* Запасной цвет, если фото не грузится */
-            background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
-                              url('https://images.pexels.com/photos/7031607/pexels-photo-7031607.jpeg?auto=compress&cs=tinysrgb&w=1260'); 
+            background-color: var(--dark);
+            /* Новое фото с интерьером и молдингами */
+            background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+                              url('https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&q=80&w=1200'); 
             background-size: cover;
             background-position: center;
             padding: 0 10px;
         }
 
         .logo { 
-            font-size: clamp(1.4rem, 8vw, 4rem); 
+            font-size: clamp(1.3rem, 7vw, 3.5rem); 
             font-weight: 900; 
             letter-spacing: 2px; 
             margin: 0;
             text-transform: uppercase;
-            white-space: nowrap; /* Чтобы буква G не переносилась */
+            white-space: nowrap;
             text-shadow: 2px 4px 15px rgba(0,0,0,0.7);
         }
 
         .slogan {
-            font-size: clamp(0.7rem, 3vw, 1rem);
-            margin-top: 15px;
+            font-size: clamp(0.65rem, 3vw, 0.9rem);
+            margin-top: 12px;
             font-weight: 700;
             letter-spacing: 1px;
             text-transform: uppercase;
             background: var(--gold);
-            padding: 8px 15px;
+            padding: 6px 12px;
             border-radius: 4px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
         }
 
-        .container { max-width: 1100px; margin: -40px auto 40px; position: relative; z-index: 10; padding: 0 15px; }
+        .container { max-width: 1100px; margin: -30px auto 40px; position: relative; z-index: 10; padding: 0 15px; }
         
         .services-grid {
             display: grid;
@@ -65,46 +63,46 @@
 
         .service-card {
             background: white;
-            padding: 25px 20px;
-            border-radius: 12px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            padding: 20px 15px;
+            border-radius: 10px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
             text-align: center;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            min-height: 200px;
-            border-top: 5px solid var(--gold); /* Окантовка сверху */
+            min-height: 180px;
+            border-top: 5px solid var(--gold);
         }
 
-        .service-card h3 { margin: 0 0 10px 0; }
+        .service-card h3 { margin: 0 0 8px 0; }
         .service-card h3 a { 
             color: var(--dark); 
             text-decoration: none; 
             font-weight: 700; 
-            font-size: 1.1rem;
+            font-size: 1rem;
             text-transform: uppercase;
         }
 
-        .service-card p { margin-bottom: 20px; font-size: 0.85rem; color: #666; line-height: 1.4; }
+        .service-card p { margin-bottom: 15px; font-size: 0.8rem; color: #666; line-height: 1.4; }
 
         .btn-main {
             display: block;
             background: var(--gold);
             color: white;
-            padding: 12px 0;
+            padding: 10px 0;
             text-decoration: none;
-            border-radius: 6px;
+            border-radius: 5px;
             font-weight: bold;
             text-transform: uppercase;
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             transition: 0.3s;
         }
 
         .btn-main:hover { background: var(--dark); }
 
         @media (max-width: 600px) {
-            header { height: 55vh; }
-            .container { margin-top: -30px; }
+            header { height: 40vh; min-height: 250px; }
+            .container { margin-top: -20px; }
         }
     </style>
 </head>
@@ -137,9 +135,9 @@
     </div>
 </div>
 
-<footer style="text-align: center; padding: 20px 0 50px;">
-    <p style="font-size: 0.9rem; color: #888;">Связаться со мной:</p>
-    <a href="https://wa.me/79990000000" style="background:#25D366; color:white; padding:12px 25px; border-radius:50px; text-decoration:none; font-weight:bold; display:inline-block;">WhatsApp</a>
+<footer style="text-align: center; padding: 10px 0 40px;">
+    <p style="font-size: 0.8rem; color: #888;">Связаться со мной:</p>
+    <a href="https://wa.me/79990000000" style="background:#25D366; color:white; padding:10px 20px; border-radius:50px; text-decoration:none; font-weight:bold; display:inline-block; font-size: 0.9rem;">WhatsApp</a>
 </footer>
 
 </body>
