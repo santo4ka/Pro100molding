@@ -3,144 +3,130 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pro100molding | Услуги и Галерея</title>
+    <title>Pro100molding | Идеальная геометрия интерьера</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #2c3e50;
-            --accent: #d35400;
-            --light: #f8f9fa;
+            --gold: #c5a059;
+            --dark: #1a1a1a;
         }
 
-        body { font-family: 'Segoe UI', Arial, sans-serif; margin: 0; color: #333; line-height: 1.6; }
-        .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
-        
-        header { background: var(--primary); color: white; padding: 40px 0; text-align: center; }
+        body { font-family: 'Montserrat', sans-serif; margin: 0; background: #f9f9f9; color: #333; }
+
+        /* НОВАЯ ШАПКА С ФОТО */
+        header { 
+            position: relative;
+            height: 80vh; /* Высота на 80% экрана */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            color: white;
+            text-align: center;
+            /* ЗАМЕНИТЕ ССЫЛКУ НИЖЕ НА ВАШЕ ФОТО */
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+                        url('https://images.unsplash.com/photo-1615873968403-89e068629275?q=80&w=1632&auto=format&fit=crop'); 
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed; /* Эффект параллакса */
+        }
+
+        .logo { 
+            font-size: clamp(2.5rem, 8vw, 5rem); /* Размер подстраивается под экран */
+            font-weight: 900; 
+            letter-spacing: 5px; 
+            margin: 0;
+            text-transform: uppercase;
+            color: #fff;
+            text-shadow: 2px 4px 10px rgba(0,0,0,0.5);
+        }
+
+        .slogan {
+            font-size: clamp(1rem, 4vw, 1.5rem);
+            margin-top: 20px;
+            font-weight: 400;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            background: rgba(197, 160, 89, 0.8); /* Золотистая подложка */
+            padding: 10px 25px;
+            border-radius: 5px;
+        }
+
+        /* КАРТОЧКИ УСЛУГ */
+        .container { max-width: 1100px; margin: -50px auto 50px; position: relative; z-index: 10; padding: 0 20px; }
         
         .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            padding: 50px 0;
+            gap: 20px;
         }
 
         .service-card {
             background: white;
-            padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease;
-            border-top: 5px solid var(--accent);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
             text-align: center;
+            transition: 0.3s;
         }
 
-        .service-card:hover {
-            transform: translateY(-10px);
-        }
+        .service-card:hover { transform: translateY(-10px); }
+        
+        .service-card h3 a { color: var(--dark); text-decoration: none; font-weight: 700; font-size: 1.4rem; }
+        .service-card h3 a:hover { color: var(--gold); }
 
-        /* Стили ссылок в заголовках */
-        .service-card h3 a {
-            color: var(--primary);
-            text-decoration: none;
-            font-size: 1.5rem;
-        }
-
-        .service-card h3 a:hover {
-            color: var(--accent);
-        }
-
-        .service-list {
-            text-align: left;
-            margin: 20px 0;
-            padding: 0;
-            list-style: none;
-        }
-
-        .service-list li {
-            padding: 5px 0 5px 20px;
-            position: relative;
-        }
-
-        .service-list li::before {
-            content: "✓";
-            position: absolute;
-            left: 0;
-            color: var(--accent);
-            font-weight: bold;
-        }
-
-        /* Кнопка перехода в галерею */
-        .gallery-link {
+        .btn-main {
             display: inline-block;
-            margin-top: 15px;
-            padding: 10px 20px;
-            background: var(--primary);
+            margin-top: 30px;
+            background: var(--gold);
             color: white;
+            padding: 15px 35px;
             text-decoration: none;
-            border-radius: 5px;
+            border-radius: 50px;
             font-weight: bold;
             transition: 0.3s;
         }
 
-        .gallery-link:hover {
-            background: var(--accent);
-        }
+        .btn-main:hover { background: var(--dark); transform: scale(1.05); }
 
-        .contact-footer {
-            background: var(--light);
-            text-align: center;
-            padding: 40px;
-            margin-top: 50px;
+        @media (max-width: 600px) {
+            header { height: 60vh; }
         }
     </style>
 </head>
 <body>
 
 <header>
-    <h1>PRO100MOLDING</h1>
-    <p>Нажмите на услугу, чтобы посмотреть примеры работ</p>
+    <h1 class="logo">PRO100MOLDING</h1>
+    <div class="slogan">Когда детали имеют значение</div>
 </header>
 
 <div class="container">
     <div class="services-grid">
-        
         <div class="service-card">
-            <h3><a href="plintus.html">Напольные плинтуса</a></h3>
-            <ul class="service-list">
-                <li>МДФ и Дюрополимер</li>
-                <li>Скрытый монтаж</li>
-                <li>Идеальные углы 45°</li>
-            </ul>
-            <a href="plintus.html" class="gallery-link">Смотреть фото и видео →</a>
+            <h3><a href="plintus.html">НАПОЛЬНЫЙ ПЛИНТУС</a></h3>
+            <p>МДФ, Дюрополимер, Скрытый монтаж</p>
+            <a href="plintus.html" class="btn-main">СМОТРЕТЬ РАБОТЫ</a>
         </div>
 
         <div class="service-card">
-            <h3><a href="molding.html">Стены и Молдинги</a></h3>
-            <ul class="service-list">
-                <li>Декоративные рамки</li>
-                <li>Бамбуковые панели</li>
-                <li>3D панели из полиуретана</li>
-            </ul>
-            <a href="molding.html" class="gallery-link">Галерея работ →</a>
+            <h3><a href="molding.html">СТЕНЫ И МОЛДИНГИ</a></h3>
+            <p>Классические рамки и 3D панели</p>
+            <a href="molding.html" class="btn-main">ГАЛЕРЕЯ</a>
         </div>
 
         <div class="service-card">
-            <h3><a href="decor.html">Потолок и Покраска</a></h3>
-            <ul class="service-list">
-                <li>Потолочные карнизы</li>
-                <li>Покраска без разводов</li>
-                <li>Шпаклевка стыков</li>
-            </ul>
-            <a href="decor.html" class="gallery-link">Примеры покраски →</a>
+            <h3><a href="decor.html">ДЕКОР ПОТОЛКА</a></h3>
+            <p>Карнизы и профессиональная покраска</p>
+            <a href="decor.html" class="btn-main">ПРИМЕРЫ</a>
         </div>
-
     </div>
 </div>
 
-<div class="contact-footer">
-    <h2>Нужна консультация?</h2>
-    <p>Телефон: <a href="tel:+79990000000">+7 (999) 000-00-00</a></p>
-    <p><a href="index.html" style="color: var(--accent);">Вернуться на главную</a></p>
-</div>
+<footer style="text-align: center; padding-bottom: 50px;">
+    <p>Связаться со мной:</p>
+    <a href="https://wa.me/79990000000" style="color: var(--gold); font-weight: bold; font-size: 1.2rem; text-decoration: none;">+7 (999) 000-00-00</a>
+</footer>
 
 </body>
 </html>
