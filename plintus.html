@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Напольный плинтус | Галерея работ Pro100molding</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
+    <title>Напольный плинтус | Pro100molding</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&display=swap" rel="stylesheet">
     <style>
         :root {
             --gold: #c5a059;
@@ -14,99 +14,116 @@
 
         body { font-family: 'Montserrat', sans-serif; margin: 0; background: var(--light); color: #333; overflow-x: hidden; }
 
+        /* ШАПКА КАК НА ГЛАВНОЙ */
         header { 
-            background: var(--dark); 
-            color: white; 
-            padding: 30px 15px; 
+            position: relative;
+            height: 45vh;
+            min-height: 280px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            color: white;
             text-align: center;
+            background-color: var(--dark);
+            /* Фото специально под категорию ПЛИНТУС */
+            background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+                              url('https://images.unsplash.com/photo-1600585152220-90363fe7e115?auto=format&fit=crop&q=80&w=1200'); 
+            background-size: cover;
+            background-position: center bottom;
+            padding: 0 10px;
             border-bottom: 5px solid var(--gold);
         }
-        .logo-small { font-weight: 900; letter-spacing: 2px; text-transform: uppercase; font-size: 1.2rem; color: var(--gold); text-decoration: none; }
 
-        .container { max-width: 1100px; margin: 30px auto; padding: 0 15px; }
+        .logo-link { text-decoration: none; color: white; }
+        .logo { 
+            font-size: clamp(1.3rem, 7vw, 3rem); 
+            font-weight: 900; 
+            letter-spacing: 2px; 
+            text-transform: uppercase;
+            text-shadow: 2px 4px 15px rgba(0,0,0,0.7);
+        }
+
+        .container { max-width: 1100px; margin: -30px auto 40px; position: relative; z-index: 10; padding: 0 15px; }
         
-        h1 { border-left: 5px solid var(--gold); padding-left: 15px; font-size: 1.5rem; text-transform: uppercase; margin-bottom: 25px; }
+        .content-block {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
 
-        /* Сетка галереи */
+        h1 { border-left: 5px solid var(--gold); padding-left: 15px; font-size: 1.3rem; text-transform: uppercase; margin: 0 0 20px 0; }
+
+        /* Галерея */
         .gallery {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 15px;
-            margin-bottom: 50px;
+            margin-top: 20px;
         }
 
         .gallery-item {
-            background: #fff;
-            border-radius: 10px;
+            background: #f9f9f9;
+            border-radius: 8px;
             overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            height: 350px;
         }
 
         .gallery-item img, .gallery-item video {
             width: 100%;
-            height: 350px;
+            height: 100%;
             object-fit: cover;
             display: block;
         }
 
-        /* Навигация между страницами */
+        /* Навигация */
         .next-sections {
-            margin: 50px 0 30px;
-            padding: 30px 0;
-            border-top: 1px solid #ddd;
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 1px solid #eee;
             text-align: center;
         }
-        .next-sections h2 { font-size: 1.1rem; margin-bottom: 20px; color: #555; text-transform: uppercase; }
-        .nav-links { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; }
+        .nav-links { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; margin-top: 15px; }
         .nav-link-item { 
-            text-decoration: none; 
-            color: var(--dark); 
-            font-weight: bold; 
-            border: 2px solid var(--gold); 
-            padding: 10px 20px; 
-            border-radius: 8px; 
-            transition: 0.3s;
-            font-size: 0.9rem;
+            text-decoration: none; color: var(--dark); font-weight: bold; 
+            border: 2px solid var(--gold); padding: 10px 15px; border-radius: 6px; font-size: 0.8rem;
         }
-        .nav-link-item:hover { background: var(--gold); color: white; }
 
-        /* Кнопки связи (как на главной) */
-        .footer-contacts { text-align: center; padding: 40px 0 60px; background: white; border-top: 1px solid #eee; }
-        .contact-grid { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; padding: 0 15px; }
+        /* ЦВЕТНЫЕ КНОПКИ СВЯЗИ */
+        footer { text-align: center; padding: 40px 0 60px; background: white; }
+        .contact-grid { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; padding: 0 15px; max-width: 600px; margin: 0 auto; }
         .btn-contact { 
-            flex: 1; min-width: 120px; max-width: 160px; 
-            padding: 14px 10px; border-radius: 8px; 
+            flex: 1; min-width: 120px; padding: 12px 0; border-radius: 8px; 
             text-decoration: none; font-weight: bold; font-size: 0.85rem; color: white;
-            text-align: center;
-        }
-
-        @media (max-width: 600px) {
-            .gallery-item img, .gallery-item video { height: 300px; }
         }
     </style>
 </head>
 <body>
 
 <header>
-    <a href="index.html" class="logo-small">PRO100MOLDING</a>
+    <a href="index.html" class="logo-link"><div class="logo">PRO100MOLDING</div></a>
+    <div style="margin-top: 10px; font-size: 0.8rem; letter-spacing: 2px; text-transform: uppercase;">Галерея работ</div>
 </header>
 
 <div class="container">
-    <a href="index.html" style="display:inline-block; margin-bottom: 20px; color: var(--gold); text-decoration: none; font-weight: bold;">← НА ГЛАВНУЮ</a>
-    <h1>Монтаж напольного плинтуса</h1>
-    
-    <div class="gallery" id="plintus-gallery"></div>
+    <div class="content-block">
+        <a href="index.html" style="display:inline-block; margin-bottom: 15px; color: var(--gold); text-decoration: none; font-weight: bold; font-size: 0.8rem;">← НА ГЛАВНУЮ</a>
+        <h1>Напольный плинтус</h1>
+        
+        <div class="gallery" id="plintus-gallery"></div>
 
-    <div class="next-sections">
-        <h2>Посмотрите также другие разделы:</h2>
-        <div class="nav-links">
-            <a href="molding.html" class="nav-link-item">МОЛДИНГИ ДЛЯ СТЕН</a>
-            <a href="decor.html" class="nav-link-item">ДЕКОР ПОТОЛКА</a>
+        <div class="next-sections">
+            <p style="font-size: 0.8rem; color: #888; text-transform: uppercase; font-weight: bold;">Посмотрите также:</p>
+            <div class="nav-links">
+                <a href="molding.html" class="nav-link-item">МОЛДИНГИ</a>
+                <a href="decor.html" class="nav-link-item">ДЕКОР ПОТОЛКА</a>
+            </div>
         </div>
     </div>
 </div>
 
-<footer class="footer-contacts">
+<footer>
     <p style="font-size: 0.8rem; color: #888; margin-bottom: 15px;">Связаться со мной:</p>
     <div class="contact-grid">
         <a href="tel:+79990000000" class="btn-contact" style="background:var(--dark);">Позвонить</a>
@@ -116,30 +133,22 @@
 </footer>
 
 <script>
-    // 1. СПИСОК ВАШИХ ФОТО И ВИДЕО
-    // Просто добавляйте ссылки в кавычках через запятую.
-    // Если видео, добавьте в начало video:
+    // Сюда вставляйте ссылки
     const myPhotos = [
-        "https://i.ibb.co/example1.jpg",
-        "https://i.ibb.co/example2.jpg",
-        "video:https://your-video-link.mp4",
-        "https://i.ibb.co/example3.jpg",
-        // Добавьте остальные 50 фото сюда...
+        "https://via.placeholder.com/400x600?text=Плинтус+1",
+        "https://via.placeholder.com/400x600?text=Плинтус+2"
     ];
 
     const container = document.getElementById('plintus-gallery');
-
     myPhotos.forEach(url => {
         const item = document.createElement('div');
         item.className = 'gallery-item';
-
         if (url.startsWith('video:')) {
             const videoUrl = url.replace('video:', '');
             item.innerHTML = `<video src="${videoUrl}" controls muted loop></video>`;
         } else {
             const img = document.createElement('img');
-            img.src = url;
-            img.loading = "lazy";
+            img.src = url; img.loading = "lazy";
             item.appendChild(img);
         }
         container.appendChild(item);
