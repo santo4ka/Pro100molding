@@ -15,104 +15,96 @@
 
         header { 
             position: relative;
-            height: 70vh;
-            min-height: 400px;
+            height: 60vh; /* Уменьшили высоту шапки */
+            min-height: 320px;
             display: flex;
             align-items: center;
             justify-content: center;
             flex-direction: column;
             color: white;
             text-align: center;
-            /* Центрируем фото, чтобы оно не обрезалось некрасиво */
             background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
                         url('https://images.pexels.com/photos/584399/pexels-photo-584399.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'); 
             background-size: cover;
-            background-position: center bottom; /* Смещаем фокус фото чуть ниже */
-            padding: 0 15px;
+            background-position: center;
+            padding: 0 10px;
         }
 
         .logo { 
-            /* На мобильных (мелких экранах) шрифт будет уменьшаться до 1.8rem */
-            font-size: clamp(1.8rem, 10vw, 5rem); 
+            /* Уменьшили минимальный размер с 1.8 до 1.5, чтобы влезло на все телефоны */
+            font-size: clamp(1.5rem, 9vw, 4.5rem); 
             font-weight: 900; 
-            letter-spacing: 3px; 
+            letter-spacing: 2px; /* Чуть сузили буквы */
             margin: 0;
             text-transform: uppercase;
             color: #fff;
             text-shadow: 2px 4px 10px rgba(0,0,0,0.5);
-            width: 100%;
-            word-wrap: break-word;
+            white-space: nowrap; /* Запрещаем перенос буквы G */
         }
 
         .slogan {
-            font-size: clamp(0.75rem, 3.5vw, 1.3rem);
-            margin-top: 15px;
+            font-size: clamp(0.7rem, 3vw, 1.1rem);
+            margin-top: 10px;
             font-weight: 400;
             letter-spacing: 1px;
             text-transform: uppercase;
             background: rgba(197, 160, 89, 0.9);
-            padding: 8px 15px;
-            border-radius: 5px;
-            max-width: 90%;
+            padding: 6px 15px;
+            border-radius: 4px;
         }
 
-        .container { max-width: 1200px; margin: -50px auto 50px; position: relative; z-index: 10; padding: 0 15px; }
+        .container { max-width: 1200px; margin: -40px auto 40px; position: relative; z-index: 10; padding: 0 15px; }
         
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 15px; /* Уменьшили зазоры */
         }
 
         .service-card {
             background: white;
-            padding: 30px 20px;
-            border-radius: 15px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            padding: 20px 15px; /* Уменьшили внутренние отступы для компактности */
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.08);
             text-align: center;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            min-height: 250px;
+            min-height: 180px; /* Уменьшили минимальную высоту блока */
+            border-top: 4px solid var(--gold); /* Та самая золотистая окантовка сверху */
         }
 
         .service-card h3 {
-            margin: 0 0 10px 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            margin: 0 0 8px 0;
         }
 
         .service-card h3 a { 
             color: var(--dark); 
             text-decoration: none; 
             font-weight: 700; 
-            font-size: 1.1rem;
+            font-size: 1rem;
             text-transform: uppercase;
         }
 
-        .service-card p { margin-bottom: 20px; font-size: 0.9rem; color: #666; }
+        .service-card p { margin-bottom: 15px; font-size: 0.85rem; color: #666; line-height: 1.2; }
 
         .btn-main {
             display: inline-block;
             background: var(--gold);
             color: white;
-            padding: 14px 0;
+            padding: 12px 0;
             width: 100%;
             text-decoration: none;
-            border-radius: 8px;
+            border-radius: 6px;
             font-weight: bold;
-            transition: 0.3s;
             text-transform: uppercase;
-            font-size: 0.85rem;
+            font-size: 0.8rem;
         }
 
-        /* Специальные правки для мобильных устройств */
         @media (max-width: 600px) {
-            header { height: 60vh; min-height: 350px; }
+            header { height: 50vh; min-height: 300px; }
             .container { margin-top: -30px; }
-            .logo { letter-spacing: 1px; } /* Сужаем расстояние между буквами */
-            .service-card { padding: 25px 15px; }
+            .service-card { min-height: 160px; padding: 15px; }
         }
     </style>
 </head>
@@ -152,6 +144,7 @@
 
 </body>
 </html>
+
 
 
 
