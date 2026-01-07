@@ -3,316 +3,144 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Монтаж плинтусов и декора | Мастер отделки</title>
+    <title>Pro100molding | Услуги и Галерея</title>
     <style>
-        /* ОСНОВНЫЕ СТИЛИ */
         :root {
-            --primary-color: #2c3e50; /* Темно-синий */
-            --accent-color: #d35400; /* Кирпично-оранжевый */
-            --light-bg: #f8f9fa;
-            --text-color: #333;
+            --primary: #2c3e50;
+            --accent: #d35400;
+            --light: #f8f9fa;
         }
 
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 0;
-            padding: 0;
-            color: var(--text-color);
-            line-height: 1.6;
-        }
-
-        a { text-decoration: none; }
-        ul { list-style: none; padding: 0; }
-
-        /* ШАПКА */
-        header {
-            background: #fff;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-        }
-
-        .container {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        .navbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            height: 70px;
-        }
-
-        .logo {
-            font-size: 24px;
-            font-weight: bold;
-            color: var(--primary-color);
-        }
-
-        .nav-links a {
-            margin-left: 20px;
-            color: var(--text-color);
-            font-weight: 500;
-        }
-
-        .btn-call {
-            background: var(--accent-color);
-            color: white;
-            padding: 10px 20px;
-            border-radius: 5px;
-            font-weight: bold;
-        }
-
-        /* ГЛАВНЫЙ ЭКРАН (HERO) */
-        .hero {
-            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1600607686527-6fb886090705?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80');
-            background-size: cover;
-            background-position: center;
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: white;
-            padding-top: 70px;
-        }
-
-        .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 20px;
-            line-height: 1.2;
-        }
-
-        .hero p {
-            font-size: 1.2rem;
-            margin-bottom: 30px;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .hero-btn {
-            background: var(--accent-color);
-            color: white;
-            padding: 15px 35px;
-            font-size: 18px;
-            border-radius: 50px;
-            transition: 0.3s;
-        }
-
-        .hero-btn:hover {
-            background: #e67e22;
-            transform: scale(1.05);
-        }
-
-        /* ПРЕИМУЩЕСТВА */
-        .features {
-            padding: 60px 0;
-            background: #fff;
-        }
-
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            text-align: center;
-        }
-
-        .feature-card h3 { color: var(--primary-color); margin-bottom: 10px; }
-        .feature-icon { font-size: 40px; margin-bottom: 15px; color: var(--accent-color); }
-
-        /* УСЛУГИ */
-        .services {
-            padding: 60px 0;
-            background: var(--light-bg);
-        }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 50px;
-            font-size: 2.5rem;
-            color: var(--primary-color);
-        }
-
+        body { font-family: 'Segoe UI', Arial, sans-serif; margin: 0; color: #333; line-height: 1.6; }
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+        
+        header { background: var(--primary); color: white; padding: 40px 0; text-align: center; }
+        
         .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
+            padding: 50px 0;
         }
 
         .service-card {
             background: white;
             padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            transition: 0.3s;
-        }
-
-        .service-card:hover { transform: translateY(-5px); }
-        .service-card h3 { color: var(--primary-color); margin-bottom: 15px; border-bottom: 2px solid var(--accent-color); display: inline-block; }
-        .service-card ul li { margin-bottom: 8px; padding-left: 15px; position: relative; }
-        .service-card ul li::before { content: "•"; color: var(--accent-color); position: absolute; left: 0; font-weight: bold; }
-
-        /* ГАЛЕРЕЯ (ПРИМЕР) */
-        .portfolio { padding: 60px 0; }
-        .gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 15px;
-        }
-        .gallery-item {
-            background: #ddd;
-            height: 250px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #666;
-            font-size: 1.2rem;
-            border-radius: 5px;
-        }
-
-        /* КОНТАКТЫ */
-        .contact {
-            background: var(--primary-color);
-            color: white;
-            padding: 60px 0;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+            border-top: 5px solid var(--accent);
             text-align: center;
         }
 
-        .contact-btn {
-            display: inline-block;
-            background: #25D366; /* Цвет WhatsApp */
-            color: white;
-            padding: 15px 30px;
-            border-radius: 50px;
-            font-size: 18px;
-            margin-top: 20px;
+        .service-card:hover {
+            transform: translateY(-10px);
+        }
+
+        /* Стили ссылок в заголовках */
+        .service-card h3 a {
+            color: var(--primary);
+            text-decoration: none;
+            font-size: 1.5rem;
+        }
+
+        .service-card h3 a:hover {
+            color: var(--accent);
+        }
+
+        .service-list {
+            text-align: left;
+            margin: 20px 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .service-list li {
+            padding: 5px 0 5px 20px;
+            position: relative;
+        }
+
+        .service-list li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--accent);
             font-weight: bold;
         }
 
-        /* АДАПТИВНОСТЬ ДЛЯ ТЕЛЕФОНОВ */
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 2rem; }
-            .nav-links { display: none; } /* Скрываем меню на телефоне для простоты */
-            .navbar { justify-content: center; }
-            .logo { margin-bottom: 0; }
+        /* Кнопка перехода в галерею */
+        .gallery-link {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 10px 20px;
+            background: var(--primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .gallery-link:hover {
+            background: var(--accent);
+        }
+
+        .contact-footer {
+            background: var(--light);
+            text-align: center;
+            padding: 40px;
+            margin-top: 50px;
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <div class="container navbar">
-            <div class="logo">МАСТЕР ДЕКОРА</div>
-            <nav class="nav-links">
-                <a href="#services">Услуги</a>
-                <a href="#features">Преимущества</a>
-                <a href="#portfolio">Работы</a>
-            </nav>
-            <a href="tel:+79990000000" class="btn-call">Позвонить</a>
+<header>
+    <h1>PRO100MOLDING</h1>
+    <p>Нажмите на услугу, чтобы посмотреть примеры работ</p>
+</header>
+
+<div class="container">
+    <div class="services-grid">
+        
+        <div class="service-card">
+            <h3><a href="plintus.html">Напольные плинтуса</a></h3>
+            <ul class="service-list">
+                <li>МДФ и Дюрополимер</li>
+                <li>Скрытый монтаж</li>
+                <li>Идеальные углы 45°</li>
+            </ul>
+            <a href="plintus.html" class="gallery-link">Смотреть фото и видео →</a>
         </div>
-    </header>
 
-    <section class="hero">
-        <div class="container">
-            <h1>Идеальная геометрия<br>вашего интерьера</h1>
-            <p>Профессиональный монтаж плинтусов, молдингов и декоративных панелей. Работаю с полиуретаном, дюрополимером, МДФ и бамбуком.</p>
-            <a href="#contact" class="hero-btn">Рассчитать стоимость</a>
+        <div class="service-card">
+            <h3><a href="molding.html">Стены и Молдинги</a></h3>
+            <ul class="service-list">
+                <li>Декоративные рамки</li>
+                <li>Бамбуковые панели</li>
+                <li>3D панели из полиуретана</li>
+            </ul>
+            <a href="molding.html" class="gallery-link">Галерея работ →</a>
         </div>
-    </section>
 
-    <section id="features" class="features">
-        <div class="container features-grid">
-            <div class="feature-card">
-                <div class="feature-icon">★</div>
-                <h3>Чистый монтаж</h3>
-                <p>Работаю с пылесосом. Минимум пыли, чистые обои и пол после установки.</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">📐</div>
-                <h3>Точные запилы</h3>
-                <p>Идеальные стыки под 45°. Никаких пластиковых заглушек, только профессиональная геометрия.</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">⏱</div>
-                <h3>Соблюдение сроков</h3>
-                <p>Приезжаю вовремя, работаю быстро, не растягиваю ремонт.</p>
-            </div>
+        <div class="service-card">
+            <h3><a href="decor.html">Потолок и Покраска</a></h3>
+            <ul class="service-list">
+                <li>Потолочные карнизы</li>
+                <li>Покраска без разводов</li>
+                <li>Шпаклевка стыков</li>
+            </ul>
+            <a href="decor.html" class="gallery-link">Примеры покраски →</a>
         </div>
-    </section>
 
-    <section id="services" class="services">
-        <div class="container">
-            <h2 class="section-title">Мои услуги</h2>
-            <div class="services-grid">
-                
-                <div class="service-card">
-                    <h3>Напольные плинтуса</h3>
-                    <ul>
-                        <li>Монтаж дюрополимера и полиуретана</li>
-                        <li>Установка МДФ плинтуса</li>
-                        <li>Плинтус под покраску</li>
-                        <li>Деревянный и шпонированный плинтус</li>
-                        <li>Запил углов и стыковка</li>
-                    </ul>
-                </div>
+    </div>
+</div>
 
-                <div class="service-card">
-                    <h3>Стены и Молдинги</h3>
-                    <ul>
-                        <li>Поклейка декоративных молдингов</li>
-                        <li>Создание рамок и зонирование</li>
-                        <li>Обшивка стен бамбуковыми панелями</li>
-                        <li>Монтаж 3D панелей из полиуретана</li>
-                        <li>Подготовка под покраску</li>
-                    </ul>
-                </div>
-
-                <div class="service-card">
-                    <h3>Потолок и Покраска</h3>
-                    <ul>
-                        <li>Монтаж потолочного плинтуса (карнизов)</li>
-                        <li>Стыковка рисунка</li>
-                        <li>Профессиональная покраска декора</li>
-                        <li>Покраска плинтусов пульверизатором/кистью</li>
-                        <li>Шпаклевка стыков</li>
-                    </ul>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <section id="portfolio" class="portfolio">
-        <div class="container">
-            <h2 class="section-title">Примеры работ</h2>
-            <div class="gallery">
-                <div class="gallery-item" style="background-color: #eee;">Фото 1</div>
-                <div class="gallery-item" style="background-color: #e0e0e0;">Фото 2</div>
-                <div class="gallery-item" style="background-color: #d6d6d6;">Фото 3</div>
-                <div class="gallery-item" style="background-color: #cccccc;">Фото 4</div>
-            </div>
-        </div>
-    </section>
-
-    <section id="contact" class="contact">
-        <div class="container">
-            <h2>Готовы преобразить интерьер?</h2>
-            <p>Свяжитесь со мной для расчета стоимости и замеров.</p>
-            
-            <a href="https://wa.me/79990000000" class="contact-btn">Написать в WhatsApp</a>
-            <br><br>
-            <p>Или звоните: <strong>+7 (999) 000-00-00</strong></p>
-        </div>
-    </section>
-
-    <footer style="background: #222; color: #fff; text-align: center; padding: 20px;">
-        <p>© 2024 Частный мастер по декору. Все права защищены.</p>
-    </footer>
+<div class="contact-footer">
+    <h2>Нужна консультация?</h2>
+    <p>Телефон: <a href="tel:+79990000000">+7 (999) 000-00-00</a></p>
+    <p><a href="index.html" style="color: var(--accent);">Вернуться на главную</a></p>
+</div>
 
 </body>
 </html>
