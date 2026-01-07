@@ -5,55 +5,58 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pro100molding | Идеальная геометрия интерьера</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
-    <style>
+<style>
         :root {
             --gold: #c5a059;
             --dark: #1a1a1a;
         }
 
-        body { font-family: 'Montserrat', sans-serif; margin: 0; background: #f9f9f9; color: #333; }
+        body { font-family: 'Montserrat', sans-serif; margin: 0; background: #f9f9f9; color: #333; overflow-x: hidden; }
 
-        /* НОВАЯ ШАПКА С ФОТО */
         header { 
             position: relative;
-            height: 80vh; /* Высота на 80% экрана */
+            height: 70vh;
+            min-height: 400px;
             display: flex;
             align-items: center;
             justify-content: center;
             flex-direction: column;
             color: white;
             text-align: center;
-            /* ЗАМЕНИТЕ ССЫЛКУ НИЖЕ НА ВАШЕ ФОТО */
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
-                        url('https://i.ibb.co/s9FyRdqk/2.jpg'); 
+            /* Центрируем фото, чтобы оно не обрезалось некрасиво */
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
+                        url('https://images.pexels.com/photos/584399/pexels-photo-584399.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'); 
             background-size: cover;
-            background-position: center;
-            background-attachment: fixed; /* Эффект параллакса */
+            background-position: center bottom; /* Смещаем фокус фото чуть ниже */
+            padding: 0 15px;
         }
 
         .logo { 
-            font-size: clamp(2.5rem, 8vw, 5rem); /* Размер подстраивается под экран */
+            /* На мобильных (мелких экранах) шрифт будет уменьшаться до 1.8rem */
+            font-size: clamp(1.8rem, 10vw, 5rem); 
             font-weight: 900; 
-            letter-spacing: 5px; 
+            letter-spacing: 3px; 
             margin: 0;
             text-transform: uppercase;
             color: #fff;
             text-shadow: 2px 4px 10px rgba(0,0,0,0.5);
+            width: 100%;
+            word-wrap: break-word;
         }
 
         .slogan {
-            font-size: clamp(1rem, 4vw, 1.5rem);
-            margin-top: 20px;
+            font-size: clamp(0.75rem, 3.5vw, 1.3rem);
+            margin-top: 15px;
             font-weight: 400;
-            letter-spacing: 2px;
+            letter-spacing: 1px;
             text-transform: uppercase;
-            background: rgba(197, 160, 89, 0.8); /* Золотистая подложка */
-            padding: 10px 25px;
+            background: rgba(197, 160, 89, 0.9);
+            padding: 8px 15px;
             border-radius: 5px;
+            max-width: 90%;
         }
 
-        /* КАРТОЧКИ УСЛУГ */
-        .container { max-width: 1100px; margin: -50px auto 50px; position: relative; z-index: 10; padding: 0 20px; }
+        .container { max-width: 1200px; margin: -50px auto 50px; position: relative; z-index: 10; padding: 0 15px; }
         
         .services-grid {
             display: grid;
@@ -63,34 +66,53 @@
 
         .service-card {
             background: white;
-            padding: 40px;
+            padding: 30px 20px;
             border-radius: 15px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
             text-align: center;
-            transition: 0.3s;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 250px;
         }
 
-        .service-card:hover { transform: translateY(-10px); }
-        
-        .service-card h3 a { color: var(--dark); text-decoration: none; font-weight: 700; font-size: 1.4rem; }
-        .service-card h3 a:hover { color: var(--gold); }
+        .service-card h3 {
+            margin: 0 0 10px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .service-card h3 a { 
+            color: var(--dark); 
+            text-decoration: none; 
+            font-weight: 700; 
+            font-size: 1.1rem;
+            text-transform: uppercase;
+        }
+
+        .service-card p { margin-bottom: 20px; font-size: 0.9rem; color: #666; }
 
         .btn-main {
             display: inline-block;
-            margin-top: 30px;
             background: var(--gold);
             color: white;
-            padding: 15px 35px;
+            padding: 14px 0;
+            width: 100%;
             text-decoration: none;
-            border-radius: 50px;
+            border-radius: 8px;
             font-weight: bold;
             transition: 0.3s;
+            text-transform: uppercase;
+            font-size: 0.85rem;
         }
 
-        .btn-main:hover { background: var(--dark); transform: scale(1.05); }
-
+        /* Специальные правки для мобильных устройств */
         @media (max-width: 600px) {
-            header { height: 60vh; }
+            header { height: 60vh; min-height: 350px; }
+            .container { margin-top: -30px; }
+            .logo { letter-spacing: 1px; } /* Сужаем расстояние между буквами */
+            .service-card { padding: 25px 15px; }
         }
     </style>
 </head>
@@ -130,6 +152,7 @@
 
 </body>
 </html>
+
 
 
 
