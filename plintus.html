@@ -86,8 +86,23 @@
         }
         .nav-links { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; margin-top: 15px; }
         .nav-link-item { 
-            text-decoration: none; color: var(--dark); font-weight: bold; 
-            border: 2px solid var(--gold); padding: 10px 15px; border-radius: 6px; font-size: 0.8rem;
+            text-decoration: none; 
+            color: white; /* Буквы всегда белые */
+            font-weight: bold; 
+            background: var(--gold); /* Фон золотой, как на главной */
+            padding: 12px 20px; 
+            border-radius: 8px; 
+            font-size: 0.8rem;
+            transition: 0.3s;
+            text-transform: uppercase;
+            border: none;
+            display: inline-block;
+        }
+
+        .nav-link-item:hover { 
+            background: var(--dark); /* При наведении меняется на черный */
+            color: white; /* Буквы остаются белыми */
+        }
         }
 
         /* ЦВЕТНЫЕ КНОПКИ СВЯЗИ */
