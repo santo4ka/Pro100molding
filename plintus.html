@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Напольный плинтус | Pro100molding</title>
+ <meta name="description" content="Галерея работ по монтажу напольного плинтуса. Идеальные стыки и примыкания. Работаем с МДФ, дюрополимером и деревом, аллюминием.">
+<meta name="keywords" content="монтаж плинтуса, напольный плинтус фото, PRO100MOLDING, установка плинтуса МДФ, установка плинтуса из дюрополимера">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -186,16 +188,23 @@
 
     ];
 
-    const container = document.getElementById('plintus-gallery');
-    myPhotos.forEach(url => {
+   const container = document.getElementById('plintus-gallery'); // для каждой страницы свой ID
+
+    myPhotos.forEach((url, index) => {
         const item = document.createElement('div');
         item.className = 'gallery-item';
+
         if (url.startsWith('video:')) {
             const videoUrl = url.replace('video:', '');
             item.innerHTML = `<video src="${videoUrl}" controls muted loop></video>`;
         } else {
             const img = document.createElement('img');
-            img.src = url; img.loading = "lazy";
+            img.src = url; 
+            img.loading = "lazy";
+            
+            // Описание для поисковиков:
+            img.alt = "PRO100MOLDING: работа по монтажу №" + (index + 1);
+            
             item.appendChild(img);
         }
         container.appendChild(item);
