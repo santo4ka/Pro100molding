@@ -183,13 +183,19 @@
 "https://i.ibb.co/LDKS4q33/photo-47-2026-01-07-20-28-14.jpg",
     ];
     const container = document.getElementById('molding-gallery');
-    myPhotos.forEach(url => {
-        const item = document.createElement('div'); item.className = 'gallery-item';
+   myPhotos.forEach((url, index) => {
+        const item = document.createElement('div');
+        item.className = 'gallery-item';
+
         if (url.startsWith('video:')) {
             const videoUrl = url.replace('video:', '');
             item.innerHTML = `<video src="${videoUrl}" controls muted loop></video>`;
         } else {
-            const img = document.createElement('img'); img.src = url; img.loading = "lazy"; item.appendChild(img);
+            const img = document.createElement('img');
+            img.src = url; 
+            img.loading = "lazy";
+            img.alt = "PRO100MOLDING: установка настенных молдингов, пример №" + (index + 1);
+            item.appendChild(img);
         }
         container.appendChild(item);
     });
