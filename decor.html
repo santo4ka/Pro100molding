@@ -3,73 +3,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Потолочный декор и Покраска | Pro100molding</title>
+    <title>Декор потолка | Pro100molding</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --dark: #1a1a1a;
-            --gold: #c5a059;
-            --light: #f4f4f4;
+        :root { --gold: #c5a059; --dark: #1a1a1a; --light: #f4f4f4; }
+        body { font-family: 'Montserrat', sans-serif; margin: 0; background: var(--light); color: #333; overflow-x: hidden; }
+        header { 
+            position: relative; height: 45vh; min-height: 280px; display: flex; align-items: center; justify-content: center;
+            flex-direction: column; color: white; text-align: center; background-color: var(--dark);
+            background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&q=80&w=1200'); 
+            background-size: cover; background-position: center; padding: 0 10px; border-bottom: 5px solid var(--gold);
         }
-
-        body { font-family: 'Helvetica Neue', Arial, sans-serif; margin: 0; background: var(--light); color: #333; }
-        header { background: var(--dark); color: white; padding: 40px 20px; text-align: center; }
-        .logo { font-size: 2rem; color: var(--gold); text-decoration: none; font-weight: bold; }
-
-        .container { max-width: 1100px; margin: 20px auto; padding: 20px; background: white; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
-        h1 { border-left: 5px solid var(--gold); padding-left: 15px; margin-bottom: 30px; }
-
-        .gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-        }
-
-        .gallery-item {
-            background: #fff;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-        }
-
-        .gallery-item img, .gallery-item video {
-            width: 100%;
-            height: 300px;
-            object-fit: cover;
-            display: block;
-        }
-
-        .back-link { display: inline-block; margin-bottom: 20px; color: var(--gold); font-weight: bold; text-decoration: none; }
-        .contact-bar { text-align: center; padding: 40px; }
-        .btn-wa { background: #25D366; color: white; padding: 15px 30px; border-radius: 50px; text-decoration: none; font-weight: bold; }
+        .logo-link { text-decoration: none; color: white; }
+        .logo { font-size: clamp(1.3rem, 7vw, 3.5rem); font-weight: 900; letter-spacing: 2px; text-transform: uppercase; text-shadow: 2px 4px 15px rgba(0,0,0,0.7); white-space: nowrap; }
+        .slogan-sub { font-size: clamp(0.65rem, 3vw, 0.9rem); margin-top: 15px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; background: var(--gold); padding: 8px 15px; border-radius: 4px; box-shadow: 0 4px 10px rgba(0,0,0,0.3); display: inline-block; }
+        .container { max-width: 1100px; margin: -30px auto 40px; position: relative; z-index: 10; padding: 0 15px; }
+        .content-block { background: white; padding: 25px; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); border-top: 5px solid var(--gold); }
+        h1 { border-left: 5px solid var(--gold); padding-left: 15px; font-size: 1.3rem; text-transform: uppercase; margin: 0 0 20px 0; }
+        .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 15px; margin-top: 20px; }
+        .gallery-item { background: #f9f9f9; border-radius: 8px; overflow: hidden; height: 350px; }
+        .gallery-item img, .gallery-item video { width: 100%; height: 100%; object-fit: cover; display: block; }
+        .next-sections { margin-top: 40px; padding-top: 30px; border-top: 1px solid #eee; text-align: center; }
+        .nav-links { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; margin-top: 15px; }
+        .nav-link-item { text-decoration: none; color: white !important; font-weight: bold; background: var(--gold); padding: 12px 20px; border-radius: 8px; font-size: 0.8rem; transition: 0.3s; text-transform: uppercase; display: inline-block; }
+        .nav-link-item:hover { background: var(--dark); }
+        footer { text-align: center; padding: 40px 0 60px; background: white; }
+        .contact-grid { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; padding: 0 15px; max-width: 600px; margin: 0 auto; }
+        .btn-contact { flex: 1; min-width: 120px; max-width: 160px; padding: 14px 0; border-radius: 8px; text-decoration: none; font-weight: bold; font-size: 0.85rem; color: white; display: flex; align-items: center; justify-content: center; text-align: center; }
     </style>
 </head>
 <body>
-
 <header>
-    <a href="index.html" class="logo">PRO100MOLDING</a>
-    <p>Галерея: Потолочные карнизы и Покраска</p>
+    <a href="index.html" class="logo-link"><div class="logo">PRO100MOLDING</div></a>
+    <div class="slogan-sub">Галерея работ</div>
 </header>
-
 <div class="container">
-    <a href="index.html" class="back-link">← Вернуться в меню</a>
-    <h1>Работа с потолком и цветом</h1>
-    <p>Установка массивных карнизов, скрытая подсветка и финишная покраска без стыков и швов.</p>
-
-    <div class="gallery" id="decor-gallery"></div>
+    <div class="content-block">
+        <a href="index.html" style="display:inline-block; margin-bottom: 15px; color: var(--gold); text-decoration: none; font-weight: bold; font-size: 0.8rem;">← НА ГЛАВНУЮ</a>
+        <h1>Декор потолка</h1>
+        <div class="gallery" id="decor-gallery"></div>
+        <div class="next-sections">
+            <p style="font-size: 0.8rem; color: #888; text-transform: uppercase; font-weight: bold; margin-bottom: 20px;">Посмотрите также другие работы:</p>
+            <div class="nav-links">
+                <a href="plintus.html" class="nav-link-item">НАПОЛЬНЫЙ ПЛИНТУС</a>
+                <a href="molding.html" class="nav-link-item">МОЛДИНГИ ДЛЯ СТЕН</a>
+            </div>
+        </div>
+    </div>
 </div>
-
-<div class="contact-bar">
-    <a href="https://wa.me/79990000000" class="btn-wa">Обсудить ваш проект в WhatsApp</a>
-</div>
-
+<footer>
+    <p style="font-size: 0.8rem; color: #888; margin-bottom: 15px;">Связаться со мной:</p>
+    <div class="contact-grid">
+        <a href="tel:+79264498797" class="btn-contact" style="background:var(--dark);">Позвонить</a>
+        <a href="https://wa.me/79264498797" class="btn-contact" style="background:#25D366;">WhatsApp</a>
+        <a href="https://t.me/+79264498797" class="btn-contact" style="background:#0088cc;">Telegram</a>
+    </div>
+</footer>
 <script>
-    // --- ИНСТРУКЦИЯ ПО ССЫЛКАМ ---
-    // СТРОКА 80: Вставляйте ссылки между [ ]
-    // Для фото: "ссылка",
-    // Для видео: "video:ссылка",
-    const items = [
-        
-"https://i.ibb.co/TXDfzh9/photo-52-2026-01-07-15-02-10.jpg",
+    const myPhotos = [
+        "https://i.ibb.co/TXDfzh9/photo-52-2026-01-07-15-02-10.jpg",
 "https://i.ibb.co/LXJTBq7q/photo-51-2026-01-07-15-02-10.jpg",
 "https://i.ibb.co/FqNsV8Yv/photo-12-2026-01-07-15-02-10.jpg",  
 "https://i.ibb.co/fGBG4mc0/photo-70-2026-01-07-15-02-10.jpg",
@@ -78,25 +70,17 @@
 "https://i.ibb.co/GfvddFR4/photo-10-2026-01-07-15-02-10.jpg",
 "https://i.ibb.co/7tSXnb10/photo-16-2026-01-07-15-02-10.jpg",
     ];
-
     const container = document.getElementById('decor-gallery');
-
-    items.forEach(url => {
-        const div = document.createElement('div');
-        div.className = 'gallery-item';
-
+    myPhotos.forEach(url => {
+        const item = document.createElement('div'); item.className = 'gallery-item';
         if (url.startsWith('video:')) {
             const videoUrl = url.replace('video:', '');
-            div.innerHTML = `<video src="${videoUrl}" controls muted loop></video>`;
+            item.innerHTML = `<video src="${videoUrl}" controls muted loop></video>`;
         } else {
-            const img = document.createElement('img');
-            img.src = url;
-            img.loading = "lazy";
-            div.appendChild(img);
+            const img = document.createElement('img'); img.src = url; img.loading = "lazy"; item.appendChild(img);
         }
-        container.appendChild(div);
+        container.appendChild(item);
     });
 </script>
-
 </body>
 </html>
