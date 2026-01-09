@@ -52,15 +52,16 @@
         /* Добавь это вместо .slogan-sub */
 .slogan {
     font-size: clamp(0.65rem, 3vw, 0.9rem);
-    margin-top: 33px;
+    margin: 33px 0 0 0; /* Строго 33px сверху и 0 со всех сторон */
     font-weight: 700;
     letter-spacing: 1px;
     text-transform: uppercase;
     background: var(--gold);
     padding: 6px 12px;
     border-radius: 4px;
-    display: inline-block; /* Это важно для золотого фона */
+    display: inline-block;
     color: white;
+
 }
 
 /* Добавь это, чтобы убрать лишние отступы у ссылки в логотипе */
@@ -70,6 +71,7 @@
     display: inline-block;
     margin: 0;
     padding: 0;
+    line-height: 1; /* Убирает лишнее пространство вокруг букв */
 }
 
         .container { max-width: 1100px; margin: -30px auto 40px; position: relative; z-index: 10; padding: 0 15px; }
