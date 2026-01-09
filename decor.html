@@ -11,13 +11,24 @@
     <style>
         :root { --gold: #c5a059; --dark: #1a1a1a; --light: #f4f4f4; }
         body { font-family: 'Montserrat', sans-serif; margin: 0; background: var(--light); color: #333; overflow-x: hidden; }
-        header { 
-            position: relative; height: 45vh; min-height: 280px; display: flex; align-items: center; justify-content: center;
-            flex-direction: column; color: white; text-align: center; background-color: var(--dark);
-            background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
-                  url('https://images.pexels.com/photos/6312362/pexels-photo-6312362.jpeg?auto=compress&cs=tinysrgb&w=1200');
-            background-size: cover; background-position: center; padding: 0 10px; border-bottom: 5px solid var(--gold);
-        }
+        header {
+    position: relative;
+    height: 45vh;
+    min-height: 280px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+    padding-top: 60px;
+
+    color: white;
+    text-align: center;
+    background-color: var(--dark);
+    background-size: cover;
+    background-position: center;
+    border-bottom: 5px solid var(--gold);
+}
+
         .logo-link { text-decoration: none; color: white; }
         .logo { font-size: clamp(1.3rem, 7vw, 3.5rem); font-weight: 900; letter-spacing: 2px; text-transform: uppercase; text-shadow: 2px 4px 15px rgba(0,0,0,0.7); white-space: nowrap; }
         .slogan-sub { font-size: clamp(0.65rem, 3vw, 0.9rem); margin-top: 15px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; background: var(--gold); padding: 8px 15px; border-radius: 4px; box-shadow: 0 4px 10px rgba(0,0,0,0.3); display: inline-block; }
