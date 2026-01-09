@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <link rel="icon" href="favicon.png" type="image/png">
+    <meta name="description" content="Профессиональный монтаж напольного плинтуса в Москве и МО. Идеальные стыки, скрытый монтаж. PRO100MOLDING.">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Напольный плинтус | Pro100molding</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&display=swap" rel="stylesheet">
@@ -308,53 +310,56 @@
     <div class="footer-copy">&copy; 2026 PRO100MOLDING. Все права защищены.</div>
 </footer>
 
-    
     <script>
-fetch('plintus-photos.json')
-    .then(res => res.json())
-    .then(photos => {
-        const container = document.getElementById('plintus-gallery');
-        const fragment = document.createDocumentFragment();
+document.addEventListener('DOMContentLoaded', () => {
 
-        photos.forEach((url, index) => {
-            const item = document.createElement('div');
-            item.className = 'gallery-item';
+    const container = document.getElementById('plintus-gallery');
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
 
-            const img = document.createElement('img');
-            img.src = url;
-            img.loading = 'lazy';
+    fetch('plintus-photos.json')
+        .then(res => res.json())
+        .then(photos => {
 
-            // 🔥 Автоматический alt
-            img.alt = `Монтаж напольного плинтуса в Москве — PRO100MOLDING, фото №${index + 1}`;
+            const fragment = document.createDocumentFragment();
 
-            // 🔍 Клик для увеличения
-            img.addEventListener('click', () => openLightbox(url, img.alt));
+            photos.forEach((url, index) => {
+                const item = document.createElement('div');
+                item.className = 'gallery-item';
 
-            item.appendChild(img);
-            fragment.appendChild(item);
-        });
+                const img = document.createElement('img');
+                img.src = url;
+                img.loading = 'lazy';
 
-        container.appendChild(fragment);
-    })
-    .catch(err => console.error('Ошибка загрузки фото:', err));
+                // ✅ SEO alt
+                img.alt = `Монтаж напольного плинтуса в Москве — PRO100MOLDING, фото ${index + 1}`;
 
-/* ===== LIGHTBOX LOGIC ===== */
-const lightbox = document.getElementById('lightbox');
-const lightboxImg = document.getElementById('lightbox-img');
+                // ✅ Lightbox
+                img.addEventListener('click', () => {
+                    lightboxImg.src = url;
+                    lightboxImg.alt = img.alt;
+                    lightbox.style.display = 'flex';
+                    document.body.style.overflow = 'hidden';
+                });
 
-function openLightbox(src, alt) {
-    lightboxImg.src = src;
-    lightboxImg.alt = alt;
-    lightbox.style.display = 'flex';
-    document.body.style.overflow = 'hidden';
-}
+                item.appendChild(img);
+                fragment.appendChild(item);
+            });
 
-lightbox.addEventListener('click', () => {
-    lightbox.style.display = 'none';
-    lightboxImg.src = '';
-    document.body.style.overflow = '';
+            container.appendChild(fragment);
+        })
+        .catch(err => console.error('Ошибка загрузки галереи:', err));
+
+    // закрытие
+    lightbox.addEventListener('click', () => {
+        lightbox.style.display = 'none';
+        lightboxImg.src = '';
+        document.body.style.overflow = '';
+    });
+
 });
 </script>
+
 
     
 <div class="lightbox" id="lightbox">
