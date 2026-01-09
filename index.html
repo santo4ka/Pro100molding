@@ -1,37 +1,211 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<link rel="icon" href="favicon.png" type="image/png">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PRO100MOLDING — монтаж плинтуса, молдингов и лепнины в Москве</title>
+<meta name="description" content="Качественный монтаж напольного плинтуса, молдингов и потолочного декора в Москве и Московской области. Аккуратные стыки, точная геометрия и индивидуальный подход.">
+<meta name="keywords" content="монтаж лепнины Москва, установка плинтуса, монтаж молдингов, потолочные карнизы, декор потолка, PRO100MOLDING">
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&display=swap" rel="stylesheet">
+
+<style>
+:root {
+    --gold: #c5a059;
+    --dark: #1a1a1a;
+    --light: #f4f4f4;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    background: var(--light);
+    color: #333;
+    overflow-x: hidden;
+}
+
+.site-header {
+    position: relative;
+    height: 45vh;
+    min-height: 280px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    color: #fff;
+    background-image: url('https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&q=80&w=1200');
+    background-size: cover;
+    background-position: center;
+    border-bottom: 5px solid var(--gold);
+}
+
+.site-header::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.5);
+    z-index: 1;
+}
+
+.site-header-content {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.site-logo {
+    font-size: clamp(1.3rem, 7vw, 3.5rem);
+    font-weight: 900;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin: 0;
+    text-shadow: 2px 4px 15px rgba(0,0,0,.7);
+    white-space: nowrap;
+}
+
+.site-logo a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.site-slogan {
+    margin-top: 28px;
+    font-size: clamp(0.65rem, 3vw, 0.9rem);
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    background: var(--gold);
+    padding: 6px 14px;
+    border-radius: 4px;
+}
+
+.site-location {
+    margin-top: 10px;
+    font-size: 0.7rem;
+    opacity: 0.85;
+    letter-spacing: 0.8px;
+}
+
+.container {
+    max-width: 1100px;
+    margin: -30px auto 40px;
+    position: relative;
+    z-index: 10;
+    padding: 0 15px;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 15px;
+    margin-top: 40px;
+}
+
+.service-card {
+    background: white;
+    padding: 20px 15px;
+    border-radius: 10px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 180px;
+    border-top: 5px solid var(--gold);
+}
+
+.service-card h3 { margin: 0 0 8px 0; }
+.service-card h3 a { 
+    color: var(--dark); 
+    text-decoration: none; 
+    font-weight: 700; 
+    font-size: 1rem;
+    text-transform: uppercase;
+}
+
+.service-card p {
+    margin-bottom: 15px;
+    font-size: 0.8rem;
+    color: #666;
+    line-height: 1.4;
+}
+
+.btn-main {
+    display: block;
+    background: var(--gold);
+    color: white;
+    padding: 10px 0;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    transition: 0.3s;
+}
+
+.btn-main:hover { background: var(--dark); }
+
+@media (max-width: 600px) {
+    .site-header { height: 40vh; min-height: 250px; }
+}
+</style>
+</head>
+<body>
+
+<header class="site-header" aria-label="Фон заголовка с примером монтажа лепнины">
+    <div class="site-header-content">
+        <h1 class="site-logo">
+            <a href="./" title="PRO100MOLDING — монтаж плинтуса, молдингов и лепнины в Москве">PRO100MOLDING</a>
+        </h1>
+
+        <div class="site-slogan">
+            Когда детали имеют значение
+        </div>
+
+        <div class="site-location">
+            Москва и Московская область • Работаю лично
+        </div>
+    </div>
+</header>
+
 <main class="container">
     <h2 style="text-align:center; margin-bottom:20px;">Наши услуги</h2>
     <div class="services-grid">
-        <!-- Плинтус -->
         <div class="service-card">
-            <img src="https://images.unsplash.com/photo-1602524204544-2b19c9d4f1a2?auto=format&fit=crop&w=600&q=80" 
-                 alt="Монтаж напольного плинтуса в интерьере квартиры" 
-                 style="width:100%; border-radius:10px 10px 0 0; margin-bottom:10px;" 
-                 loading="lazy">
             <h3><a href="plintus.html" title="Посмотреть работы по монтажу напольного плинтуса">НАПОЛЬНЫЙ ПЛИНТУС</a></h3>
             <p>Идеальная стыковка МДФ и дюрополимера. Скрытый монтаж любой сложности.</p>
             <a href="plintus.html" class="btn-main" title="Перейти к работам по напольному плинтусу">СМОТРЕТЬ РАБОТЫ</a>
         </div>
 
-        <!-- Стены и молдинги -->
         <div class="service-card">
-            <img src="https://images.unsplash.com/photo-1581091215365-ec6b92f5fa70?auto=format&fit=crop&w=600&q=80" 
-                 alt="Монтаж стеновых молдингов и декоративных рамок" 
-                 style="width:100%; border-radius:10px 10px 0 0; margin-bottom:10px;" 
-                 loading="lazy">
             <h3><a href="molding.html" title="Посмотреть работы по монтажу стеновых молдингов">СТЕНЫ И МОЛДИНГИ</a></h3>
             <p>Геометрия классических рамок и монтаж современных стеновых панелей.</p>
             <a href="molding.html" class="btn-main" title="Перейти к работам по молдингам">СМОТРЕТЬ РАБОТЫ</a>
         </div>
 
-        <!-- Декор потолка -->
         <div class="service-card">
-            <img src="https://images.unsplash.com/photo-1582719478172-1d39edba3bfb?auto=format&fit=crop&w=600&q=80" 
-                 alt="Декор потолка с карнизами и лепниной" 
-                 style="width:100%; border-radius:10px 10px 0 0; margin-bottom:10px;" 
-                 loading="lazy">
             <h3><a href="decor.html" title="Посмотреть работы по декору потолка">ДЕКОР ПОТОЛКА</a></h3>
             <p>Потолочные карнизы с покраской. Аккуратные стыки без трещин.</p>
             <a href="decor.html" class="btn-main" title="Перейти к работам по декору потолка">СМОТРЕТЬ РАБОТЫ</a>
         </div>
     </div>
 </main>
+
+<footer style="text-align: center; padding: 20px 0;">
+    <p style="font-size: 0.8rem; color: #888; margin-bottom: 15px;">Связаться со мной:</p>
+    <div style="display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; padding: 0 10px; margin-bottom: 30px;">
+        <a href="tel:+79264498797" style="background:var(--dark); color:white; padding:12px 18px; border-radius:8px; text-decoration:none; font-weight:bold; font-size:0.85rem; flex:1; min-width:120px; max-width:160px;" title="Позвонить PRO100MOLDING">Позвонить</a>
+        <a href="https://wa.me/79264498797" style="background:#25D366; color:white; padding:12px 18px; border-radius:8px; text-decoration:none; font-weight:bold; font-size:0.85rem; flex:1; min-width:120px; max-width:160px;" title="Написать в WhatsApp PRO100MOLDING">WhatsApp</a>
+        <a href="https://t.me/+79264498797" style="background:#0088cc; color:white; padding:12px 18px; border-radius:8px; text-decoration:none; font-weight:bold; font-size:0.85rem; flex:1; min-width:120px; max-width:160px;" title="Написать в Telegram PRO100MOLDING">Telegram</a>
+    </div>
+    <div style="color: #888; font-size:0.7rem; text-transform:uppercase; letter-spacing:1px;">
+        &copy; 2026 PRO100MOLDING. Все права защищены.
+    </div>
+</footer>
+
+</body>
+</html>
