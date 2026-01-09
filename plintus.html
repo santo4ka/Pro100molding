@@ -49,18 +49,28 @@
         }
 
         /* ПОДЛОЖКА "ГАЛЕРЕЯ РАБОТ" КАК НА ГЛАВНОЙ */
-        .slogan-sub {
-            font-size: clamp(0.65rem, 3vw, 0.9rem);
-            margin-top: 12px;
-            font-weight: 700;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            background: var(--gold);
-            padding: 6px 12px;
-            border-radius: 4px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-            display: inline-block;
-        }
+        /* Добавь это вместо .slogan-sub */
+.slogan {
+    font-size: clamp(0.65rem, 3vw, 0.9rem);
+    margin-top: 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    background: var(--gold);
+    padding: 6px 12px;
+    border-radius: 4px;
+    display: inline-block; /* Это важно для золотого фона */
+    color: white;
+}
+
+/* Добавь это, чтобы убрать лишние отступы у ссылки в логотипе */
+.logo a {
+    text-decoration: none;
+    color: inherit;
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+}
 
         .container { max-width: 1100px; margin: -30px auto 40px; position: relative; z-index: 10; padding: 0 15px; }
         
