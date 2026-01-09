@@ -98,6 +98,12 @@
             justify-content: space-between;
             border-top: 5px solid var(--gold);
             overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.15);
         }
 
         .service-card img {
@@ -105,6 +111,11 @@
             height: 180px;
             object-fit: cover;
             display: block;
+            transition: transform 0.3s;
+        }
+
+        .service-card:hover img {
+            transform: scale(1.05);
         }
 
         .service-card h3 {
@@ -168,8 +179,8 @@
     <div class="services-grid">
         <!-- Плинтус -->
         <div class="service-card">
-            <img src="https://images.unsplash.com/photo-1616627987727-9c5e4492e9d0?auto=format&fit=crop&w=600&q=80" 
-                 alt="Монтаж напольного плинтуса в интерьере квартиры" loading="lazy">
+            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=600&q=80" 
+                 alt="Монтаж напольного плинтуса в интерьере" loading="lazy">
             <h3><a href="plintus.html" title="Посмотреть работы по монтажу напольного плинтуса">НАПОЛЬНЫЙ ПЛИНТУС</a></h3>
             <p>Идеальная стыковка МДФ и дюрополимера. Скрытый монтаж любой сложности.</p>
             <a href="plintus.html" class="btn-main">СМОТРЕТЬ РАБОТЫ</a>
@@ -177,7 +188,7 @@
 
         <!-- Стены и молдинги -->
         <div class="service-card">
-            <img src="https://images.unsplash.com/photo-1581091012184-6b3e1b5d6b4d?auto=format&fit=crop&w=600&q=80" 
+            <img src="https://images.unsplash.com/photo-1600585154450-8a3c8f0f1450?auto=format&fit=crop&w=600&q=80" 
                  alt="Монтаж стеновых молдингов и декоративных рамок" loading="lazy">
             <h3><a href="molding.html" title="Посмотреть работы по монтажу стеновых молдингов">СТЕНЫ И МОЛДИНГИ</a></h3>
             <p>Геометрия классических рамок и монтаж современных стеновых панелей.</p>
@@ -186,7 +197,7 @@
 
         <!-- Декор потолка -->
         <div class="service-card">
-            <img src="https://images.unsplash.com/photo-1607746882042-944635dfe10e?auto=format&fit=crop&w=600&q=80" 
+            <img src="https://images.unsplash.com/photo-1570129477492-45c003edd2be?auto=format&fit=crop&w=600&q=80" 
                  alt="Декор потолка с карнизами и лепниной" loading="lazy">
             <h3><a href="decor.html" title="Посмотреть работы по декору потолка">ДЕКОР ПОТОЛКА</a></h3>
             <p>Потолочные карнизы с покраской. Аккуратные стыки без трещин.</p>
