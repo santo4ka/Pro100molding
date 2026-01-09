@@ -1,174 +1,208 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <link rel="icon" href="favicon.png" type="image/png">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PRO100MOLDING — монтаж плинтуса, молдингов и лепнины в Москве</title>
-    <meta name="description" content="Качественная установка напольного плинтуса, молдингов и потолочного декора в Москве и МО. Когда детали имеют значение! Посмотрите примеры моих работ.">
-    <meta name="keywords" content="монтаж лепнины Москва, установка плинтуса и молдингов, мастер по интерьерному декору, отделка квартир лепниной, PRO100MOLDING">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&display=swap" rel="stylesheet">
-    <style>
-        :root { --gold: #c5a059; --dark: #1a1a1a; }
+<meta charset="UTF-8">
+<link rel="icon" href="favicon.png" type="image/png">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PRO100MOLDING — монтаж плинтуса, молдингов и лепнины в Москве</title>
+<meta name="description" content="Качественная установка напольного плинтуса, молдингов и потолочного декора в Москве и МО. Когда детали имеют значение! Посмотрите примеры моих работ.">
+<meta name="keywords" content="монтаж лепнины Москва, установка плинтуса и молдингов, мастер по интерьерному декору, отделка квартир лепниной, PRO100MOLDING">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&display=swap" rel="stylesheet">
+<style>
+:root {
+    --gold: #c5a059;
+    --dark: #1a1a1a;
+    --light: #f4f4f4;
+}
 
-        body { font-family: 'Montserrat', sans-serif; margin: 0; background: #f4f4f4; color: #333; overflow-x: hidden; }
+body {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    background: var(--light);
+    color: #333;
+    overflow-x: hidden;
+}
 
-        /* ===== HEADER ===== */
-        .site-header {
-            position: relative;
-            height: 45vh;
-            min-height: 280px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
-            text-align: center;
-            color: #fff;
-            padding: 0 12px;
-            border-bottom: 5px solid var(--gold);
-            background-image: url('https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&q=80&w=1200');
-            background-size: cover;
-            background-position: center;
-        }
+header {
+    position: relative;
+    height: 45vh;
+    min-height: 280px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+    padding-top: 60px;
+    color: white;
+    text-align: center;
+    background-color: var(--dark);
+    background-size: cover;
+    background-position: center;
+    border-bottom: 5px solid var(--gold);
+}
 
-        .site-header::before {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.5));
-            z-index: 1;
-        }
+.container {
+    max-width: 1100px;
+    margin: -50px auto 40px; /* подняли карточки выше */
+    position: relative;
+    z-index: 10;
+    padding: 0 15px;
+}
 
-        .site-header-content {
-            position: relative;
-            z-index: 2;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 15px;
+}
 
-        .site-logo {
-            font-size: clamp(1.3rem, 7vw, 3.5rem);
-            font-weight: 900;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            margin: 0;
-            text-shadow: 2px 4px 15px rgba(0,0,0,.7);
-            white-space: nowrap;
-        }
+.service-card {
+    background: white;
+    padding: 0; /* убрали внутренний отступ у карточки, фото займёт верх */
+    border-radius: 10px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-top: 5px solid var(--gold);
+    overflow: hidden;
+}
 
-        .site-logo a { text-decoration: none; color: inherit; }
+.service-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    display: block;
+}
 
-        .site-slogan {
-            margin-top: 28px;
-            font-size: clamp(0.65rem, 3vw, 0.9rem);
-            font-weight: 700;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            background: var(--gold);
-            padding: 6px 14px;
-            border-radius: 4px;
-        }
+.service-card h3 {
+    margin: 12px 0 8px 0;
+}
 
-        .site-location {
-            margin-top: 10px;
-            font-size: 0.7rem;
-            opacity: 0.85;
-            letter-spacing: 0.8px;
-        }
+.service-card h3 a {
+    color: var(--dark);
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1rem;
+    text-transform: uppercase;
+}
 
-        /* ===== SERVICES GRID ===== */
-        .container { max-width: 1100px; margin: -30px auto 40px; position: relative; z-index: 10; padding: 0 15px; }
+.service-card p {
+    margin: 0 12px 12px 12px;
+    font-size: 0.8rem;
+    color: #666;
+    line-height: 1.4;
+}
 
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 15px;
-            margin-top: 20px;
-        }
+.btn-main {
+    display: block;
+    background: var(--gold);
+    color: white;
+    padding: 10px 0;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    transition: 0.3s;
+    margin: 0 12px 12px 12px;
+}
 
-        .service-card {
-            background: white;
-            padding: 0;
-            border-radius: 10px;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            border-top: 5px solid var(--gold);
-            overflow: hidden;
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
+.btn-main:hover {
+    background: var(--dark);
+}
 
-        .service-card:hover {
-            transform: translateY(-5px) scale(1.02);
-            box-shadow: 0 12px 30px rgba(0,0,0,0.15);
-        }
+.site-header {
+    position: relative;
+    height: 45vh;
+    min-height: 280px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    color: #fff;
+    padding: 0 12px;
+    border-bottom: 5px solid var(--gold);
+}
 
-        .service-card img {
-            width: 100%;
-            height: 180px;
-            object-fit: cover;
-            display: block;
-            transition: transform 0.3s;
-        }
+.site-header::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.5));
+    z-index: 1;
+}
 
-        .service-card:hover img {
-            transform: scale(1.05);
-        }
+.site-header-content {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
-        .service-card h3 {
-            margin: 12px 0 8px 0;
-        }
+.site-logo {
+    font-size: clamp(1.3rem, 7vw, 3.5rem);
+    font-weight: 900;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin: 0;
+    text-shadow: 2px 4px 15px rgba(0,0,0,.7);
+    white-space: nowrap;
+}
 
-        .service-card h3 a { 
-            color: var(--dark); 
-            text-decoration: none; 
-            font-weight: 700; 
-            font-size: 1rem;
-            text-transform: uppercase;
-        }
+.site-logo a {
+    text-decoration: none;
+    color: inherit;
+}
 
-        .service-card p { 
-            margin: 0 15px 15px 15px; 
-            font-size: 0.8rem; 
-            color: #666; 
-            line-height: 1.4; 
-        }
+.site-slogan {
+    margin-top: 28px;
+    font-size: clamp(0.65rem, 3vw, 0.9rem);
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    background: var(--gold);
+    padding: 6px 14px;
+    border-radius: 4px;
+}
 
-        .btn-main {
-            display: block;
-            background: var(--gold);
-            color: white;
-            padding: 10px 0;
-            text-decoration: none;
-            border-radius: 0 0 5px 5px;
-            font-weight: bold;
-            text-transform: uppercase;
-            font-size: 0.8rem;
-            transition: 0.3s;
-        }
+.site-location {
+    margin-top: 10px;
+    font-size: 0.7rem;
+    opacity: 0.85;
+    letter-spacing: 0.8px;
+}
 
-        .btn-main:hover { background: var(--dark); }
+footer {
+    text-align: center;
+    padding: 20px 0;
+}
 
-        @media (max-width: 600px) {
-            .site-header { height: 40vh; min-height: 250px; }
-        }
-    </style>
+footer a {
+    flex: 1;
+    min-width: 120px;
+    max-width: 160px;
+    color: white;
+    text-decoration: none;
+    padding: 12px 18px;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 0.85rem;
+}
+
+</style>
 </head>
 <body>
 
-<header class="site-header">
+<header class="site-header" style="background-image:url('https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&q=80&w=1200');">
     <div class="site-header-content">
         <h1 class="site-logo">
             <a href="./">PRO100MOLDING</a>
         </h1>
-
         <div class="site-slogan">
             Когда детали имеют значение
         </div>
-
         <div class="site-location">
             Москва и Московская область • Работаю лично
         </div>
@@ -181,16 +215,16 @@
         <div class="service-card">
             <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=600&q=80" 
                  alt="Монтаж напольного плинтуса в интерьере" loading="lazy">
-            <h3><a href="plintus.html" title="Посмотреть работы по монтажу напольного плинтуса">НАПОЛЬНЫЙ ПЛИНТУС</a></h3>
+            <h3><a href="plintus.html">НАПОЛЬНЫЙ ПЛИНТУС</a></h3>
             <p>Идеальная стыковка МДФ и дюрополимера. Скрытый монтаж любой сложности.</p>
             <a href="plintus.html" class="btn-main">СМОТРЕТЬ РАБОТЫ</a>
         </div>
 
         <!-- Стены и молдинги -->
         <div class="service-card">
-            <img src="https://images.unsplash.com/photo-1600585154450-8a3c8f0f1450?auto=format&fit=crop&w=600&q=80" 
-                 alt="Монтаж стеновых молдингов и декоративных рамок" loading="lazy">
-            <h3><a href="molding.html" title="Посмотреть работы по монтажу стеновых молдингов">СТЕНЫ И МОЛДИНГИ</a></h3>
+            <img src="https://images.unsplash.com/photo-1580584122034-cba3eb9a02f3?auto=format&fit=crop&w=600&q=80" 
+                 alt="Декоративные стеновые панели и молдинги" loading="lazy">
+            <h3><a href="molding.html">СТЕНЫ И МОЛДИНГИ</a></h3>
             <p>Геометрия классических рамок и монтаж современных стеновых панелей.</p>
             <a href="molding.html" class="btn-main">СМОТРЕТЬ РАБОТЫ</a>
         </div>
@@ -199,19 +233,19 @@
         <div class="service-card">
             <img src="https://images.unsplash.com/photo-1570129477492-45c003edd2be?auto=format&fit=crop&w=600&q=80" 
                  alt="Декор потолка с карнизами и лепниной" loading="lazy">
-            <h3><a href="decor.html" title="Посмотреть работы по декору потолка">ДЕКОР ПОТОЛКА</a></h3>
+            <h3><a href="decor.html">ДЕКОР ПОТОЛКА</a></h3>
             <p>Потолочные карнизы с покраской. Аккуратные стыки без трещин.</p>
             <a href="decor.html" class="btn-main">СМОТРЕТЬ РАБОТЫ</a>
         </div>
     </div>
 </div>
 
-<footer style="text-align: center; padding: 20px 0;">
+<footer>
     <p style="font-size: 0.8rem; color: #888; margin-bottom: 15px;">Связаться со мной:</p>
     <div style="display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; padding: 0 10px; margin-bottom: 30px;">
-        <a href="tel:+79264498797" style="background:var(--dark); color:white; padding:12px 18px; border-radius:8px; text-decoration:none; font-weight:bold; font-size: 0.85rem; flex: 1; min-width: 120px; max-width: 160px;">Позвонить</a>
-        <a href="https://wa.me/79264498797" style="background:#25D366; color:white; padding:12px 18px; border-radius:8px; text-decoration:none; font-weight:bold; font-size: 0.85rem; flex: 1; min-width: 120px; max-width: 160px;">WhatsApp</a>
-        <a href="https://t.me/+79264498797" style="background:#0088cc; color:white; padding:12px 18px; border-radius:8px; text-decoration:none; font-weight:bold; font-size: 0.85rem; flex: 1; min-width: 120px; max-width: 160px;">Telegram</a>
+        <a href="tel:+79264498797" style="background:var(--dark);">Позвонить</a>
+        <a href="https://wa.me/79264498797" style="background:#25D366;">WhatsApp</a>
+        <a href="https://t.me/+79264498797" style="background:#0088cc;">Telegram</a>
     </div>
     <div style="color: #888; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px;">
         &copy; 2026 PRO100MOLDING. Все права защищены.
