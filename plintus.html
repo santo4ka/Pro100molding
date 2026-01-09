@@ -11,71 +11,124 @@
             --gold: #c5a059;
             --dark: #1a1a1a;
             --light: #f4f4f4;
+            --whitish: #fff;
+            --gray-text: #666;
+            --light-border: #ddd;
         }
 
-        body { font-family: 'Montserrat', sans-serif; margin: 0; background: var(--light); color: #333; overflow-x: hidden; }
+        body {
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            background: var(--light);
+            color: #333;
+            overflow-x: hidden;
+        }
 
-        header {
-    position: relative;
-    height: 45vh;
-    min-height: 280px;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    flex-direction: column;
-    padding-top: 60px;
+        /* ===== HEADER ===== */
+        .site-header {
+            position: relative;
+            height: 45vh;
+            min-height: 280px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            text-align: center;
+            color: var(--whitish);
+            border-bottom: 5px solid var(--gold);
+            background: linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.5)), 
+                        url('https://images.unsplash.com/photo-1600585152220-90363fe7e115?auto=format&fit=crop&q=80&w=1200') center bottom/cover no-repeat;
+        }
 
-    color: white;
-    text-align: center;
-    background-color: var(--dark);
-    background-size: cover;
-    background-position: center;
-    border-bottom: 5px solid var(--gold);
-}
+        .site-header-content {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
 
-
-        .logo-link { text-decoration: none; color: white; display: block; }
-        
-        /* РАЗМЕР ШРИФТА ТОЧНО КАК НА ГЛАВНОЙ */
-        .logo { 
-            font-size: clamp(1.3rem, 7vw, 3.5rem); 
-            font-weight: 900; 
-            letter-spacing: 2px; 
+        .site-logo {
+            font-size: clamp(1.3rem, 7vw, 3.5rem);
+            font-weight: 900;
+            letter-spacing: 2px;
             text-transform: uppercase;
-            text-shadow: 2px 4px 15px rgba(0,0,0,0.7);
+            margin: 0;
+            text-shadow: 2px 4px 15px rgba(0,0,0,.7);
             white-space: nowrap;
         }
 
-        /* ПОДЛОЖКА "ГАЛЕРЕЯ РАБОТ" КАК НА ГЛАВНОЙ */
-        .slogan-sub {
+        .site-logo a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .site-slogan {
+            margin-top: 28px;
             font-size: clamp(0.65rem, 3vw, 0.9rem);
-            margin-top: 33px;
             font-weight: 700;
             letter-spacing: 1px;
             text-transform: uppercase;
             background: var(--gold);
-            padding: 6px 12px;
+            padding: 6px 14px;
             border-radius: 4px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-            display: inline-block;
         }
 
-        .container { max-width: 1100px; margin: -30px auto 40px; position: relative; z-index: 10; padding: 0 15px; }
-        
+        .site-location {
+            margin-top: 10px;
+            font-size: 0.7rem;
+            opacity: 0.85;
+            letter-spacing: 0.8px;
+        }
+
+        /* ===== CONTAINER ===== */
+        .container {
+            max-width: 1100px;
+            margin: -30px auto 40px;
+            position: relative;
+            z-index: 10;
+            padding: 0 15px;
+        }
+
         .content-block {
-            background: white;
+            background: var(--whitish);
             padding: 25px;
             border-radius: 12px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.1);
             border-top: 5px solid var(--gold);
         }
 
-        h1 { border-left: none;
-            padding-left: 0; 
-            font-size: 1.3rem;
-            text-transform: uppercase; 
-            margin: 0 0 20px 0; }
+        .breadcrumbs {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
 
+        .breadcrumbs a {
+            color: var(--gold);
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 0.8rem;
+            transition: 0.2s;
+        }
+
+        h1 {
+            font-size: 1.3rem;
+            text-transform: uppercase;
+            margin: 0 0 20px 0;
+        }
+
+        .intro-text {
+            margin-bottom: 25px;
+            color: var(--gray-text);
+            font-style: italic;
+            line-height: 1.5;
+            border-left: 2px solid var(--light-border);
+            padding-left: 15px;
+        }
+
+        /* ===== GALLERY ===== */
         .gallery {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -90,24 +143,40 @@
             height: 350px;
         }
 
-        .gallery-item img, .gallery-item video {
+        .gallery-item img,
+        .gallery-item video {
             width: 100%;
             height: 100%;
             object-fit: cover;
             display: block;
         }
 
-        /* КНОПКИ НАВИГАЦИИ С БЕЛЫМИ БУКВАМИ */
+        /* ===== NEXT SECTIONS ===== */
         .next-sections {
             margin-top: 40px;
             padding-top: 30px;
             border-top: 1px solid #eee;
             text-align: center;
         }
-        .nav-links { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; margin-top: 15px; }
+
+        .next-sections p {
+            font-size: 0.8rem;
+            color: #888;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-top: 15px;
+        }
+
         .nav-link-item { 
             text-decoration: none; 
-            color: white !important; 
+            color: var(--whitish); 
             font-weight: bold; 
             background: var(--gold); 
             padding: 12px 20px; 
@@ -116,128 +185,86 @@
             transition: 0.3s;
             text-transform: uppercase;
         }
-        .nav-link-item:hover { background: var(--dark); color: white !important; }
 
-        /* ИСПРАВЛЕННЫЕ КНОПКИ СВЯЗИ (ЦЕНТРИРОВАНИЕ) */
-        footer { text-align: center; padding: 40px 0 60px; background: white; }
-        .contact-grid { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; padding: 0 15px; max-width: 600px; margin: 0 auto; }
+        .nav-link-item:hover {
+            background: var(--dark);
+            color: var(--whitish);
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            text-align: center;
+            padding: 40px 15px 60px;
+            background: var(--whitish);
+        }
+
+        .contact-grid {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
         .btn-contact { 
-            flex: 1; min-width: 120px; max-width: 160px;
-            padding: 14px 0; border-radius: 8px; 
-            text-decoration: none; font-weight: bold; font-size: 0.85rem; color: white;
+            flex: 1;
+            min-width: 120px;
+            max-width: 160px;
+            padding: 14px 0;
+            border-radius: 8px; 
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 0.85rem;
+            color: var(--whitish);
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
+            transition: 0.3s;
+        }
+
+        .btn-contact:hover { opacity: 0.9; }
+
+        .footer-copy {
+            margin-top: 20px;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #888;
         }
 
         @media (max-width: 600px) {
-            header { height: 40vh; min-height: 250px; }
+            .site-header { height: 40vh; min-height: 250px; }
             .container { margin-top: -20px; }
         }
-        /* ===== HEADER SYSTEM ===== */
-.site-header {
-    position: relative;
-    height: 45vh;
-    min-height: 280px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    text-align: center;
-    color: #fff;
-    padding: 0 12px;
-    border-bottom: 5px solid var(--gold);
-}
-
-.site-header::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.5));
-    z-index: 1;
-}
-
-.site-header-content {
-    position: relative;
-    z-index: 2;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.site-logo {
-    font-size: clamp(1.3rem, 7vw, 3.5rem);
-    font-weight: 900;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    margin: 0;
-    text-shadow: 2px 4px 15px rgba(0,0,0,.7);
-    white-space: nowrap;
-}
-
-.site-logo a {
-    text-decoration: none;
-    color: inherit;
-}
-
-.site-slogan {
-    margin-top: 28px;
-    font-size: clamp(0.65rem, 3vw, 0.9rem);
-    font-weight: 700;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    background: var(--gold);
-    padding: 6px 14px;
-    border-radius: 4px;
-}
-
-.site-location {
-    margin-top: 10px;
-    font-size: 0.7rem;
-    opacity: 0.85;
-    letter-spacing: 0.8px;
-}
-
     </style>
 </head>
 <body>
 
-<header class="site-header" style="
-background-image:
-linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
-url('https://images.unsplash.com/photo-1600585152220-90363fe7e115?auto=format&fit=crop&q=80&w=1200');
-background-size: cover;
-background-position: center bottom;
-">
+<header class="site-header">
     <div class="site-header-content">
         <h1 class="site-logo">
             <a href="index.html">PRO100MOLDING</a>
         </h1>
-
-        <div class="site-slogan">
-            Идеальные стыки и скрытый монтаж плинтуса
-        </div>
-
-        <div class="site-location">
-            Москва и Московская область • Работаю лично
-        </div>
+        <div class="site-slogan">Идеальные стыки и скрытый монтаж плинтуса</div>
+        <div class="site-location">Москва и Московская область • Работаю лично</div>
     </div>
 </header>
 
-
 <div class="container">
     <div class="content-block">
-        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
-    <a href="index.html" style="color: var(--gold); text-decoration: none; font-weight: bold; font-size: 0.8rem;">← НА ГЛАВНУЮ</a>
-    <a href="molding.html" style="color: var(--gold); text-decoration: none; font-weight: bold; font-size: 0.8rem;">ДАЛЬШЕ →</a>
-</div>
+        <div class="breadcrumbs">
+            <a href="index.html">← НА ГЛАВНУЮ</a>
+            <a href="molding.html">ДАЛЬШЕ →</a>
+        </div>
         <h1>Напольный плинтус</h1>
-        <p style="margin-bottom: 25px; color: #666; font-style: italic; line-height: 1.5; border-left: 2px solid #ddd; padding-left: 15px;">Идеальное примыкание к стенам и безупречные стыки. Работаем с любыми материалами: МДФ, дюрополимер, дерево, аллюминий.</p>
+        <p class="intro-text">Идеальное примыкание к стенам и безупречные стыки. Работаем с любыми материалами: МДФ, дюрополимер, дерево, аллюминий.</p>
+
         <div class="gallery" id="plintus-gallery"></div>
 
         <div class="next-sections">
-            <p style="font-size: 0.8rem; color: #888; text-transform: uppercase; font-weight: bold;">Посмотрите также:</p>
+            <p>Посмотрите также:</p>
             <div class="nav-links">
                 <a href="molding.html" class="nav-link-item">МОЛДИНГИ</a>
                 <a href="decor.html" class="nav-link-item">ДЕКОР ПОТОЛКА</a>
@@ -247,61 +274,63 @@ background-position: center bottom;
 </div>
 
 <footer>
-    <p style="font-size: 0.8rem; color: #888; margin-bottom: 15px;">Связаться со мной:</p>
+    <p style="font-size:0.8rem;color:#888;margin-bottom:15px;">Связаться со мной:</p>
     <div class="contact-grid">
         <a href="tel:+79264498797" class="btn-contact" style="background:var(--dark);">Позвонить</a>
         <a href="https://wa.me/79264498797" class="btn-contact" style="background:#25D366;">WhatsApp</a>
         <a href="https://t.me/+79264498797" class="btn-contact" style="background:#0088cc;">Telegram</a>
     </div>
+    <div class="footer-copy">&copy; 2026 PRO100MOLDING. Все права защищены.</div>
 </footer>
-    <div style="text-align: center; padding: 20px 0; background: #f4f4f4; color: #888; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px;">
-    &copy; 2026 PRO100MOLDING. Все права защищены.
-</div>
 
 <script>
-    // Список фото (замените на свои)
     const myPhotos = [
         "https://i.ibb.co/5xxrdkFR/photo-1-2026-01-07-15-02-10.jpg",
-"https://i.ibb.co/zW4kYBrj/photo-20-2026-01-07-15-02-10.jpg",
-"https://i.ibb.co/FLzrpbfX/photo-2-2026-01-07-15-02-10.jpg",
-"https://i.ibb.co/Ndd7nD5s/photo-21-2026-01-07-15-02-10.jpg",
-"https://i.ibb.co/S4HtFdPv/photo-22-2026-01-07-15-02-10.jpg",
-"https://i.ibb.co/rKXbF5wF/photo-7-2026-01-07-15-02-10.jpg",
-"https://i.ibb.co/xS4Mxbd5/photo-6-2026-01-07-15-02-10.jpg",
-"https://i.ibb.co/99QWwyQy/photo-8-2026-01-07-15-02-10.jpg",
-"https://i.ibb.co/M5PGR8FY/photo-56-2026-01-07-15-02-10.jpg",
-"https://i.ibb.co/SXJKxDwD/photo-57-2026-01-07-15-02-10.jpg",
-"https://i.ibb.co/Rp36hMVh/photo-58-2026-01-07-15-02-10.jpg",
-"https://i.ibb.co/mrrBWX7d/photo-83-2026-01-07-20-28-14.jpg",
+        "https://i.ibb.co/zW4kYBrj/photo-20-2026-01-07-15-02-10.jpg",
+        "https://i.ibb.co/FLzrpbfX/photo-2-2026-01-07-15-02-10.jpg",
+        "https://i.ibb.co/Ndd7nD5s/photo-21-2026-01-07-15-02-10.jpg",
+        "https://i.ibb.co/S4HtFdPv/photo-22-2026-01-07-15-02-10.jpg",
+        "https://i.ibb.co/rKXbF5wF/photo-7-2026-01-07-15-02-10.jpg",
+        "https://i.ibb.co/xS4Mxbd5/photo-6-2026-01-07-15-02-10.jpg",
+        "https://i.ibb.co/99QWwyQy/photo-8-2026-01-07-15-02-10.jpg",
+        "https://i.ibb.co/M5PGR8FY/photo-56-2026-01-07-15-02-10.jpg",
+        "https://i.ibb.co/SXJKxDwD/photo-57-2026-01-07-15-02-10.jpg",
+        "https://i.ibb.co/Rp36hMVh/photo-58-2026-01-07-15-02-10.jpg",
+        "https://i.ibb.co/mrrBWX7d/photo-83-2026-01-07-20-28-14.jpg",
         "https://i.ibb.co/N2mG6Qgy/photo-8-2026-01-08-21-46-45.jpg",
-"https://i.ibb.co/8gCq5FT2/photo-7-2026-01-08-21-46-45.jpg",
-"https://i.ibb.co/XxbXQChL/photo-10-2026-01-08-21-46-45.jpg",
-"https://i.ibb.co/677FX7Dg/photo-9-2026-01-08-21-46-45.jpg",
-"https://i.ibb.co/DHDPCZ1S/photo-6-2026-01-08-21-46-45.jpg",
-"https://i.ibb.co/Cj1qSmH/photo-5-2026-01-08-21-46-45.jpg",
-"https://i.ibb.co/BHRb2cpZ/photo-4-2026-01-08-21-46-45.jpg",
-"https://i.ibb.co/kgJt9xcP/photo-3-2026-01-08-21-46-45.jpg",
-"https://i.ibb.co/zhPksHVb/photo-1-2026-01-08-21-46-45.jpg",
-"https://i.ibb.co/F4KZyNJ2/photo-2-2026-01-08-21-46-45.jpg",
-
+        "https://i.ibb.co/8gCq5FT2/photo-7-2026-01-08-21-46-45.jpg",
+        "https://i.ibb.co/XxbXQChL/photo-10-2026-01-08-21-46-45.jpg",
+        "https://i.ibb.co/677FX7Dg/photo-9-2026-01-08-21-46-45.jpg",
+        "https://i.ibb.co/DHDPCZ1S/photo-6-2026-01-08-21-46-45.jpg",
+        "https://i.ibb.co/Cj1qSmH/photo-5-2026-01-08-21-46-45.jpg",
+        "https://i.ibb.co/BHRb2cpZ/photo-4-2026-01-08-21-46-45.jpg",
+        "https://i.ibb.co/kgJt9xcP/photo-3-2026-01-08-21-46-45.jpg",
+        "https://i.ibb.co/zhPksHVb/photo-1-2026-01-08-21-46-45.jpg",
+        "https://i.ibb.co/F4KZyNJ2/photo-2-2026-01-08-21-46-45.jpg"
     ];
 
     const container = document.getElementById('plintus-gallery');
+    const fragment = document.createDocumentFragment();
+
     myPhotos.forEach((url, index) => {
         const item = document.createElement('div');
         item.className = 'gallery-item';
+
         if (url.startsWith('video:')) {
             const videoUrl = url.replace('video:', '');
             item.innerHTML = `<video src="${videoUrl}" controls muted loop></video>`;
         } else {
             const img = document.createElement('img');
-            img.src = url; 
+            img.src = url;
             img.loading = "lazy";
-            img.alt = "Монтаж напольного плинтуса в Москве — PRO100MOLDING, фото №" + (index + 1);
+            img.alt = `Монтаж напольного плинтуса в Москве — PRO100MOLDING, фото №${index + 1}`;
             item.appendChild(img);
         }
-        container.appendChild(item);
+
+        fragment.appendChild(item);
     });
+
+    container.appendChild(fragment);
 </script>
 
 </body>
