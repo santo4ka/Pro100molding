@@ -238,6 +238,31 @@
             .site-header { height: 40vh; min-height: 250px; }
             .container { margin-top: -20px; }
         }
+        /* ===== LIGHTBOX ===== */
+.lightbox {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.9);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    cursor: zoom-out;
+}
+
+.lightbox img {
+    max-width: 95%;
+    max-height: 95%;
+    border-radius: 8px;
+    box-shadow: 0 0 40px rgba(0,0,0,0.8);
+    animation: zoomIn 0.25s ease;
+}
+
+@keyframes zoomIn {
+    from { transform: scale(0.9); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
     </style>
 </head>
 <body>
@@ -283,55 +308,59 @@
     <div class="footer-copy">&copy; 2026 PRO100MOLDING. Все права защищены.</div>
 </footer>
 
-<script>
-    const myPhotos = [
-        "https://i.ibb.co/5xxrdkFR/photo-1-2026-01-07-15-02-10.jpg",
-        "https://i.ibb.co/zW4kYBrj/photo-20-2026-01-07-15-02-10.jpg",
-        "https://i.ibb.co/FLzrpbfX/photo-2-2026-01-07-15-02-10.jpg",
-        "https://i.ibb.co/Ndd7nD5s/photo-21-2026-01-07-15-02-10.jpg",
-        "https://i.ibb.co/S4HtFdPv/photo-22-2026-01-07-15-02-10.jpg",
-        "https://i.ibb.co/rKXbF5wF/photo-7-2026-01-07-15-02-10.jpg",
-        "https://i.ibb.co/xS4Mxbd5/photo-6-2026-01-07-15-02-10.jpg",
-        "https://i.ibb.co/99QWwyQy/photo-8-2026-01-07-15-02-10.jpg",
-        "https://i.ibb.co/M5PGR8FY/photo-56-2026-01-07-15-02-10.jpg",
-        "https://i.ibb.co/SXJKxDwD/photo-57-2026-01-07-15-02-10.jpg",
-        "https://i.ibb.co/Rp36hMVh/photo-58-2026-01-07-15-02-10.jpg",
-        "https://i.ibb.co/mrrBWX7d/photo-83-2026-01-07-20-28-14.jpg",
-        "https://i.ibb.co/N2mG6Qgy/photo-8-2026-01-08-21-46-45.jpg",
-        "https://i.ibb.co/8gCq5FT2/photo-7-2026-01-08-21-46-45.jpg",
-        "https://i.ibb.co/XxbXQChL/photo-10-2026-01-08-21-46-45.jpg",
-        "https://i.ibb.co/677FX7Dg/photo-9-2026-01-08-21-46-45.jpg",
-        "https://i.ibb.co/DHDPCZ1S/photo-6-2026-01-08-21-46-45.jpg",
-        "https://i.ibb.co/Cj1qSmH/photo-5-2026-01-08-21-46-45.jpg",
-        "https://i.ibb.co/BHRb2cpZ/photo-4-2026-01-08-21-46-45.jpg",
-        "https://i.ibb.co/kgJt9xcP/photo-3-2026-01-08-21-46-45.jpg",
-        "https://i.ibb.co/zhPksHVb/photo-1-2026-01-08-21-46-45.jpg",
-        "https://i.ibb.co/F4KZyNJ2/photo-2-2026-01-08-21-46-45.jpg"
-    ];
+    
+    <script>
+fetch('plintus-photos.json')
+    .then(res => res.json())
+    .then(photos => {
+        const container = document.getElementById('plintus-gallery');
+        const fragment = document.createDocumentFragment();
 
-    const container = document.getElementById('plintus-gallery');
-    const fragment = document.createDocumentFragment();
+        photos.forEach((url, index) => {
+            const item = document.createElement('div');
+            item.className = 'gallery-item';
 
-    myPhotos.forEach((url, index) => {
-        const item = document.createElement('div');
-        item.className = 'gallery-item';
-
-        if (url.startsWith('video:')) {
-            const videoUrl = url.replace('video:', '');
-            item.innerHTML = `<video src="${videoUrl}" controls muted loop></video>`;
-        } else {
             const img = document.createElement('img');
             img.src = url;
-            img.loading = "lazy";
+            img.loading = 'lazy';
+
+            // 🔥 Автоматический alt
             img.alt = `Монтаж напольного плинтуса в Москве — PRO100MOLDING, фото №${index + 1}`;
+
+            // 🔍 Клик для увеличения
+            img.addEventListener('click', () => openLightbox(url, img.alt));
+
             item.appendChild(img);
-        }
+            fragment.appendChild(item);
+        });
 
-        fragment.appendChild(item);
-    });
+        container.appendChild(fragment);
+    })
+    .catch(err => console.error('Ошибка загрузки фото:', err));
 
-    container.appendChild(fragment);
+/* ===== LIGHTBOX LOGIC ===== */
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = document.getElementById('lightbox-img');
+
+function openLightbox(src, alt) {
+    lightboxImg.src = src;
+    lightboxImg.alt = alt;
+    lightbox.style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+}
+
+lightbox.addEventListener('click', () => {
+    lightbox.style.display = 'none';
+    lightboxImg.src = '';
+    document.body.style.overflow = '';
+});
 </script>
+
+    
+<div class="lightbox" id="lightbox">
+    <img id="lightbox-img" alt="">
+</div>
+
 
 </body>
 </html>
