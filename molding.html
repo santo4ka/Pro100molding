@@ -126,29 +126,6 @@ footer { text-align: center; padding: 40px 0 60px; background: white; }
 </script>
 
 <script>
-const myPhotos = [
-  "https://i.ibb.co/rRgCybQT/photo-88-2026-01-07-15-02-10.jpg",
-
-  // ...добавь остальные фото здесь
-];
-
-const container = document.getElementById('molding-gallery');
-const fragment = document.createDocumentFragment();
-
-myPhotos.forEach((url, index) => {
-  const item = document.createElement('div');
-  item.className = 'gallery-item';
-  
-  const img = document.createElement('img');
-  img.src = url;
-  img.alt = `Монтаж настенных молдингов и рамок в Москве — пример №${index+1}`;
-  img.loading = "lazy";
-  fragment.appendChild(item).appendChild(img);
-});
-
-container.appendChild(fragment);
-</script>
-<script>
 fetch('molding-photos.json')
   .then(res => res.json())
   .then(photos => {
