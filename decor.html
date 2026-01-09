@@ -123,33 +123,24 @@ footer { text-align: center; padding: 40px 0 60px; background: white; }
 }
 </script>
 
-<script>
-const myPhotos = [
-    "https://i.ibb.co/3mQHwMPx/photo-76-2026-01-07-20-28-14.jpg",
-    "https://i.ibb.co/FkxdJRTy/photo-73-2026-01-07-20-28-14.jpg",
-    "https://i.ibb.co/NnxbMXX6/photo-69-2026-01-07-20-28-14.jpg",
-    "https://i.ibb.co/1YK5m5Cj/photo-68-2026-01-07-20-28-14.jpg",
-    "https://i.ibb.co/bjpgyVn4/photo-61-2026-01-07-20-28-14.jpg",
-    "https://i.ibb.co/G4v5P8Z5/photo-60-2026-01-07-20-28-14.jpg"
-];
 
-const container = document.getElementById('decor-gallery');
-const fragment = document.createDocumentFragment();
-
-myPhotos.forEach((url, index) => {
-    const item = document.createElement('div');
-    item.className = 'gallery-item';
-
-    const img = document.createElement('img');
-    img.src = url;
-    img.loading = "lazy";
-    img.alt = `Монтаж потолочных карнизов и багетов в Москве и МО — пример №${index+1} от PRO100MOLDING`;
-    item.appendChild(img);
-
-    fragment.appendChild(item);
-});
-
-container.appendChild(fragment);
+    <script>
+fetch('decor-photos.json')
+  .then(response => response.json())
+  .then(photos => {
+      const container = document.getElementById('decor-gallery');
+      photos.forEach((url, index) => {
+          const item = document.createElement('div');
+          item.className = 'gallery-item';
+          const img = document.createElement('img');
+          img.src = url;
+          img.loading = "lazy";
+          img.alt = "Монтаж потолочных карнизов и багетов пример №" + (index + 1);
+          item.appendChild(img);
+          container.appendChild(item);
+      });
+  });
 </script>
+
 </body>
 </html>
