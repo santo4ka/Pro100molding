@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://santo4ka.github.io/Pro100molding/sitemap.xml
