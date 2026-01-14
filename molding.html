@@ -2,18 +2,23 @@
 <html lang="ru">
 <head>
 <meta charset="UTF-8">
-<link rel="icon" href="favicon.png" type="image/png">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Монтаж молдингов на стены Москва и МО | PRO100MOLDING</title>
-<meta name="description" content="Профессиональная установка настенных молдингов и декоративных рамок в Москве и МО. Идеальная геометрия, аккуратный монтаж, фото реальных работ.">
+<link rel="icon" href="favicon.png" type="image/png">
+
+<title>Монтаж молдингов на стены в Москве и МО | PRO100MOLDING</title>
+
+<meta name="description" content="Профессиональный монтаж молдингов и декоративных рамок на стены в Москве и Московской области. Идеальная геометрия, аккуратная установка, фото реальных работ.">
 <meta name="keywords" content="монтаж молдингов Москва, установка молдингов, декоративные рамки, интерьерные молдинги, отделка стен">
 
-<meta property="og:title" content="Монтаж молдингов на стены Москва и МО | PRO100MOLDING">
-<meta property="og:description" content="Профессиональный монтаж настенных молдингов. Фото работ, точная геометрия, Москва и МО.">
+<link rel="canonical" href="https://example.com/molding.html">
+
+<meta property="og:title" content="Монтаж молдингов на стены в Москве и МО | PRO100MOLDING">
+<meta property="og:description" content="Профессиональная установка настенных молдингов. Реальные фото работ, точная геометрия.">
 <meta property="og:image" content="https://i.ibb.co/rRgCybQT/photo-88-2026-01-07-15-02-10.jpg">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://example.com/">
+<meta property="og:url" content="https://example.com/molding.html">
 
 <meta name="twitter:card" content="summary_large_image">
 
@@ -23,9 +28,11 @@
 
 <style>
 :root{--gold:#c5a059;--dark:#1a1a1a;--light:#f4f4f4}
+*{box-sizing:border-box}
 body{margin:0;font-family:'Montserrat',sans-serif;background:var(--light);color:#333;overflow-x:hidden}
 header{position:relative;height:45vh;min-height:280px;display:flex;align-items:center;justify-content:center;flex-direction:column;color:#fff;text-align:center;background-color:var(--dark);background-image:linear-gradient(rgba(0,0,0,.5),rgba(0,0,0,.5)),url('https://images.pexels.com/photos/6585757/pexels-photo-6585757.jpeg?auto=compress&cs=tinysrgb&w=1200');background-size:cover;background-position:center;padding:0 10px;border-bottom:5px solid var(--gold)}
 .site-logo{font-size:clamp(1.3rem,7vw,3.5rem);font-weight:900;letter-spacing:2px;text-transform:uppercase;text-shadow:2px 4px 15px rgba(0,0,0,.7)}
+.site-logo a{color:inherit;text-decoration:none}
 .site-slogan{margin-top:28px;font-size:clamp(.65rem,3vw,.9rem);font-weight:700;letter-spacing:1px;text-transform:uppercase;background:var(--gold);padding:6px 14px;border-radius:4px}
 .site-location{margin-top:10px;font-size:.7rem;opacity:.85;letter-spacing:.8px}
 .container{max-width:1100px;margin:-30px auto 40px;position:relative;z-index:10;padding:0 15px}
@@ -48,34 +55,38 @@ footer{text-align:center;padding:40px 0 60px;background:#fff}
 <body>
 
 <header>
-  <h1 class="site-logo"><a href="./" style="color:inherit;text-decoration:none;">PRO100MOLDING</a></h1>
+  <h1 class="site-logo"><a href="./">PRO100MOLDING</a></h1>
   <div class="site-slogan">Геометрия стен и классический декор</div>
   <div class="site-location">Москва и Московская область • Работаю лично</div>
 </header>
 
 <main class="container">
-  <section class="content-block">
-    <nav style="display:flex;justify-content:space-between;margin-bottom:15px;">
+  <section class="content-block" aria-labelledby="service-title">
+
+    <nav aria-label="Навигация по сайту" style="display:flex;justify-content:space-between;margin-bottom:15px;">
       <a href="index.html" style="color:var(--gold);font-weight:bold;font-size:.8rem;text-decoration:none">← НА ГЛАВНУЮ</a>
       <a href="decor.html" style="color:var(--gold);font-weight:bold;font-size:.8rem;text-decoration:none">ДАЛЬШЕ →</a>
     </nav>
+
+    <h2 id="service-title">Монтаж молдингов на стены</h2>
 
     <p style="margin-bottom:25px;color:#666;font-style:italic;line-height:1.5;border-left:2px solid #ddd;padding-left:15px">
       Профессиональный монтаж молдингов и декоративных рамок. Идеальная геометрия стен, точная разметка и аккуратная установка.
     </p>
 
-    <h2>Галерея готовых работ</h2>
+    <h3>Галерея выполненных работ</h3>
     <div class="gallery" id="molding-gallery" aria-live="polite"></div>
 
     <div class="next-sections">
       <p style="font-size:.8rem;color:#888;text-transform:uppercase;font-weight:bold;margin-bottom:20px">
-        Посмотрите также другие работы:
+        Посмотрите также другие услуги:
       </p>
       <div class="nav-links">
         <a href="plintus.html" class="nav-link-item">НАПОЛЬНЫЙ ПЛИНТУС</a>
         <a href="decor.html" class="nav-link-item">ДЕКОР ПОТОЛКА</a>
       </div>
     </div>
+
   </section>
 </main>
 
@@ -99,9 +110,12 @@ footer{text-align:center;padding:40px 0 60px;background:#fff}
   "name":"PRO100MOLDING",
   "image":"https://i.ibb.co/rRgCybQT/photo-88-2026-01-07-15-02-10.jpg",
   "telephone":"+79264498797",
-  "areaServed":"Москва и Московская область",
+  "areaServed":{
+    "@type":"AdministrativeArea",
+    "name":"Москва и Московская область"
+  },
   "priceRange":"₽₽",
-  "url":"https://example.com"
+  "url":"https://example.com/molding.html"
 }
 </script>
 
@@ -110,13 +124,15 @@ fetch('molding-photos.json')
 .then(r=>r.ok?r.json():[])
 .then(list=>{
   const g=document.getElementById('molding-gallery');
+  if(!g || !Array.isArray(list)) return;
   list.forEach((src,i)=>{
     const d=document.createElement('div');
     d.className='gallery-item';
     const img=document.createElement('img');
     img.src=src;
     img.loading='lazy';
-    img.alt='Монтаж молдингов пример '+(i+1);
+    img.decoding='async';
+    img.alt='Монтаж молдингов — пример работы '+(i+1);
     d.appendChild(img);
     g.appendChild(d);
   });
