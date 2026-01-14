@@ -9,14 +9,12 @@
 <meta name="description" content="Профессиональный монтаж потолочных карнизов, багетов и лепного декора в Москве и Московской области. Скрытые карнизы, многоуровневые потолки, фото реальных работ.">
 <meta name="keywords" content="монтаж потолочных карнизов Москва, потолочный декор, багеты, скрытые карнизы, лепнина потолка">
 
-<!-- Open Graph -->
 <meta property="og:title" content="Монтаж потолочных карнизов и декора | PRO100MOLDING">
 <meta property="og:description" content="Монтаж потолочных карнизов, багетов и декоративных элементов. Фото работ. Москва и МО.">
 <meta property="og:image" content="https://images.pexels.com/photos/6312362/pexels-photo-6312362.jpeg">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://example.com/decor.html">
 
-<!-- Twitter -->
 <meta name="twitter:card" content="summary_large_image">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -56,7 +54,7 @@ footer{text-align:center;padding:40px 0 60px;background:#fff}
 
 <header class="site-header" style="background-image:url('https://images.pexels.com/photos/6312362/pexels-photo-6312362.jpeg?auto=compress&cs=tinysrgb&w=1200');">
   <div class="site-header-content">
-    <h1 class="site-logo"><a href="./">PRO100MOLDING</a></h1>
+    <div class="site-logo"><a href="./">PRO100MOLDING</a></div>
     <div class="site-slogan">Элегантная отделка потолка и карнизов</div>
     <div class="site-location">Москва и Московская область • Работаю лично</div>
   </div>
@@ -64,8 +62,7 @@ footer{text-align:center;padding:40px 0 60px;background:#fff}
 
 <main class="container">
   <section class="content-block">
-
-    <nav style="display:flex;justify-content:space-between;margin-bottom:15px;">
+    <nav aria-label="Навигация по сайту" style="display:flex;justify-content:space-between;margin-bottom:15px;">
       <a href="index.html" style="color:var(--gold);font-weight:bold;text-decoration:none;font-size:.8rem;">← НА ГЛАВНУЮ</a>
       <a href="molding.html" style="color:var(--gold);font-weight:bold;text-decoration:none;font-size:.8rem;">← НАЗАД</a>
     </nav>
@@ -89,7 +86,6 @@ footer{text-align:center;padding:40px 0 60px;background:#fff}
         <a href="molding.html" class="nav-link-item">МОЛДИНГИ ДЛЯ СТЕН</a>
       </div>
     </div>
-
   </section>
 </main>
 
@@ -109,12 +105,15 @@ footer{text-align:center;padding:40px 0 60px;background:#fff}
 <script type="application/ld+json">
 {
   "@context":"https://schema.org",
-  "@type":"ProfessionalService",
-  "name":"PRO100MOLDING",
+  "@type":"Service",
+  "name":"Монтаж потолочного декора",
+  "provider":{
+    "@type":"ProfessionalService",
+    "name":"PRO100MOLDING",
+    "telephone":"+79264498797",
+    "areaServed":"Москва и Московская область"
+  },
   "image":"https://images.pexels.com/photos/6312362/pexels-photo-6312362.jpeg",
-  "telephone":"+79264498797",
-  "priceRange":"₽₽",
-  "areaServed":"Москва и Московская область",
   "url":"https://example.com/decor.html"
 }
 </script>
@@ -124,13 +123,15 @@ fetch('decor-photos.json')
 .then(r=>r.ok?r.json():[])
 .then(list=>{
   const g=document.getElementById('decor-gallery');
+  if(!g||!Array.isArray(list))return;
   list.forEach((src,i)=>{
     const d=document.createElement('div');
     d.className='gallery-item';
     const img=document.createElement('img');
     img.src=src;
     img.loading='lazy';
-    img.alt='Монтаж потолочного декора пример '+(i+1);
+    img.decoding='async';
+    img.alt='Монтаж потолочного декора в Москве — PRO100MOLDING, пример '+(i+1);
     d.appendChild(img);
     g.appendChild(d);
   });
