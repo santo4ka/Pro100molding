@@ -2,7 +2,6 @@
 <html lang="ru">
 <head>
 <meta charset="UTF-8">
-
 <title>Напольный плинтус — монтаж в Москве | PRO100MOLDING</title>
 
 <meta name="description"
@@ -82,11 +81,20 @@ main{
     border-radius:12px;
     box-shadow:0 10px 30px rgba(0,0,0,.1);
     border-top:5px solid var(--gold);
-      <nav class="breadcrumbs">
-    <a href="index.html" class="breadcrumb-link">← На главную</a>
-    <a href="molding.html" class="breadcrumb-link">Дальше →</a>
-</nav>
+}
 
+/* === BREADCRUMBS === */
+.breadcrumbs{
+    display:flex;
+    justify-content:space-between;
+    margin-bottom:15px;
+}
+
+.breadcrumbs a{
+    color:var(--gold);
+    text-decoration:none;
+    font-weight:bold;
+    font-size:0.8rem;
 }
 
 h1{
@@ -123,16 +131,34 @@ h1{
     cursor:zoom-in;
 }
 
+/* === NEXT SECTIONS === */
+.next-sections{
+    margin:40px auto;
+    text-align:center;
+}
+
+.nav-links{
+    display:flex;
+    justify-content:center;
+    gap:10px;
+    flex-wrap:wrap;
+}
+
+.nav-link-item{
+    background:var(--gold);
+    color:#fff;
+    padding:12px 20px;
+    border-radius:8px;
+    text-decoration:none;
+    font-weight:bold;
+    font-size:0.8rem;
+}
+
 /* === FOOTER === */
 footer{
     text-align:center;
     padding:40px 15px;
     background:var(--white);
-}
-
-.footer-text{
-    font-size:0.8rem;
-    color:#888;
 }
 
 .contact-grid{
@@ -155,101 +181,8 @@ footer{
     margin-top:20px;
     font-size:0.7rem;
     color:#888;
-    text-transform:uppercase;
 }
-
-/* === LIGHTBOX === */
-.lightbox{
-    position:fixed;
-    inset:0;
-    display:none;
-    background:rgba(0,0,0,.9);
-    align-items:center;
-    justify-content:center;
-    z-index:9999;
-}
-.lightbox img{
-    max-width:95%;
-    max-height:95%;
-    border-radius:8px;
-}
-      /* Навигация: назад / дальше */
-.breadcrumbs {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 15px;
-}
-
-.breadcrumb-link {
-    color: var(--gold);
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 0.8rem;
-    transition: 0.2s;
-}
-
-.breadcrumb-link:hover {
-    opacity: 0.8;
-}
-      /* Навигация между услугами */
-.next-sections {
-    margin-top: 40px;
-    padding-top: 30px;
-    border-top: 1px solid #eee;
-    text-align: center;
-}
-
-.next-sections p {
-    font-size: 0.8rem;
-    color: #888;
-    text-transform: uppercase;
-    font-weight: bold;
-}
-
-.nav-links {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    flex-wrap: wrap;
-    margin-top: 15px;
-}
-
-.nav-link-item {
-    text-decoration: none;
-    color: #fff;
-    font-weight: bold;
-    background: var(--gold);
-    padding: 12px 20px;
-    border-radius: 8px;
-    font-size: 0.8rem;
-    transition: 0.3s;
-    text-transform: uppercase;
-}
-
-.nav-link-item:hover {
-    background: var(--dark);
-}
-
-
 </style>
-
-<!-- === SCHEMA === -->
-<script type="application/ld+json">
-{
-  "@context":"https://schema.org",
-  "@type":"LocalBusiness",
-  "name":"PRO100MOLDING",
-  "url":"https://santo4ka.github.io/Pro100molding/",
-  "telephone":"+7-926-449-87-97",
-  "address":{
-    "@type":"PostalAddress",
-    "addressLocality":"Москва",
-    "addressCountry":"RU"
-  },
-  "areaServed":"Москва и Московская область"
-}
-</script>
 </head>
 
 <body>
@@ -263,7 +196,15 @@ footer{
 
 <main>
     <div class="content-block">
+
+        <!-- ✅ НАВИГАЦИЯ НАД H1 -->
+        <div class="breadcrumbs">
+            <a href="index.html">← На главную</a>
+            <a href="molding.html">Дальше →</a>
+        </div>
+
         <h1>Монтаж напольного плинтуса</h1>
+
         <p class="intro-text">
             Идеальное примыкание к стенам. Работаем с МДФ, дюрополимером, деревом и алюминием.
         </p>
@@ -271,7 +212,9 @@ footer{
         <div class="gallery" id="plintus-gallery"></div>
     </div>
 </main>
-      <section class="next-sections">
+
+<!-- ✅ НАВИГАЦИЯ ПЕРЕД ФУТЕРОМ -->
+<section class="next-sections">
     <p>Посмотрите также:</p>
     <div class="nav-links">
         <a href="molding.html" class="nav-link-item">Молдинги</a>
@@ -279,9 +222,8 @@ footer{
     </div>
 </section>
 
-
 <footer>
-    <p class="footer-text">Связаться со мной:</p>
+    <p>Связаться со мной:</p>
     <div class="contact-grid">
         <a href="tel:+79264498797" class="btn-contact" style="background:var(--dark)">Позвонить</a>
         <a href="https://wa.me/79264498797" class="btn-contact" style="background:#25D366">WhatsApp</a>
@@ -289,45 +231,6 @@ footer{
     </div>
     <div class="footer-copy">© 2026 PRO100MOLDING</div>
 </footer>
-
-<div class="lightbox" id="lightbox">
-    <img id="lightbox-img" alt="">
-</div>
-
-<script>
-document.addEventListener('DOMContentLoaded',()=>{
-
-const gallery=document.getElementById('plintus-gallery');
-const lightbox=document.getElementById('lightbox');
-const lightboxImg=document.getElementById('lightbox-img');
-
-fetch('plintus-photos.json')
-.then(r=>r.json())
-.then(photos=>{
-    photos.forEach((url,i)=>{
-        const div=document.createElement('div');
-        div.className='gallery-item';
-        const img=document.createElement('img');
-        img.src=url;
-        img.loading='lazy';
-        img.alt=`Монтаж напольного плинтуса PRO100MOLDING, фото ${i+1}`;
-        img.onclick=()=>{
-            lightboxImg.src=url;
-            lightbox.style.display='flex';
-            document.body.style.overflow='hidden';
-        };
-        div.appendChild(img);
-        gallery.appendChild(div);
-    });
-});
-
-lightbox.onclick=()=>{
-    lightbox.style.display='none';
-    document.body.style.overflow='';
-};
-
-});
-</script>
 
 </body>
 </html>
