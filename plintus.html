@@ -227,6 +227,47 @@
             max-height: 95%;
             border-radius: 8px;
         }
+
+            /* ===== SNOW EFFECT ===== */
+.snowflake {
+    position: fixed;
+    top: -50px;
+    color: #a8dcff;
+    pointer-events: none;
+    user-select: none;
+    z-index: 9999;
+    filter: blur(0.3px);
+    animation-name: snow-fall, snow-sway;
+    animation-timing-function: linear, ease-in-out;
+    animation-iteration-count: 1, infinite;
+}
+
+@keyframes snow-fall {
+    to {
+        top: 110vh;
+    }
+}
+
+@keyframes snow-sway {
+    0%   { transform: translateX(0); }
+    50%  { transform: translateX(40px); }
+    100% { transform: translateX(0); }
+}
+
+/* КНОПКА ВКЛ / ВЫКЛ */
+#snow-toggle {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 10000;
+    background: rgba(0,0,0,0.6);
+    color: #fff;
+    border: none;
+    padding: 10px 14px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 13px;
+}
     </style>
 </head>
 
