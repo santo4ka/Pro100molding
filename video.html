@@ -239,13 +239,13 @@ fetch('videos.json')
       const box = document.createElement('div');
       box.className = 'video-item';
 
-      if (video.type === 'local') {
+     if (video.type === 'local') {
   box.innerHTML = `
     <video
       controls
+      preload="metadata"
       playsinline
-      webkit-playsinline
-      preload="metadata">
+      webkit-playsinline>
       <source src="${video.src}" type="video/mp4">
     </video>
   `;
@@ -254,33 +254,11 @@ fetch('videos.json')
     <iframe
       src="${video.src}"
       title="${video.title}"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen"
-      allowfullscreen
-      playsinline>
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen>
     </iframe>
   `;
 }
-        document.addEventListener('click', function (e) {
-  const video = e.target.closest('video, iframe');
-  if (!video) return;
-
-  // Для video (mp4)
-  if (video.tagName === 'VIDEO') {
-    if (video.requestFullscreen) {
-      video.requestFullscreen();
-    } else if (video.webkitEnterFullscreen) {
-      video.webkitEnterFullscreen(); // iOS
-    }
-  }
-
-  // Для iframe (YouTube)
-  if (video.tagName === 'IFRAME') {
-    const wrapper = video.parentElement;
-    if (wrapper.requestFullscreen) {
-      wrapper.requestFullscreen();
-    }
-  }
-});
 
 
 
