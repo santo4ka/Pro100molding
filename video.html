@@ -260,6 +260,28 @@ fetch('videos.json')
     </iframe>
   `;
 }
+        document.addEventListener('click', function (e) {
+  const video = e.target.closest('video, iframe');
+  if (!video) return;
+
+  // Для video (mp4)
+  if (video.tagName === 'VIDEO') {
+    if (video.requestFullscreen) {
+      video.requestFullscreen();
+    } else if (video.webkitEnterFullscreen) {
+      video.webkitEnterFullscreen(); // iOS
+    }
+  }
+
+  // Для iframe (YouTube)
+  if (video.tagName === 'IFRAME') {
+    const wrapper = video.parentElement;
+    if (wrapper.requestFullscreen) {
+      wrapper.requestFullscreen();
+    }
+  }
+});
+
 
 
       grid.appendChild(box);
