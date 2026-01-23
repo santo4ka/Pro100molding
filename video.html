@@ -228,25 +228,36 @@
         © 2026 PRO100MOLDING
     </div>
 </footer>
-
 <script>
 fetch('videos.json')
   .then(r => r.json())
   .then(videos => {
     const grid = document.querySelector('.video-grid');
-    let activePlayer = null;
+    const players = [];
+
+    function stopAll(except = null) {
+      players.forEach(p => {
+        if (p !== except) {
+          if (p.tagName === 'VIDEO') {
+            p.pause();
+          }
+          if (p.tagName === 'IFRAME') {
+            const src = p.src;
+            p.src = src; // жёстко останавливает YouTube
+          }
+        }
+      });
+    }
 
     videos.forEach(video => {
       const box = document.createElement('div');
       box.className = 'video-item';
 
-      // ===== ЛОКАЛЬНОЕ ВИДЕО =====
       if (video.type === 'local') {
         const videoEl = document.createElement('video');
         videoEl.controls = true;
-        videoEl.preload = 'metadata';
         videoEl.playsInline = true;
-        videoEl.setAttribute('webkit-playsinline', '');
+        videoEl.preload = 'metadata';
 
         const source = document.createElement('source');
         source.src = video.src;
@@ -255,51 +266,33 @@ fetch('videos.json')
         videoEl.appendChild(source);
 
         videoEl.addEventListener('play', () => {
-          stopAll();
-          activePlayer = videoEl;
+          stopAll(videoEl);
         });
 
+        players.push(videoEl);
         box.appendChild(videoEl);
-      }
 
-      // ===== YOUTUBE / SHORTS =====
-      else {
+      } else {
         const iframe = document.createElement('iframe');
         iframe.src = video.src;
         iframe.title = video.title;
         iframe.allow =
-          'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen';
+          'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
         iframe.allowFullscreen = true;
 
-        // Клик по iframe = стоп всех остальных
-        box.addEventListener('click', () => {
-          stopAll();
-          activePlayer = iframe;
+        iframe.addEventListener('load', () => {
+          stopAll(iframe);
         });
 
+        players.push(iframe);
         box.appendChild(iframe);
       }
 
       grid.appendChild(box);
     });
-
-    // ===== ФУНКЦИЯ СТОПА ВСЕГО =====
-    function stopAll() {
-      // стоп HTML5 video
-      document.querySelectorAll('video').forEach(v => {
-        v.pause();
-        v.currentTime = v.currentTime; // жёсткая остановка
-      });
-
-      // стоп iframe (YouTube)
-      document.querySelectorAll('iframe').forEach(f => {
-        const src = f.src;
-        f.src = '';
-        f.src = src;
-      });
-    }
   });
 </script>
+
 
 </body>
 </html>
