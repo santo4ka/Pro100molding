@@ -13,7 +13,7 @@
         s.className = 'snowflake';
         s.textContent = '❄';
 
-        const size = Math.random() * 13 + 7;
+        const size = Math.random() * 14 + 8;
         const left = Math.random() * 100;
         const duration = Math.random() * 20 + 20;
         const startY = Math.random() * -100;
