@@ -239,13 +239,11 @@ fetch('videos.json')
       const box = document.createElement('div');
       box.className = 'video-item';
 
-     if (video.type === 'local') {
+    if (video.type === 'local') {
   box.innerHTML = `
     <video
       controls
-      preload="metadata"
-      playsinline
-      webkit-playsinline>
+      preload="metadata">
       <source src="${video.src}" type="video/mp4">
     </video>
   `;
@@ -259,6 +257,7 @@ fetch('videos.json')
     </iframe>
   `;
 }
+
 
 
 
