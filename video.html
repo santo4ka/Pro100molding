@@ -242,8 +242,8 @@ fetch('videos.json')
             p.pause();
           }
           if (p.tagName === 'IFRAME') {
-            const src = p.src;
-            p.src = src; // жёстко останавливает YouTube
+            const src = p.getAttribute('data-src');
+            p.src = src; // стоп YouTube
           }
         }
       });
@@ -254,35 +254,31 @@ fetch('videos.json')
       box.className = 'video-item';
 
       if (video.type === 'local') {
-        const videoEl = document.createElement('video');
-        videoEl.controls = true;
-        videoEl.playsInline = true;
-        videoEl.preload = 'metadata';
+        const v = document.createElement('video');
+        v.controls = true;
+        v.playsInline = true;
+        v.preload = 'metadata';
 
-        const source = document.createElement('source');
-        source.src = video.src;
-        source.type = 'video/mp4';
+        const s = document.createElement('source');
+        s.src = video.src;
+        s.type = 'video/mp4';
 
-        videoEl.appendChild(source);
+        v.appendChild(s);
 
-        videoEl.addEventListener('play', () => {
-          stopAll(videoEl);
-        });
+        v.addEventListener('play', () => stopAll(v));
 
-        players.push(videoEl);
-        box.appendChild(videoEl);
+        players.push(v);
+        box.appendChild(v);
 
       } else {
         const iframe = document.createElement('iframe');
+        iframe.setAttribute('data-src', video.src);
         iframe.src = video.src;
-        iframe.title = video.title;
         iframe.allow =
           'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
         iframe.allowFullscreen = true;
 
-        iframe.addEventListener('load', () => {
-          stopAll(iframe);
-        });
+        iframe.addEventListener('click', () => stopAll(iframe));
 
         players.push(iframe);
         box.appendChild(iframe);
@@ -292,7 +288,6 @@ fetch('videos.json')
     });
   });
 </script>
-
 
 </body>
 </html>
