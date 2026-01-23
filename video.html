@@ -230,22 +230,20 @@
 </footer>
 <script>
 fetch('videos.json')
-  .then(r => r.json())
+  .then(res => res.json())
   .then(videos => {
     const grid = document.querySelector('.video-grid');
-    const players = [];
+    let currentPlayer = null;
 
-    function stopAll(except = null) {
-      players.forEach(p => {
-        if (p !== except) {
-          if (p.tagName === 'VIDEO') {
-            p.pause();
-          }
-          if (p.tagName === 'IFRAME') {
-            const src = p.getAttribute('data-src');
-            p.src = src; // стоп YouTube
-          }
-        }
+    function stopAll() {
+      document.querySelectorAll('video').forEach(v => {
+        v.pause();
+        v.currentTime = 0;
+      });
+
+      document.querySelectorAll('iframe').forEach(f => {
+        const src = f.dataset.src;
+        if (src) f.src = src;
       });
     }
 
@@ -253,6 +251,7 @@ fetch('videos.json')
       const box = document.createElement('div');
       box.className = 'video-item';
 
+      // ===== ЛОКАЛЬНОЕ VIDEO =====
       if (video.type === 'local') {
         const v = document.createElement('video');
         v.controls = true;
@@ -265,22 +264,36 @@ fetch('videos.json')
 
         v.appendChild(s);
 
-        v.addEventListener('play', () => stopAll(v));
+        v.addEventListener('play', () => {
+          stopAll();
+          v.play();
+        });
 
-        players.push(v);
         box.appendChild(v);
+      }
 
-      } else {
+      // ===== YOUTUBE =====
+      else {
         const iframe = document.createElement('iframe');
-        iframe.setAttribute('data-src', video.src);
+        iframe.dataset.src = video.src;
         iframe.src = video.src;
+        iframe.title = video.title || '';
         iframe.allow =
-          'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+          'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen';
         iframe.allowFullscreen = true;
 
-        iframe.addEventListener('click', () => stopAll(iframe));
+        iframe.addEventListener('load', () => {
+          iframe.contentWindow?.postMessage(
+            '{"event":"command","func":"pauseVideo","args":""}',
+            '*'
+          );
+        });
 
-        players.push(iframe);
+        iframe.addEventListener('click', () => {
+          stopAll();
+          iframe.src = iframe.dataset.src;
+        });
+
         box.appendChild(iframe);
       }
 
@@ -288,6 +301,7 @@ fetch('videos.json')
     });
   });
 </script>
+
 
 </body>
 </html>
