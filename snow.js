@@ -1,6 +1,6 @@
 (function () {
     const STORAGE_KEY = 'snowEnabled';
-    const MAX_SNOW = 100; //больше меньше
+    const MAX_SNOW = 50; //больше меньше
     const SPAWN_INTERVAL = 700; //густота снега
 
     let snowflakes = [];
