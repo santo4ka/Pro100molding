@@ -1,6 +1,6 @@
 (function () {
     const STORAGE_KEY = 'snowEnabled';
-    const MAX_SNOW = 50; //больше меньше
+    const MAX_SNOW = 80; //больше меньше
     const SPAWN_INTERVAL = 400; //густота снега
 
     let snowflakes = [];
@@ -23,7 +23,7 @@
         s.style.top = startY + 'px';
         s.style.opacity = Math.random() * 0.5 + 0.4;
         s.style.animationDuration = duration + 's';
-        s.style.animationDelay = Math.random() * 5 + 's';
+       
 
         document.body.appendChild(s);
         snowflakes.push(s);
