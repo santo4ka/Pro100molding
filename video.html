@@ -234,16 +234,19 @@ fetch('videos.json')
   .then(r => r.json())
   .then(videos => {
     const grid = document.querySelector('.video-grid');
-    let activeVideo = null;
+    let activePlayer = null;
 
     videos.forEach(video => {
       const box = document.createElement('div');
       box.className = 'video-item';
 
+      // ===== ЛОКАЛЬНОЕ ВИДЕО =====
       if (video.type === 'local') {
         const videoEl = document.createElement('video');
         videoEl.controls = true;
         videoEl.preload = 'metadata';
+        videoEl.playsInline = true;
+        videoEl.setAttribute('webkit-playsinline', '');
 
         const source = document.createElement('source');
         source.src = video.src;
@@ -252,25 +255,26 @@ fetch('videos.json')
         videoEl.appendChild(source);
 
         videoEl.addEventListener('play', () => {
-          if (activeVideo && activeVideo !== videoEl) {
-            activeVideo.pause();
-          }
-          stopAllIframes();
-          activeVideo = videoEl;
+          stopAll();
+          activePlayer = videoEl;
         });
 
         box.appendChild(videoEl);
-      } else {
+      }
+
+      // ===== YOUTUBE / SHORTS =====
+      else {
         const iframe = document.createElement('iframe');
         iframe.src = video.src;
         iframe.title = video.title;
         iframe.allow =
-          'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+          'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen';
         iframe.allowFullscreen = true;
 
-        iframe.addEventListener('load', () => {
-          stopAllVideos();
-          activeVideo = iframe;
+        // Клик по iframe = стоп всех остальных
+        box.addEventListener('click', () => {
+          stopAll();
+          activePlayer = iframe;
         });
 
         box.appendChild(iframe);
@@ -279,15 +283,18 @@ fetch('videos.json')
       grid.appendChild(box);
     });
 
-    function stopAllVideos() {
+    // ===== ФУНКЦИЯ СТОПА ВСЕГО =====
+    function stopAll() {
+      // стоп HTML5 video
       document.querySelectorAll('video').forEach(v => {
         v.pause();
+        v.currentTime = v.currentTime; // жёсткая остановка
       });
-    }
 
-    function stopAllIframes() {
+      // стоп iframe (YouTube)
       document.querySelectorAll('iframe').forEach(f => {
         const src = f.src;
+        f.src = '';
         f.src = src;
       });
     }
