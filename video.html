@@ -234,33 +234,65 @@ fetch('videos.json')
   .then(r => r.json())
   .then(videos => {
     const grid = document.querySelector('.video-grid');
+    let activeVideo = null;
 
     videos.forEach(video => {
       const box = document.createElement('div');
       box.className = 'video-item';
 
       if (video.type === 'local') {
-        box.innerHTML = `
-          <video controls preload="metadata">
-            <source src="${video.src}" type="video/mp4">
-          </video>
-        `;
+        const videoEl = document.createElement('video');
+        videoEl.controls = true;
+        videoEl.preload = 'metadata';
+
+        const source = document.createElement('source');
+        source.src = video.src;
+        source.type = 'video/mp4';
+
+        videoEl.appendChild(source);
+
+        videoEl.addEventListener('play', () => {
+          if (activeVideo && activeVideo !== videoEl) {
+            activeVideo.pause();
+          }
+          stopAllIframes();
+          activeVideo = videoEl;
+        });
+
+        box.appendChild(videoEl);
       } else {
-        box.innerHTML = `
-          <iframe
-            src="${video.src}"
-            title="${video.title}"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen>
-          </iframe>
-        `;
+        const iframe = document.createElement('iframe');
+        iframe.src = video.src;
+        iframe.title = video.title;
+        iframe.allow =
+          'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+        iframe.allowFullscreen = true;
+
+        iframe.addEventListener('load', () => {
+          stopAllVideos();
+          activeVideo = iframe;
+        });
+
+        box.appendChild(iframe);
       }
 
       grid.appendChild(box);
     });
+
+    function stopAllVideos() {
+      document.querySelectorAll('video').forEach(v => {
+        v.pause();
+      });
+    }
+
+    function stopAllIframes() {
+      document.querySelectorAll('iframe').forEach(f => {
+        const src = f.src;
+        f.src = src;
+      });
+    }
   });
 </script>
-
 
 </body>
 </html>
