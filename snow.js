@@ -45,6 +45,13 @@
         snowflakes.forEach(s => s.remove());
         snowflakes = [];
     }
+    const toggleBtn = document.getElementById('snow-toggle');
+if (!toggleBtn) return;
+
+toggleBtn.addEventListener('click', () => {
+    toggleSnow(localStorage.getItem(STORAGE_KEY) === 'false');
+});
+
 
     function toggleSnow(force) {
         const enabled = force !== undefined
@@ -54,16 +61,11 @@
         localStorage.setItem(STORAGE_KEY, enabled);
 
         enabled ? startSnow() : stopSnow();
-        toggleBtn.textContent = enabled ? '❄ Снег: ВКЛ' : '❄ Снег: ВЫКЛ';
+        toggleBtn.classList.toggle('active', enabled);
+
     }
 
-    const toggleBtn = document.createElement('button');
-    toggleBtn.id = 'snow-toggle';
-    document.body.appendChild(toggleBtn);
-
-    toggleBtn.onclick = () => {
-        toggleSnow(localStorage.getItem(STORAGE_KEY) === 'false');
-    };
+    
 
     toggleSnow();
 })();
