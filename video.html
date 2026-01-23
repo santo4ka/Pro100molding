@@ -240,21 +240,27 @@ fetch('videos.json')
       box.className = 'video-item';
 
       if (video.type === 'local') {
-        box.innerHTML = `
-          <video controls preload="metadata">
-            <source src="${video.src}" type="video/mp4">
-          </video>
-        `;
-      } else {
-        box.innerHTML = `
-          <iframe
-            src="${video.src}"
-            title="${video.title}"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen>
-          </iframe>
-        `;
-      }
+  box.innerHTML = `
+    <video
+      controls
+      playsinline
+      webkit-playsinline
+      preload="metadata">
+      <source src="${video.src}" type="video/mp4">
+    </video>
+  `;
+} else {
+  box.innerHTML = `
+    <iframe
+      src="${video.src}"
+      title="${video.title}"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen"
+      allowfullscreen
+      playsinline>
+    </iframe>
+  `;
+}
+
 
       grid.appendChild(box);
     });
