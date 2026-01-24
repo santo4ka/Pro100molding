@@ -2,70 +2,36 @@
 <html lang="ru">
 <head>
 <meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title>Отзывы клиентов — PRO100MOLDING</title>
+<title>Отзывы — PRO100MOLDING</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;900&display=swap" rel="stylesheet">
 
 <style>
-:root{
-  --gold:#c5a059;
-  --dark:#1a1a1a;
-  --light:#f4f4f4;
-}
+:root{--gold:#c5a059;--dark:#1a1a1a;--light:#f4f4f4}
+body{margin:0;font-family:'Montserrat',sans-serif;background:var(--light)}
 
-body{
-  margin:0;
-  font-family:'Montserrat',sans-serif;
-  background:var(--light);
-  color:#333;
-}
-
-/* HEADER */
-.site-header{
-  height:240px;
-  background:url('https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&q=80&w=1200') center/cover;
+header{
+  height:220px;
+  background:url('https://images.unsplash.com/photo-1513694203232-719a280e022f') center/cover;
   position:relative;
   display:flex;
-  align-items:center;
   justify-content:center;
+  align-items:center;
   border-bottom:5px solid var(--gold);
 }
-.site-header::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:rgba(0,0,0,.55);
-}
-.site-header h1{
-  position:relative;
-  z-index:1;
-  color:#fff;
-  font-weight:900;
-  letter-spacing:2px;
-  text-transform:uppercase;
-}
+header::before{content:"";position:absolute;inset:0;background:rgba(0,0,0,.55)}
+header h1{position:relative;color:#fff;letter-spacing:2px}
 
-/* MAIN */
-main{
-  max-width:1200px;
-  margin:-40px auto 40px;
-  padding:0 15px;
-  position:relative;
-  z-index:2;
-}
+main{max-width:1200px;margin:-40px auto 40px;padding:0 15px}
 
-.reviews-layout{
+.layout{
   display:grid;
   grid-template-columns:2fr 1fr;
   gap:20px;
 }
 
-/* REVIEWS LIST */
-.reviews-list{
+.reviews,.form{
   background:#fff;
   border-radius:12px;
   box-shadow:0 8px 25px rgba(0,0,0,.1);
@@ -73,127 +39,87 @@ main{
   padding:20px;
 }
 
-.review-card{
-  border-bottom:1px solid #eee;
-  padding:15px 0;
-}
-.review-card:last-child{border-bottom:none;}
+.review{border-bottom:1px solid #eee;padding:15px 0}
+.review:last-child{border:none}
+.review-name{font-weight:700;font-size:.9rem}
+.review-date{font-size:.7rem;color:#888}
+.review-text{font-size:.8rem;margin-top:6px}
 
-.review-name{
-  font-weight:700;
-  font-size:.9rem;
-}
-.review-date{
-  font-size:.7rem;
-  color:#888;
-  margin-bottom:6px;
-}
-.review-text{
-  font-size:.8rem;
-  line-height:1.4;
+.review img{
+  margin-top:10px;
+  max-width:100%;
+  border-radius:8px;
 }
 
-/* FORM */
-.review-form{
-  background:#fff;
-  border-radius:12px;
-  box-shadow:0 8px 25px rgba(0,0,0,.1);
-  border-top:5px solid var(--gold);
-  padding:20px;
-}
-
-.review-form h2{
-  margin:0 0 15px;
-  font-size:1rem;
-  text-transform:uppercase;
-}
-
-.review-form input,
-.review-form textarea{
+input,textarea,button{
   width:100%;
   padding:10px;
   margin-bottom:10px;
-  border-radius:6px;
-  border:1px solid #ccc;
   font-family:inherit;
   font-size:.8rem;
+  border-radius:6px;
+  border:1px solid #ccc;
 }
 
-.review-form textarea{
-  resize:vertical;
-  min-height:100px;
-}
-
-.review-form input[type="file"]{
-  padding:6px;
-}
-
-.review-form button{
-  width:100%;
-  padding:12px;
+button{
   background:var(--gold);
   color:#fff;
   border:none;
-  border-radius:6px;
   font-weight:700;
-  text-transform:uppercase;
   cursor:pointer;
-  transition:.3s;
 }
-.review-form button:hover{
-  background:var(--dark);
-}
+button:hover{background:var(--dark)}
 
-/* MOBILE */
 @media(max-width:900px){
-  .reviews-layout{
-    grid-template-columns:1fr;
-  }
+  .layout{grid-template-columns:1fr}
 }
 </style>
 </head>
 
 <body>
 
-<header class="site-header">
-  <h1>Отзывы клиентов</h1>
-</header>
+<header><h1>Отзывы клиентов</h1></header>
 
 <main>
-  <section class="reviews-layout">
+<div class="layout">
 
-    <!-- LEFT -->
-    <div class="reviews-list">
-      <div class="review-card">
-        <div class="review-name">Алексей</div>
-        <div class="review-date">12 января 2026</div>
-        <div class="review-text">
-          Отличная работа. Всё ровно, аккуратно, углы идеальные. Рекомендую.
-        </div>
-      </div>
+<div class="reviews" id="reviews"></div>
 
-      <div class="review-card">
-        <div class="review-name">Марина</div>
-        <div class="review-date">5 января 2026</div>
-        <div class="review-text">
-          Делали молдинги и плинтус. Очень довольна результатом.
-        </div>
-      </div>
-    </div>
+<div class="form">
+  <h3>Оставить отзыв</h3>
+  <input id="name" placeholder="Ваше имя">
+  <textarea id="text" placeholder="Ваш отзыв"></textarea>
+  <input type="file" id="file">
+  <button onclick="addReview()">Отправить</button>
+</div>
 
-    <!-- RIGHT -->
-    <div class="review-form">
-      <h2>Оставить отзыв</h2>
-      <form>
-        <input type="text" placeholder="Ваше имя" required>
-        <textarea placeholder="Ваш отзыв" required></textarea>
-        <input type="file" accept="image/*,video/*">
-        <button type="submit">Отправить</button>
-      </form>
-    </div>
-
-  </section>
+</div>
 </main>
+
+<!-- FIREBASE -->
+<script type="module">
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.8.0/firebase-app.js";
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.8.0/firebase-analytics.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  const firebaseConfig = {
+    apiKey: "AIzaSyCpyJ-MJtaF9HnVBW-SXvrEafZOjEkXnOg",
+    authDomain: "pro100molding-fd23c.firebaseapp.com",
+    projectId: "pro100molding-fd23c",
+    storageBucket: "pro100molding-fd23c.firebasestorage.app",
+    messagingSenderId: "697790892100",
+    appId: "1:697790892100:web:17492f565bbf6b90949411",
+    measurementId: "G-N1616BE4FV"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
+</script>
 
 </body>
 </html>
