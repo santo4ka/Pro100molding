@@ -161,7 +161,16 @@ main{
 <!-- FIREBASE -->
 <script type="module">
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js";
-import { getFirestore, collection, addDoc, getDocs, query, orderBy, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-firestore.js";
+import {
+  getFirestore,
+  collection,
+  addDoc,
+  getDocs,
+  query,
+  orderBy,
+  serverTimestamp,
+  Timestamp
+} from "https://www.gstatic.com/firebasejs/10.8.1/firebase-firestore.js";
 
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
@@ -212,17 +221,21 @@ async function seedReviews() {
 
 const reviewsRef = collection(db, "reviews");
 
-async function loadReviews(){
-  const q = query(reviewsRef, orderBy("created","desc"));
+aasync function loadReviews(){
+  const q = query(reviewsRef, orderBy("createdAt", "desc"));
   const snap = await getDocs(q);
+
   const box = document.getElementById("reviews");
   box.innerHTML = "";
-  snap.forEach(doc=>{
+
+  snap.forEach(doc => {
     const r = doc.data();
     box.innerHTML += `
       <div class="review">
         <div class="review-name">${r.name}</div>
-        <div class="review-date">${r.created?.toDate().toLocaleDateString()}</div>
+        <div class="review-date">
+          ${r.createdAt?.toDate().toLocaleDateString()}
+        </div>
         <div class="review-text">${r.text}</div>
       </div>`;
   });
