@@ -207,10 +207,12 @@ async function seedReviews() {
   ];
 
   for (const review of reviews) {
-    await addDoc(collection(db, "reviews"), {
-      ...review,
-      createdAt: Timestamp.fromDate(review.createdAt)
-    });
+    await addDoc(reviewsRef,{
+  name,
+  text,
+  createdAt: serverTimestamp()
+});
+
   }
 
   alert("Отзывы добавлены");
