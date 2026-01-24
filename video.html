@@ -229,69 +229,62 @@
     </div>
 </footer>
 <script>
+// Список активных плееров
+const players = [];
+
+// Функция для остановки всех видео
+function stopAllVideos(except) {
+  // Останавливаем HTML5 видео
+  document.querySelectorAll('video').forEach(v => {
+    if (v !== except) {
+      v.pause();
+      v.currentTime = 0;
+    }
+  });
+
+  // Останавливаем YouTube iframe (перезагрузкой src)
+  document.querySelectorAll('iframe').forEach(f => {
+    if (f !== except) {
+      const src = f.getAttribute('data-src');
+      if (src) f.src = src;
+    }
+  });
+}
+
 fetch('videos.json')
-  .then(res => res.json())
+  .then(r => r.json())
   .then(videos => {
     const grid = document.querySelector('.video-grid');
-    let currentPlayer = null;
-
-    function stopAll() {
-      document.querySelectorAll('video').forEach(v => {
-        v.pause();
-        v.currentTime = 0;
-      });
-
-      document.querySelectorAll('iframe').forEach(f => {
-        const src = f.dataset.src;
-        if (src) f.src = src;
-      });
-    }
 
     videos.forEach(video => {
       const box = document.createElement('div');
       box.className = 'video-item';
 
-      // ===== ЛОКАЛЬНОЕ VIDEO =====
       if (video.type === 'local') {
         const v = document.createElement('video');
         v.controls = true;
-        v.playsInline = true;
         v.preload = 'metadata';
 
-        const s = document.createElement('source');
-        s.src = video.src;
-        s.type = 'video/mp4';
-
-        v.appendChild(s);
+        const src = document.createElement('source');
+        src.src = video.src;
+        src.type = 'video/mp4';
+        v.appendChild(src);
 
         v.addEventListener('play', () => {
-          stopAll();
-          v.play();
+          stopAllVideos(v);
         });
 
         box.appendChild(v);
-      }
-
-      // ===== YOUTUBE =====
-      else {
+      } else {
         const iframe = document.createElement('iframe');
-        iframe.dataset.src = video.src;
+        iframe.setAttribute('data-src', video.src);
         iframe.src = video.src;
         iframe.title = video.title || '';
-        iframe.allow =
-          'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen';
+        iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
         iframe.allowFullscreen = true;
 
-        iframe.addEventListener('load', () => {
-          iframe.contentWindow?.postMessage(
-            '{"event":"command","func":"pauseVideo","args":""}',
-            '*'
-          );
-        });
-
-        iframe.addEventListener('click', () => {
-          stopAll();
-          iframe.src = iframe.dataset.src;
+        iframe.addEventListener('mouseenter', () => {
+          stopAllVideos(iframe);
         });
 
         box.appendChild(iframe);
@@ -301,7 +294,6 @@ fetch('videos.json')
     });
   });
 </script>
-
 
 </body>
 </html>
