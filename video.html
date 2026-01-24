@@ -229,63 +229,60 @@
     </div>
 </footer>
 <script>
-// Список активных плееров
-const players = [];
-
-// Функция для остановки всех видео
-function stopAllVideos(except) {
-  // Останавливаем HTML5 видео
-  document.querySelectorAll('video').forEach(v => {
-    if (v !== except) {
-      v.pause();
-      v.currentTime = 0;
-    }
-  });
-
-  // Останавливаем YouTube iframe (перезагрузкой src)
-  document.querySelectorAll('iframe').forEach(f => {
-    if (f !== except) {
-      const src = f.getAttribute('data-src');
-      if (src) f.src = src;
-    }
-  });
-}
-
 fetch('videos.json')
   .then(r => r.json())
   .then(videos => {
     const grid = document.querySelector('.video-grid');
 
+    function stopAll(except) {
+      document.querySelectorAll('video').forEach(v => {
+        if (v !== except) {
+          v.pause();
+          v.currentTime = 0;
+        }
+      });
+    }
+
     videos.forEach(video => {
       const box = document.createElement('div');
       box.className = 'video-item';
 
+      // ===== ЛОКАЛЬНОЕ ВИДЕО (MP4) =====
       if (video.type === 'local') {
         const v = document.createElement('video');
         v.controls = true;
         v.preload = 'metadata';
+        v.playsInline = false; // 🔴 КЛЮЧЕВО
+        v.setAttribute('webkit-playsinline', 'false'); // iOS fullscreen
 
         const src = document.createElement('source');
         src.src = video.src;
         src.type = 'video/mp4';
         v.appendChild(src);
 
+        // ▶ при запуске — останавливаем другие
         v.addEventListener('play', () => {
-          stopAllVideos(v);
+          stopAll(v);
+
+          // 🔥 ПРИНУДИТЕЛЬНЫЙ FULLSCREEN
+          if (v.requestFullscreen) {
+            v.requestFullscreen();
+          } else if (v.webkitEnterFullscreen) {
+            v.webkitEnterFullscreen(); // iOS
+          }
         });
 
         box.appendChild(v);
-      } else {
+      }
+
+      // ===== YOUTUBE =====
+      else {
         const iframe = document.createElement('iframe');
-        iframe.setAttribute('data-src', video.src);
         iframe.src = video.src;
         iframe.title = video.title || '';
-        iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+        iframe.allow =
+          'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
         iframe.allowFullscreen = true;
-
-        iframe.addEventListener('mouseenter', () => {
-          stopAllVideos(iframe);
-        });
 
         box.appendChild(iframe);
       }
