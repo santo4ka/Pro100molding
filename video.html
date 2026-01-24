@@ -230,49 +230,50 @@
 </footer>
 <script>
 fetch('videos.json')
-  .then(r => r.json())
+  .then(res => res.json())
   .then(videos => {
     const grid = document.querySelector('.video-grid');
-    let currentVideo = null;
+    let current = null;
+
+    function stopCurrent() {
+      if (!current) return;
+
+      if (current.tagName === 'VIDEO') {
+        current.pause();
+        current.currentTime = 0;
+      }
+
+      if (current.tagName === 'IFRAME') {
+        current.contentWindow.postMessage(
+          '{"event":"command","func":"pauseVideo","args":""}',
+          '*'
+        );
+      }
+
+      current = null;
+    }
 
     videos.forEach(video => {
       const box = document.createElement('div');
       box.className = 'video-item';
 
-      // ===== ЛОКАЛЬНОЕ VIDEO (mp4) =====
+      // ===== ЛОКАЛЬНОЕ VIDEO =====
       if (video.type === 'local') {
         const v = document.createElement('video');
+        v.src = video.src;
         v.controls = true;
-        v.preload = 'metadata';
         v.playsInline = true;
-        v.setAttribute('webkit-playsinline', '');
+        v.preload = 'metadata';
 
-        const src = document.createElement('source');
-        src.src = video.src;
-        src.type = 'video/mp4';
-        v.appendChild(src);
-
-        // ▶ играет только одно видео
         v.addEventListener('play', () => {
-          if (currentVideo && currentVideo !== v) {
-            currentVideo.pause();
-          }
-          currentVideo = v;
+          if (current && current !== v) stopCurrent();
+          current = v;
         });
 
-        // ⛔ если видео остановили — освобождаем
-        v.addEventListener('pause', () => {
-          if (currentVideo === v) {
-            currentVideo = null;
-          }
-        });
-
-        // 🔍 двойной клик / тап — fullscreen
-        v.addEventListener('dblclick', () => {
-          if (v.requestFullscreen) {
-            v.requestFullscreen();
-          } else if (v.webkitEnterFullscreen) {
-            v.webkitEnterFullscreen(); // iOS
+        v.addEventListener('fullscreenchange', () => {
+          if (document.fullscreenElement === v) {
+            if (current && current !== v) stopCurrent();
+            current = v;
           }
         });
 
@@ -282,11 +283,27 @@ fetch('videos.json')
       // ===== YOUTUBE =====
       else {
         const iframe = document.createElement('iframe');
-        iframe.src = video.src;
-        iframe.title = video.title || '';
+
+        const url = new URL(video.src);
+        url.searchParams.set('enablejsapi', '1');
+        url.searchParams.set('playsinline', '1');
+
+        iframe.src = url.toString();
         iframe.allow =
-          'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+          'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen';
         iframe.allowFullscreen = true;
+
+        iframe.addEventListener('load', () => {
+          iframe.contentWindow.postMessage(
+            '{"event":"command","func":"pauseVideo","args":""}',
+            '*'
+          );
+        });
+
+        iframe.addEventListener('mouseenter', () => {
+          if (current && current !== iframe) stopCurrent();
+          current = iframe;
+        });
 
         box.appendChild(iframe);
       }
@@ -295,7 +312,6 @@ fetch('videos.json')
     });
   });
 </script>
-
 
 </body>
 </html>
