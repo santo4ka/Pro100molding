@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>Отзывы — PRO100MOLDING</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&display=swap" rel="stylesheet">
+
+<style>
+:root{--gold:#c5a059;--dark:#1a1a1a;--light:#f4f4f4}
+
+body{
+  margin:0;
+  font-family:'Montserrat',sans-serif;
+  background:var(--light);
+  color:#333;
+}
+
+/* ===== HEADER ===== */
+.site-header{
+  position:relative;
+  height:35vh;
+  min-height:240px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  color:#fff;
+  background-size:cover;
+  background-position:center;
+  border-bottom:5px solid var(--gold);
+}
+.site-header::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:rgba(0,0,0,.55);
+}
+.site-header-content{
+  position:relative;
+  z-index:2;
+}
+.site-logo{
+  font-size:clamp(1.4rem,6vw,3rem);
+  font-weight:900;
+  letter-spacing:2px;
+}
+.site-slogan{
+  margin-top:14px;
+  background:var(--gold);
+  padding:6px 14px;
+  display:inline-block;
+  border-radius:4px;
+  font-size:.75rem;
+  text-transform:uppercase;
+}
+
+/* back button */
+.back-btn{
+  position:absolute;
+  top:14px;
+  left:14px;
+  width:42px;
+  height:42px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:1.3rem;
+  color:#fff;
+  text-decoration:none;
+  background:rgba(0,0,0,.45);
+  border:1px solid var(--gold);
+  border-radius:50%;
+  z-index:3;
+  transition:.2s;
+}
+.back-btn:hover{
+  transform:scale(1.15);
+  box-shadow:0 0 10px rgba(197,160,89,.9);
+}
+
+/* ===== MAIN ===== */
+main{
+  max-width:1200px;
+  margin:-30px auto 40px;
+  padding:0 15px;
+  display:grid;
+  grid-template-columns:2fr 1fr;
+  gap:20px;
+  position:relative;
+  z-index:5;
+}
+
+/* reviews list */
+.reviews{
+  background:#fff;
+  border-radius:10px;
+  padding:20px;
+  box-shadow:0 8px 25px rgba(0,0,0,.1);
+}
+.review{
+  border-bottom:1px solid #eee;
+  padding:14px 0;
+}
+.review:last-child{border:none}
+.review-name{
+  font-weight:700;
+  color:var(--dark);
+}
+.review-text{
+  margin-top:6px;
+  font-size:.85rem;
+  line-height:1.5;
+}
+.review-date{
+  font-size:.7rem;
+  color:#999;
+  margin-top:4px;
+}
+
+/* form */
+.review-form{
+  background:#fff;
+  border-radius:10px;
+  padding:20px;
+  box-shadow:0 8px 25px rgba(0,0,0,.1);
+}
+.review-form h3{
+  margin-top:0;
+  text-transform:uppercase;
+  font-size:.9rem;
+}
+.review-form input,
+.review-form textarea{
+  width:100%;
+  margin-bottom:12px;
+  padding:10px;
+  border:1px solid #ccc;
+  border-radius:6px;
+  font-family:inherit;
+  font-size:.85rem;
+}
+.review-form button{
+  width:100%;
+  padding:10px;
+  background:var(--gold);
+  border:none;
+  color:#fff;
+  font-weight:700;
+  border-radius:6px;
+  cursor:pointer;
+  transition:.2s;
+}
+.review-form button:hover{
+  background:var(--dark);
+}
+
+@media(max-width:900px){
+  main{grid-template-columns:1fr}
+}
+</style>
+</head>
+
+<body>
+
+<header class="site-header" style="background-image:url('https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=1200');">
+  <a href="index.html" class="back-btn">←</a>
+
+  <div class="site-header-content">
+    <div class="site-logo">PRO100MOLDING</div>
+    <div class="site-slogan">Отзывы клиентов</div>
+  </div>
+</header>
+
+<main>
+
+<section class="reviews" id="reviewsList">
+  <p style="font-weight:700">Отзывы</p>
+</section>
+
+<aside class="review-form">
+  <h3>Оставить отзыв</h3>
+  <input id="name" placeholder="Ваше имя">
+  <textarea id="text" rows="4" placeholder="Ваш отзыв"></textarea>
+  <button id="send">Отправить</button>
+</aside>
+
+</main>
+
+<!-- FIREBASE -->
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+import { getFirestore, collection, addDoc, getDocs, query, orderBy } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+
+const firebaseConfig = {
+  apiKey: "ВСТАВЬ_СЮДА",
+  authDomain: "ВСТАВЬ_СЮДА",
+  projectId: "ВСТАВЬ_СЮДА",
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
+const list = document.getElementById('reviewsList');
+
+async function loadReviews(){
+  const q = query(collection(db,'reviews'), orderBy('date','desc'));
+  const snap = await getDocs(q);
+  snap.forEach(d=>{
+    const r = d.data();
+    list.innerHTML += `
+      <div class="review">
+        <div class="review-name">${r.name}</div>
+        <div class="review-text">${r.text}</div>
+        <div class="review-date">${new Date(r.date).toLocaleDateString()}</div>
+      </div>
+    `;
+  });
+}
+loadReviews();
+
+document.getElementById('send').onclick = async ()=>{
+  const name = document.getElementById('name').value.trim();
+  const text = document.getElementById('text').value.trim();
+  if(!name || !text) return alert('Заполните поля');
+
+  await addDoc(collection(db,'reviews'),{
+    name,
+    text,
+    date: Date.now()
+  });
+  location.reload();
+};
+</script>
+
+</body>
+</html>
