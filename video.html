@@ -233,38 +233,42 @@ fetch('videos.json')
   .then(r => r.json())
   .then(videos => {
     const grid = document.querySelector('.video-grid');
-
-    function stopAll(except) {
-      document.querySelectorAll('video').forEach(v => {
-        if (v !== except) {
-          v.pause();
-          v.currentTime = 0;
-        }
-      });
-    }
+    let currentVideo = null;
 
     videos.forEach(video => {
       const box = document.createElement('div');
       box.className = 'video-item';
 
-      // ===== ЛОКАЛЬНОЕ ВИДЕО (MP4) =====
+      // ===== ЛОКАЛЬНОЕ VIDEO (mp4) =====
       if (video.type === 'local') {
         const v = document.createElement('video');
         v.controls = true;
         v.preload = 'metadata';
-        v.playsInline = false; // 🔴 КЛЮЧЕВО
-        v.setAttribute('webkit-playsinline', 'false'); // iOS fullscreen
+        v.playsInline = true;
+        v.setAttribute('webkit-playsinline', '');
 
         const src = document.createElement('source');
         src.src = video.src;
         src.type = 'video/mp4';
         v.appendChild(src);
 
-        // ▶ при запуске — останавливаем другие
+        // ▶ играет только одно видео
         v.addEventListener('play', () => {
-          stopAll(v);
+          if (currentVideo && currentVideo !== v) {
+            currentVideo.pause();
+          }
+          currentVideo = v;
+        });
 
-          // 🔥 ПРИНУДИТЕЛЬНЫЙ FULLSCREEN
+        // ⛔ если видео остановили — освобождаем
+        v.addEventListener('pause', () => {
+          if (currentVideo === v) {
+            currentVideo = null;
+          }
+        });
+
+        // 🔍 двойной клик / тап — fullscreen
+        v.addEventListener('dblclick', () => {
           if (v.requestFullscreen) {
             v.requestFullscreen();
           } else if (v.webkitEnterFullscreen) {
@@ -291,6 +295,7 @@ fetch('videos.json')
     });
   });
 </script>
+
 
 </body>
 </html>
