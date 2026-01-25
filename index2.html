@@ -1,198 +1,203 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Отзывы клиентов — PRO100MOLDING</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;900&display=swap" rel="stylesheet">
+<title>Отзывы клиентов — PRO100MOLDING</title>
 
-  <style>
-    :root{--gold:#c5a059;--dark:#1a1a1a;--light:#f4f4f4}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&display=swap" rel="stylesheet">
 
-    body {
-      margin:0;
-      font-family:'Montserrat',sans-serif;
-      background:var(--light);
-      color:#333;
-    }
+<style>
+:root{--gold:#c5a059;--dark:#1a1a1a;--light:#f4f4f4}
 
-    /* HEADER */
-    .site-header {
-      position:relative;
-      height:220px;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      color:#fff;
-      background:url('https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&q=80&w=1200') center/cover;
-      border-bottom:5px solid var(--gold);
-    }
-    .site-header::before {
-      content:"";
-      position:absolute;
-      inset:0;
-      background:rgba(0,0,0,.55);
-    }
-    .site-header .header-content {
-      position: relative;
-      z-index: 2;
-      text-align: center;
-    }
-    .site-header h1 {
-      font-size: clamp(1.6rem,5vw,3rem);
-      text-transform:uppercase;
-      letter-spacing:2px;
-    }
-    .site-slogan {
-      margin-top: 12px;
-      font-size: clamp(0.8rem, 3vw, 1rem);
-      font-weight: 700;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      background: var(--gold);
-      padding: 6px 14px;
-      border-radius: 4px;
-    }
+body{
+  margin:0;
+  font-family:'Montserrat',sans-serif;
+  background:var(--light);
+  color:#333;
+}
 
-    /* BUTTON AND ICONS */
-    .header-icons {
-      position: absolute;
-      top: 20px;
-      left: 20px;
-      z-index: 10;
-    }
-    .header-icons a {
-      color: #fff;
-      font-size: 1.8rem;
-      margin-right: 15px;
-      text-decoration: none;
-      border-radius: 50%;
-      background: rgba(0, 0, 0, 0.4);
-      padding: 10px;
-      display: inline-block;
-      transition: transform 0.2s, background 0.2s;
-    }
-    .header-icons a:hover {
-      transform: scale(1.2);
-      background: rgba(0, 0, 0, 0.7);
-    }
+/* HEADER */
+.site-header{
+  position:relative;
+  height:45vh;
+  min-height:260px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  color:#fff;
+  background:url('https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&q=80&w=1200') center/cover;
+  border-bottom:5px solid var(--gold);
+}
+.site-header::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.55));
+}
+.site-header-content{
+  position:relative;
+  z-index:2;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+}
 
-    /* MAIN */
-    main {
-      max-width: 1200px;
-      margin: -40px auto 50px;
-      padding: 0 15px;
-      position: relative;
-      z-index: 5;
-    }
+.site-logo{
+  margin:0;
+  font-size:clamp(1.4rem,7vw,3.4rem);
+  font-weight:900;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  text-shadow:2px 4px 15px rgba(0,0,0,.7);
+}
+.site-logo a{
+  color:#fff;
+  text-decoration:none;
+}
 
-    .reviews-layout {
-      display: grid;
-      grid-template-columns: 2fr 1fr;
-      gap: 20px;
-    }
+.site-slogan{
+  margin-top:26px;
+  font-size:clamp(.65rem,3vw,.9rem);
+  font-weight:700;
+  letter-spacing:1px;
+  text-transform:uppercase;
+  background:var(--gold);
+  padding:6px 14px;
+  border-radius:4px;
+}
 
-    /* REVIEWS LIST */
-    .reviews-box {
-      background: #fff;
-      border-radius: 12px;
-      padding: 20px;
-      box-shadow: 0 10px 25px rgba(0, 0, 0, .1);
-      border-top: 5px solid var(--gold);
-    }
-    .review {
-      border-bottom: 1px solid #eee;
-      padding: 14px 0;
-    }
-    .review:last-child {
-      border-bottom: none;
-    }
-    .review-name {
-      font-weight: 700;
-      color: var(--dark);
-    }
-    .review-date {
-      font-size: .7rem;
-      color: #999;
-      margin-bottom: 6px;
-    }
-    .review-text {
-      font-size: .85rem;
-      line-height: 1.4;
-    }
+/* ICONS */
+.icon-btn{
+  position:absolute;
+  top:14px;
+  width:42px;
+  height:42px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:1.4rem;
+  color:#fff;
+  text-decoration:none;
+  background:rgba(0,0,0,.45);
+  border:1px solid var(--gold);
+  border-radius:50%;
+  z-index:5;
+  transition:.2s;
+}
+.icon-btn:hover{
+  transform:scale(1.15);
+  background:rgba(0,0,0,.65);
+  box-shadow:0 0 10px rgba(197,160,89,.9);
+}
 
-    /* FORM */
-    .form-box {
-      background: #fff;
-      border-radius: 12px;
-      padding: 20px;
-      box-shadow: 0 10px 25px rgba(0, 0, 0, .1);
-      border-top: 5px solid var(--gold);
-    }
-    .form-box h3 {
-      margin-top: 0;
-      text-align: center;
-    }
-    .form-box input,
-    .form-box textarea {
-      width: 100%;
-      padding: 10px;
-      margin-bottom: 10px;
-      border-radius: 6px;
-      border: 1px solid #ccc;
-      font-family: inherit;
-    }
-    .form-box textarea {
-      resize: none;
-      height: 100px;
-    }
-    .form-box button {
-      width: 100%;
-      padding: 12px;
-      background: var(--gold);
-      color: #fff;
-      border: none;
-      border-radius: 6px;
-      font-weight: 700;
-      cursor: pointer;
-      transition: .3s;
-    }
-    .form-box button:hover {
-      background: var(--dark);
-    }
+.video-icon{left:14px}
+.home-icon{right:14px}
 
-    /* MOBILE */
-    @media(max-width:900px) {
-      .reviews-layout {
-        grid-template-columns: 1fr;
-      }
-    }
-  </style>
+/* MAIN */
+main{
+  max-width:1100px;
+  margin:-30px auto 50px;
+  padding:0 15px;
+  position:relative;
+  z-index:10;
+}
+
+.reviews-layout{
+  display:grid;
+  grid-template-columns:2fr 1fr;
+  gap:20px;
+}
+
+/* REVIEWS */
+.reviews-box,
+.form-box{
+  background:#fff;
+  border-radius:12px;
+  padding:20px;
+  box-shadow:0 10px 25px rgba(0,0,0,.1);
+  border-top:5px solid var(--gold);
+}
+
+.review{
+  border-bottom:1px solid #eee;
+  padding:14px 0;
+}
+.review:last-child{border-bottom:none}
+
+.review-name{font-weight:700}
+.review-date{
+  font-size:.7rem;
+  color:#999;
+  margin-bottom:6px;
+}
+.review-text{
+  font-size:.85rem;
+  line-height:1.45;
+}
+
+/* FORM */
+.form-box h3{
+  margin-top:0;
+  text-align:center;
+}
+.form-box input,
+.form-box textarea{
+  width:100%;
+  padding:10px;
+  margin-bottom:10px;
+  border-radius:6px;
+  border:1px solid #ccc;
+  font-family:inherit;
+}
+.form-box textarea{
+  resize:none;
+  height:100px;
+}
+.form-box button{
+  width:100%;
+  padding:12px;
+  background:var(--gold);
+  color:#fff;
+  border:none;
+  border-radius:6px;
+  font-weight:700;
+  cursor:pointer;
+}
+.form-box button:hover{
+  background:var(--dark);
+}
+
+/* MOBILE */
+@media(max-width:900px){
+  .reviews-layout{grid-template-columns:1fr}
+}
+</style>
 </head>
 
 <body>
 
 <header class="site-header">
-  <div class="header-icons">
-    <a href="index.html">🏠</a>
-    <a href="video.html">🎥</a>
-  </div>
-  <div class="header-content">
-    <h1>Отзывы клиентов</h1>
-    <div class="site-slogan">Когда детали имеют значение</div>
+  <a href="video.html" class="icon-btn video-icon">🎥</a>
+  <a href="index.html" class="icon-btn home-icon">🏠</a>
+
+  <div class="site-header-content">
+    <h1 class="site-logo"><a href="index.html">PRO100MOLDING</a></h1>
+    <div class="site-slogan">Мнение клиентов — лучшая рекомендация</div>
   </div>
 </header>
 
 <main>
   <div class="reviews-layout">
 
-    <!-- LEFT: REVIEWS -->
     <div class="reviews-box">
       <div id="reviews"></div>
     </div>
 
-    <!-- RIGHT: FORM -->
     <div class="form-box">
       <h3>Оставить отзыв</h3>
       <input type="text" id="name" placeholder="Ваше имя">
@@ -203,72 +208,62 @@
   </div>
 </main>
 
-<!-- FIREBASE -->
 <script type="module">
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js";
-  import {
-    getFirestore,
-    collection,
-    addDoc,
-    getDocs,
-    query,
-    orderBy,
-    serverTimestamp,
-    Timestamp
-  } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-firestore.js";
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js";
+import {
+  getFirestore,
+  collection,
+  addDoc,
+  getDocs,
+  query,
+  orderBy,
+  serverTimestamp
+} from "https://www.gstatic.com/firebasejs/10.8.1/firebase-firestore.js";
 
-  const firebaseConfig = {
-    apiKey: "AIzaSyCpyJ-MJtaF9HnVBW-SXvrEafZOjEkXnOg",
-    authDomain: "pro100molding-fd23c.firebaseapp.com",
-    projectId: "pro100molding-fd23c",
-    storageBucket: "pro100molding-fd23c.firebasestorage.app",
-    messagingSenderId: "697790892100",
-    appId: "1:697790892100:web:17492f565bbf6b90949411",
-    measurementId: "G-N1616BE4FV"
-  };
+const firebaseConfig = {
+  apiKey: "AIzaSyCpyJ-MJtaF9HnVBW-SXvrEafZOjEkXnOg",
+  authDomain: "pro100molding-fd23c.firebaseapp.com",
+  projectId: "pro100molding-fd23c"
+};
 
-  const app = initializeApp(firebaseConfig);
-  const db = getFirestore(app);
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+const reviewsRef = collection(db,"reviews");
 
-  const reviewsRef = collection(db, "reviews");
+async function loadReviews(){
+  const q = query(reviewsRef, orderBy("createdAt","desc"));
+  const snap = await getDocs(q);
+  const box = document.getElementById("reviews");
+  box.innerHTML = "";
 
-  async function loadReviews() {
-    const q = query(reviewsRef, orderBy("createdAt", "desc"));
-    const snap = await getDocs(q);
+  snap.forEach(doc=>{
+    const r = doc.data();
+    box.innerHTML += `
+      <div class="review">
+        <div class="review-name">${r.name}</div>
+        <div class="review-date">${r.createdAt?.toDate().toLocaleDateString()}</div>
+        <div class="review-text">${r.text}</div>
+      </div>`;
+  });
+}
 
-    const box = document.getElementById("reviews");
-    box.innerHTML = "";
+window.addReview = async ()=>{
+  const name = document.getElementById("name").value.trim();
+  const text = document.getElementById("text").value.trim();
+  if(!name || !text) return alert("Заполните все поля");
 
-    snap.forEach(doc => {
-      const r = doc.data();
-      box.innerHTML += `
-        <div class="review">
-          <div class="review-name">${r.name}</div>
-          <div class="review-date">
-            ${r.createdAt?.toDate().toLocaleDateString()}
-          </div>
-          <div class="review-text">${r.text}</div>
-        </div>`;
-    });
-  }
+  await addDoc(reviewsRef,{
+    name,
+    text,
+    createdAt: serverTimestamp()
+  });
 
-  window.addReview = async function () {
-    const name = document.getElementById("name").value.trim();
-    const text = document.getElementById("text").value.trim();
-    if (!name || !text) return alert("Заполните все поля");
-
-    await addDoc(reviewsRef, {
-      name,
-      text,
-      createdAt: serverTimestamp()
-    });
-
-    document.getElementById("name").value = "";
-    document.getElementById("text").value = "";
-    loadReviews();
-  }
-
+  document.getElementById("name").value="";
+  document.getElementById("text").value="";
   loadReviews();
+}
+
+loadReviews();
 </script>
 
 </body>
