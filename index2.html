@@ -94,7 +94,6 @@ body{
   background:rgba(0,0,0,.65);
   box-shadow:0 0 10px rgba(197,160,89,.9);
 }
-
 .video-icon{left:14px}
 .home-icon{right:14px}
 
@@ -217,7 +216,8 @@ import {
   getDocs,
   query,
   orderBy,
-  serverTimestamp
+  serverTimestamp,
+  Timestamp
 } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-firestore.js";
 
 const firebaseConfig = {
@@ -230,18 +230,48 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 const reviewsRef = collection(db,"reviews");
 
+/* === ГОТОВЫЕ ОТЗЫВЫ (1 раз) === */
+async function seedReviewsIfEmpty(){
+  const snap = await getDocs(reviewsRef);
+  if(!snap.empty) return;
+
+  const week = 7 * 24 * 60 * 60 * 1000;
+
+  const reviews = [
+    {
+      name:"Ольга П.",
+      text:"Заказывали монтаж и покраску стеновых панелей в гостиной. Работа выполнена очень аккуратно, все линии ровные, углы сведены идеально. После покраски стены выглядят дорого и аккуратно.",
+      createdAt: Timestamp.fromDate(new Date(Date.now() - week))
+    },
+    {
+      name:"Максим Р.",
+      text:"Делали стеновые панели под покраску во всей квартире. Видно, что мастер опытный — геометрия идеальная, краска легла ровно, без подтёков и стыков. Результатом полностью довольны.",
+      createdAt: Timestamp.fromDate(new Date(Date.now() - week - 86400000))
+    },
+    {
+      name:"Екатерина С.",
+      text:"Очень качественный монтаж и покраска стеновых панелей. Всё сделано спокойно, без спешки, с вниманием к деталям. Интерьер стал выглядеть как на визуализациях дизайнера.",
+      createdAt: Timestamp.fromDate(new Date(Date.now() - week - 2*86400000))
+    }
+  ];
+
+  for(const r of reviews){
+    await addDoc(reviewsRef,r);
+  }
+}
+
 async function loadReviews(){
   const q = query(reviewsRef, orderBy("createdAt","desc"));
   const snap = await getDocs(q);
   const box = document.getElementById("reviews");
-  box.innerHTML = "";
+  box.innerHTML="";
 
   snap.forEach(doc=>{
     const r = doc.data();
-    box.innerHTML += `
+    box.innerHTML+=`
       <div class="review">
         <div class="review-name">${r.name}</div>
-        <div class="review-date">${r.createdAt?.toDate().toLocaleDateString()}</div>
+        <div class="review-date">${r.createdAt.toDate().toLocaleDateString()}</div>
         <div class="review-text">${r.text}</div>
       </div>`;
   });
@@ -250,7 +280,7 @@ async function loadReviews(){
 window.addReview = async ()=>{
   const name = document.getElementById("name").value.trim();
   const text = document.getElementById("text").value.trim();
-  if(!name || !text) return alert("Заполните все поля");
+  if(!name||!text) return alert("Заполните все поля");
 
   await addDoc(reviewsRef,{
     name,
@@ -261,8 +291,9 @@ window.addReview = async ()=>{
   document.getElementById("name").value="";
   document.getElementById("text").value="";
   loadReviews();
-}
+};
 
+await seedReviewsIfEmpty();
 loadReviews();
 </script>
 
