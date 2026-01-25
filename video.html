@@ -47,8 +47,8 @@
         /* ===== HEADER ===== */
         .site-header {
             position: relative;
-            height: 40vh;
-            min-height: 260px;
+            height: 45vh;
+            min-height: 280px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -61,9 +61,14 @@
                 center / cover no-repeat;
         }
 
-        .site-header-content {
-            z-index: 2;
-        }
+       .site-header-content {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 
         .site-logo {
             margin: 0;
@@ -72,7 +77,7 @@
             letter-spacing: 2px;
             text-transform: uppercase;
             text-shadow:2px 4px 15px rgba(0,0,0,.7)}
-        }
+        
 
         .site-logo a {
             color: inherit;
@@ -189,9 +194,9 @@
 
 <header class="site-header">
     <div class="site-header-content">
-        <p class="site-logo">
+        <h1 class="site-logo">
             <a href="index.html">PRO100MOLDING</a>
-        </p>
+        </h1>
         <div class="site-slogan">Видео реальных работ</div>
     </div>
 </header>
