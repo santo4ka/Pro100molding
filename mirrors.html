@@ -157,13 +157,23 @@ main {
 
 .service-item {
     background: #fff;
-    padding: 30px 25px;
+    padding: 0;
     border-radius: 12px;
     box-shadow: 0 8px 25px rgba(0,0,0,0.1);
     border-top: 4px solid var(--gold);
+    overflow: hidden;  /* Важно! Обрезает всё что выходит за границы */
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+    .service-item img {
+    width: 100%;  /* На всю ширину карточки */
+    height: 160px;  /* Фиксированная высота */
+    object-fit: cover;  /* Обрезает пропорционально */
+    display: block;  /* Убирает лишние отступы снизу */
+}
 
+.service-content {
+    padding: 25px;  /* Отступы только для текста */
+}
 .service-item:hover {
     transform: translateY(-5px);
     box-shadow: 0 12px 35px rgba(197,160,89,0.2);
