@@ -172,7 +172,53 @@ main{max-width:1100px;margin:-30px auto 40px;padding:0 15px;position:relative;z-
 
 .btn-main{margin:auto 12px 12px;padding:10px 0;background:var(--gold);color:#fff;text-decoration:none;border-radius:5px;font-weight:bold;text-transform:uppercase;font-size:.8rem;transition:.3s}
 .btn-main:hover{background:var(--dark)}
+    
+    /*стиль кнопки зеркал*/
+    
+    /* FULL WIDTH CARD */
+.service-card-full {
+    grid-column: 1 / -1;
+    background:#fff;
+    border-radius:10px;
+    box-shadow:0 8px 25px rgba(0,0,0,.1);
+    overflow:hidden;
+    text-align:center;
+    border-top:5px solid var(--gold);
+    display:flex;
+    flex-direction:column;
+    margin-top:10px;
+}
 
+.service-card-full img {
+    width:100%;
+    height:200px;
+    object-fit:cover;
+    display:block;
+}
+
+.service-card-full h2 {
+    margin:12px 0 8px;
+    font-size:1rem;
+    text-transform:uppercase;
+}
+
+.service-card-full h2 a {
+    color:var(--dark);
+    text-decoration:none;
+    font-weight:700;
+}
+
+.service-card-full p {
+    margin:0 12px 12px;
+    font-size:.8rem;
+    color:#666;
+    line-height:1.4;
+}
+
+.service-card-full .btn-main {
+    margin:auto 12px 12px;
+}
+    
 /* REVIEWS */
 .review-section{text-align:center;margin:40px 0}
 .btn-profi{display:inline-block;background:#8b1e1e;color:#fff;padding:12px 20px;border-radius:5px;font-weight:bold;text-transform:uppercase;font-size:.9rem;text-decoration:none;transition:.3s}
@@ -257,7 +303,13 @@ footer{text-align:center;padding:20px 10px 30px}
   <p>Карнизы, лепнина и аккуратные стыки без трещин.</p>
   <a href="decor.html" class="btn-main">Смотреть работы</a>
 </article>
-
+    /кнопка зеркал/
+<article class="service-card-full">
+  <img src="https://images.unsplash.com/photo-1618220179428-22790b461013?auto=format&fit=crop&q=80&w=1200" alt="Изготовление и установка зеркал" loading="lazy">
+  <h2><a href="mirrors.html">Зеркала на заказ</a></h2>
+  <p>Изготовление и профессиональная установка зеркал любой формы и размера. Качественный монтаж с гарантией.</p>
+  <a href="mirrors.html" class="btn-main">Смотреть работы</a>
+</article>
 </section>
 </main>
 
@@ -290,6 +342,7 @@ footer{text-align:center;padding:20px 10px 30px}
 <script src="snow.js"></script>
 </body>
 </html>
+
 
 
 
