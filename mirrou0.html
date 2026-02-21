@@ -194,26 +194,36 @@ span.service-icon {
     font-size: 2.5rem;
 }
 
-/* Карточка с фото */
 /* Карточка с фото - фиксированное окно */
 .service-item.with-photo {
     padding: 0;
 }
 
-.service-item.with-photo img.service-icon {
+/* Контейнер-окно фиксированного размера */
+.service-item.with-photo .photo-wrapper {
     width: 100%;
-    height: 120px;
-    object-fit: none;  /* Фото НЕ масштабируется автоматически */
-    object-position: 60% 70%;  /* 60% слева, 70% сверху */
+    height: 120px;  /* ОКНО ВСЕГДА 120px - НЕ МЕНЯЕТСЯ */
+    overflow: hidden;  /* Обрезает всё что вылезло за границы */
     background: #f9f9f9;
-    margin: 0;
+    position: relative;
+}
+
+/* Само фото внутри окна */
+.service-item.with-photo img.service-icon {
+    width: 100%;  /* МАСШТАБ: 80%=мелко, 100%=норм, 150%=крупно, 200%=очень крупно */
+    height: auto;
+    position: absolute;
+    top: 50%;  /* ВЕРТИКАЛЬ: 20%=покажет верх, 50%=центр, 80%=покажет низ */
+    left: 50%;  /* ГОРИЗОНТАЛЬ: 20%=покажет левую часть, 50%=центр, 80%=покажет правую часть */
+    transform: translate(-50%, -50%);
     display: block;
-    transform: scale(0.5);  /* Масштаб фото */
+    margin: 0;
 }
 
 .service-item.with-photo .service-content {
     padding: 25px;
 }
+
 /* GALLERY SECTION */
 .gallery-section {
     margin-bottom: 60px;
@@ -480,7 +490,9 @@ footer {
         </div>
 
         <div class="service-item with-photo">
-            <img src="https://i.ibb.co/60KyYsnv/zerkala3-1.jpg" alt="Нестандартные формы" class="service-icon">
+            <div class="photo-wrapper">
+                <img src="https://i.ibb.co/60KyYsnv/zerkala3-1.jpg" alt="Нестандартные формы" class="service-icon">
+            </div>
             <div class="service-content">
                 <h3>Нестандартные формы</h3>
                 <p>Зеркала сложных геометрических форм, с вырезами под розетки и выключатели. Реализуем любые дизайнерские идеи</p>
