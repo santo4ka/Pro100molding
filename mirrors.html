@@ -164,13 +164,7 @@ main {
     overflow: hidden;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-    .service-item img {
-    width: 100%;  /* На всю ширину карточки */
-    height: 90px;  /* высота окна для фото карточки*/
-    object-fit: cover;  /* Обрезает пропорционально */
-        object-position: 50% 30%;  /* 50% по горизонтали, 30% по вертикали вправа большее и вниз большее число*/
-    display: block;  /* Убирает лишние отступы снизу */
-}
+   
 
     .service-item.with-photo {
     padding: 0;  /* Убираем отступы только у карточек с фото */
@@ -202,17 +196,30 @@ main {
     color: var(--gray);
     font-size: 0.95rem;
 }
-
-.service-icon {
-    font-size: 2.5rem;
-    margin-bottom: 15px;
-    display: block;
+.service-item.with-photo {
+    padding: 0;
 }
-    img.service-icon {
+
+.service-item.with-photo .service-content {
+    padding: 25px;
+}
+.service-icon {
+    display: block;
+    margin-bottom: 15px;
+}
+
+/* Для эмодзи */
+span.service-icon {
+    font-size: 2.5rem;
+}
+
+/* Для фото */
+img.service-icon {
     width: 100%;
-    height: 120px;  /* ВОТ ЗДЕСЬ МЕНЯЙТЕ */
+    height: 120px;  /* МЕНЯЙТЕ ЭТУ ВЫСОТУ */
+    max-height: 120px;
     object-fit: cover;
-    object-position: center center;
+    object-position: center 30%;  /* Двигайте фото здесь */
     margin-bottom: 0;
 }
 
