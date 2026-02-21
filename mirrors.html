@@ -102,22 +102,22 @@ main {
     margin: 0 auto;
     padding: 50px 20px;
 }
-/* BACK BUTTON стиль кнопки на главную*/
-.back-button {
-    display: inline-block;
-    background: transparent;
-    color: var(--gray);
-    padding: 0;
-    text-decoration: none;
-    font-weight: 400;
-    font-size: 0.95rem;
+.breadcrumbs {
+    display: flex;
+    justify-content: space-between;
     margin-bottom: 20px;
-    transition: color 0.3s ease;
-    border: none;
 }
 
-.back-button:hover {
+.breadcrumbs a {
     color: var(--gold);
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.8rem;
+    transition: color 0.3s ease;
+}
+
+.breadcrumbs a:hover {
+    color: var(--dark);
 }
 /* INTRO SECTION */
 .intro-section {
@@ -419,7 +419,10 @@ footer {
 </header>
 
 <main>
-    <a href="index.html" class="back-button">← На главную</a>
+    <nav class="breadcrumbs">
+        <a href="index.html">← На главную</a>
+    </nav>
+    
     <section class="intro-section">
         <h2>Почему выбирают нас</h2>
         <p>Более 10 лет специализируемся на изготовлении и установке зеркал любой сложности. Работаем с квартирами, домами, коммерческими помещениями в Москве и Московской области.</p>
