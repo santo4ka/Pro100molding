@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Изготовление и монтаж зеркал — PRO100MOLDING</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
+
+<style>
+:root {
+    --gold: #c5a059;
+    --dark: #1a1a1a;
+    --light: #f4f4f4;
+    --gray: #666;
+}
+
+* { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    background: var(--light);
+}
+
+/* HEADER */
+.page-header {
+    height: 50vh;
+    min-height: 320px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #fff;
+    background: url('https://images.unsplash.com/photo-1618220179428-22790b461013?auto=format&fit=crop&q=80&w=1200') center/cover;
+    position: relative;
+}
+.page-header::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,.6);
+}
+.header-content { position: relative; z-index: 2; }
+.page-title {
+    font-size: clamp(1.8rem, 6vw, 3rem);
+    font-weight: 900;
+}
+
+/* MAIN */
+main {
+    max-width: 1200px;
+    margin: auto;
+    padding: 50px 20px;
+}
+
+/* SERVICES */
+.services-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    margin-bottom: 60px;
+}
+
+.service-item {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    overflow: hidden;
+    border-top: 4px solid var(--gold);
+    transition: .3s;
+}
+.service-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 35px rgba(197,160,89,0.25);
+}
+
+.service-item img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    display: block;
+}
+
+.service-content {
+    padding: 25px;
+}
+
+.service-content h3 {
+    margin: 0 0 15px;
+}
+
+.service-content p {
+    margin: 0;
+    color: var(--gray);
+}
+
+/* GALLERY */
+.photo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.photo-item {
+    aspect-ratio: 4/3;
+    overflow: hidden;
+    border-radius: 12px;
+    cursor: pointer;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    transition: .3s;
+}
+.photo-item:hover { transform: scale(1.03); }
+
+.photo-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* LIGHTBOX */
+.lightbox {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.9);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    padding: 20px;
+}
+.lightbox img {
+    max-width: 100%;
+    max-height: 100%;
+}
+.lightbox.active { display: flex; }
+
+.lightbox-close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 40px;
+    color: #fff;
+    cursor: pointer;
+}
+
+/* RESPONSIVE */
+@media (max-width:768px){
+    .services-list,
+    .photo-grid {
+        grid-template-columns: 1fr;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header class="page-header">
+    <div class="header-content">
+        <h1 class="page-title">Изготовление и монтаж зеркал</h1>
+    </div>
+</header>
+
+<main>
+
+<section class="services-list">
+
+<div class="service-item">
+    <img src="https://i.ibb.co/35Fgc3gy/c426e7e.jpg" alt="">
+    <div class="service-content">
+        <h3>Классические зеркала</h3>
+        <p>Любых форм и размеров. С фацетом и без.</p>
+    </div>
+</div>
+
+<div class="service-item">
+    <img src="https://i.ibb.co/v6cSNHYP/e8b7fce35e062878dde604d6b12cc6d2.jpg" alt="">
+    <div class="service-content">
+        <h3>Зеркала с подсветкой</h3>
+        <p>LED-подсветка любой конфигурации.</p>
+    </div>
+</div>
+
+<div class="service-item">
+    <img src="https://i.ibb.co/b58v28n8/7d8c.jpg" alt="">
+    <div class="service-content">
+        <h3>Зеркальные панно</h3>
+        <p>Композиции из нескольких зеркал.</p>
+    </div>
+</div>
+
+<div class="service-item">
+    <img src="https://i.ibb.co/qF1bNmz5/570b98cf80.jpg" alt="">
+    <div class="service-content">
+        <h3>Монтаж любой сложности</h3>
+        <p>Крепление на клей, скрытый крепёж.</p>
+    </div>
+</div>
+
+<div class="service-item">
+    <img src="https://i.ibb.co/60KyYsnv/zerkala3-1.jpg" alt="">
+    <div class="service-content">
+        <h3>Нестандартные формы</h3>
+        <p>Сложные геометрические решения.</p>
+    </div>
+</div>
+
+<div class="service-item">
+    <img src="https://images.unsplash.com/photo-1582582429416-2f9c6bfa64c6?auto=format&fit=crop&w=800&q=80" alt="">
+    <div class="service-content">
+        <h3>Гарантия качества</h3>
+        <p>Безопасное зеркало и гарантия на все работы.</p>
+    </div>
+</div>
+
+</section>
+
+<section>
+<h2 style="text-align:center;margin-bottom:30px;">Примеры наших работ</h2>
+
+<div class="photo-grid">
+    <div class="photo-item"><img src="https://i.ibb.co/35Fgc3gy/c426e7e.jpg"></div>
+    <div class="photo-item"><img src="https://i.ibb.co/v6cSNHYP/e8b7fce35e062878dde604d6b12cc6d2.jpg"></div>
+    <div class="photo-item"><img src="https://i.ibb.co/b58v28n8/7d8c.jpg"></div>
+</div>
+</section>
+
+</main>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox">
+    <span class="lightbox-close">&times;</span>
+    <img src="" id="lightbox-img">
+</div>
+
+<script>
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = document.getElementById('lightbox-img');
+const closeBtn = document.querySelector('.lightbox-close');
+
+document.querySelectorAll('.photo-item img').forEach(img => {
+    img.addEventListener('click', () => {
+        lightbox.classList.add('active');
+        lightboxImg.src = img.src;
+    });
+});
+
+closeBtn.addEventListener('click', () => {
+    lightbox.classList.remove('active');
+});
+
+lightbox.addEventListener('click', e => {
+    if(e.target === lightbox) {
+        lightbox.classList.remove('active');
+    }
+});
+
+document.addEventListener('keydown', e => {
+    if(e.key === "Escape") {
+        lightbox.classList.remove('active');
+    }
+});
+</script>
+
+</body>
+</html>
