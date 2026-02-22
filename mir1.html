@@ -3,7 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Изготовление и монтаж зеркал — PRO100MOLDING</title>
+
+<title>Изготовление и монтаж зеркал в Москве — PRO100MOLDING</title>
+
+<meta name="description" content="Профессиональное изготовление и установка зеркал любых форм и размеров в Москве и МО. Зеркала с фацетом, LED-подсветкой, панно.">
+
+<link rel="canonical" href="https://pro100molding.site/mirrors.html">
+<link rel="icon" href="favicon.png" type="image/png">
 
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
 
@@ -21,10 +27,12 @@ body {
     margin: 0;
     font-family: 'Montserrat', sans-serif;
     background: var(--light);
+    color: #333;
 }
 
 /* HEADER */
 .page-header {
+    position: relative;
     height: 50vh;
     min-height: 320px;
     display: flex;
@@ -32,123 +40,235 @@ body {
     justify-content: center;
     text-align: center;
     color: #fff;
+    padding: 0 20px;
     background: url('https://images.unsplash.com/photo-1618220179428-22790b461013?auto=format&fit=crop&q=80&w=1200') center/cover;
-    position: relative;
+    border-bottom: 5px solid var(--gold);
 }
+
 .page-header::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: rgba(0,0,0,.6);
+    content:"";
+    position:absolute;
+    inset:0;
+    background:rgba(0,0,0,.65);
 }
-.header-content { position: relative; z-index: 2; }
+
+.header-content {
+    position:relative;
+    z-index:2;
+    max-width:800px;
+}
+
 .page-title {
-    font-size: clamp(1.8rem, 6vw, 3rem);
-    font-weight: 900;
+    margin:0 0 15px;
+    font-size:clamp(1.8rem,6vw,3rem);
+    font-weight:900;
+    text-transform:uppercase;
+}
+
+.page-subtitle {
+    font-size:clamp(.9rem,2.5vw,1.1rem);
+    line-height:1.6;
 }
 
 /* MAIN */
 main {
-    max-width: 1200px;
-    margin: auto;
-    padding: 50px 20px;
+    max-width:1200px;
+    margin:auto;
+    padding:50px 20px;
+}
+
+.breadcrumbs {
+    margin-bottom:30px;
+}
+
+.breadcrumbs a {
+    color:var(--gold);
+    text-decoration:none;
+    font-weight:700;
+}
+
+/* INTRO */
+.intro-section {
+    background:#fff;
+    padding:40px 30px;
+    border-radius:15px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.08);
+    margin-bottom:60px;
+    border-left:5px solid var(--gold);
 }
 
 /* SERVICES */
 .services-list {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 25px;
-    margin-bottom: 60px;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:25px;
+    margin-bottom:60px;
 }
 
 .service-item {
-    background: #fff;
-    border-radius: 12px;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
-    overflow: hidden;
-    border-top: 4px solid var(--gold);
-    transition: .3s;
+    background:#fff;
+    border-radius:12px;
+    box-shadow:0 8px 25px rgba(0,0,0,0.1);
+    overflow:hidden;
+    border-top:4px solid var(--gold);
+    transition:.3s;
 }
+
 .service-item:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 12px 35px rgba(197,160,89,0.25);
+    transform:translateY(-5px);
+    box-shadow:0 12px 35px rgba(197,160,89,.25);
 }
 
 .service-item img {
-    width: 100%;
-    height: 160px;
-    object-fit: cover;
-    display: block;
+    width:100%;
+    height:160px;
+    object-fit:cover;
 }
 
 .service-content {
-    padding: 25px;
+    padding:25px;
 }
 
 .service-content h3 {
-    margin: 0 0 15px;
+    margin:0 0 15px;
 }
 
 .service-content p {
-    margin: 0;
-    color: var(--gray);
+    margin:0;
+    color:var(--gray);
 }
 
 /* GALLERY */
+.section-title {
+    text-align:center;
+    font-size:2rem;
+    font-weight:700;
+    margin-bottom:35px;
+    text-transform:uppercase;
+}
+
 .photo-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 20px;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:20px;
 }
 
 .photo-item {
-    aspect-ratio: 4/3;
-    overflow: hidden;
-    border-radius: 12px;
-    cursor: pointer;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-    transition: .3s;
+    aspect-ratio:4/3;
+    overflow:hidden;
+    border-radius:12px;
+    cursor:pointer;
+    box-shadow:0 8px 20px rgba(0,0,0,0.15);
+    transition:.3s;
 }
-.photo-item:hover { transform: scale(1.03); }
+
+.photo-item:hover { transform:scale(1.03); }
 
 .photo-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+/* VIDEO */
+.video-grid {
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+    gap:25px;
+    margin-top:20px;
+}
+
+.video-item {
+    aspect-ratio:16/9;
+    border-radius:12px;
+    overflow:hidden;
+    box-shadow:0 8px 20px rgba(0,0,0,0.15);
+}
+
+.video-item iframe {
+    width:100%;
+    height:100%;
+    border:none;
+}
+
+/* CTA */
+.cta-section {
+    background:linear-gradient(135deg,var(--dark),#2a2a2a);
+    padding:50px 30px;
+    border-radius:15px;
+    text-align:center;
+    color:#fff;
+    margin-top:60px;
+}
+
+.cta-buttons {
+    display:flex;
+    gap:15px;
+    justify-content:center;
+    flex-wrap:wrap;
+}
+
+.btn {
+    padding:14px 30px;
+    border-radius:8px;
+    text-decoration:none;
+    font-weight:700;
+    text-transform:uppercase;
+    transition:.3s;
+}
+
+.btn-primary {
+    background:var(--gold);
+    color:#fff;
+}
+
+.btn-secondary {
+    border:2px solid #fff;
+    color:#fff;
+}
+
+/* FOOTER */
+footer {
+    text-align:center;
+    padding:40px 20px;
+    background:var(--dark);
+    color:#fff;
+    margin-top:60px;
 }
 
 /* LIGHTBOX */
 .lightbox {
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,.9);
-    display: none;
-    align-items: center;
-    justify-content: center;
-    z-index: 9999;
-    padding: 20px;
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.9);
+    display:none;
+    align-items:center;
+    justify-content:center;
+    z-index:9999;
+    padding:20px;
 }
+
 .lightbox img {
-    max-width: 100%;
-    max-height: 100%;
+    max-width:100%;
+    max-height:100%;
 }
-.lightbox.active { display: flex; }
+
+.lightbox.active { display:flex; }
 
 .lightbox-close {
-    position: absolute;
-    top: 20px;
-    right: 30px;
-    font-size: 40px;
-    color: #fff;
-    cursor: pointer;
+    position:absolute;
+    top:20px;
+    right:30px;
+    font-size:40px;
+    color:#fff;
+    cursor:pointer;
 }
 
-/* RESPONSIVE */
-@media (max-width:768px){
+@media(max-width:768px){
     .services-list,
-    .photo-grid {
-        grid-template-columns: 1fr;
+    .photo-grid,
+    .video-grid {
+        grid-template-columns:1fr;
     }
 }
 </style>
@@ -159,108 +279,125 @@ main {
 <header class="page-header">
     <div class="header-content">
         <h1 class="page-title">Изготовление и монтаж зеркал</h1>
+        <p class="page-subtitle">Зеркала любых форм и размеров с профессиональной установкой. Работаем с фацетом, LED-подсветкой и сложными конструкциями.</p>
     </div>
 </header>
 
 <main>
 
+<nav class="breadcrumbs">
+    <a href="index.html">← На главную</a>
+</nav>
+
+<section class="intro-section">
+    <h2>Почему выбирают нас</h2>
+    <p>Более 10 лет опыта. Работаем без посредников. Точные замеры и аккуратный монтаж.</p>
+</section>
+
 <section class="services-list">
-
-<div class="service-item">
-    <img src="https://i.ibb.co/35Fgc3gy/c426e7e.jpg" alt="">
-    <div class="service-content">
-        <h3>Классические зеркала</h3>
-        <p>Любых форм и размеров. С фацетом и без.</p>
+    <div class="service-item">
+        <img src="https://i.ibb.co/35Fgc3gy/c426e7e.jpg">
+        <div class="service-content">
+            <h3>Классические зеркала</h3>
+            <p>Любых форм и размеров.</p>
+        </div>
     </div>
-</div>
 
-<div class="service-item">
-    <img src="https://i.ibb.co/v6cSNHYP/e8b7fce35e062878dde604d6b12cc6d2.jpg" alt="">
-    <div class="service-content">
-        <h3>Зеркала с подсветкой</h3>
-        <p>LED-подсветка любой конфигурации.</p>
+    <div class="service-item">
+        <img src="https://i.ibb.co/v6cSNHYP/e8b7fce35e062878dde604d6b12cc6d2.jpg">
+        <div class="service-content">
+            <h3>Зеркала с подсветкой</h3>
+            <p>Современные LED-решения.</p>
+        </div>
     </div>
-</div>
 
-<div class="service-item">
-    <img src="https://i.ibb.co/b58v28n8/7d8c.jpg" alt="">
-    <div class="service-content">
-        <h3>Зеркальные панно</h3>
-        <p>Композиции из нескольких зеркал.</p>
+    <div class="service-item">
+        <img src="https://i.ibb.co/b58v28n8/7d8c.jpg">
+        <div class="service-content">
+            <h3>Зеркальные панно</h3>
+            <p>Композиции и зеркальные стены.</p>
+        </div>
     </div>
-</div>
-
-<div class="service-item">
-    <img src="https://i.ibb.co/qF1bNmz5/570b98cf80.jpg" alt="">
-    <div class="service-content">
-        <h3>Монтаж любой сложности</h3>
-        <p>Крепление на клей, скрытый крепёж.</p>
-    </div>
-</div>
-
-<div class="service-item">
-    <img src="https://i.ibb.co/60KyYsnv/zerkala3-1.jpg" alt="">
-    <div class="service-content">
-        <h3>Нестандартные формы</h3>
-        <p>Сложные геометрические решения.</p>
-    </div>
-</div>
-
-<div class="service-item">
-    <img src="https://images.unsplash.com/photo-1582582429416-2f9c6bfa64c6?auto=format&fit=crop&w=800&q=80" alt="">
-    <div class="service-content">
-        <h3>Гарантия качества</h3>
-        <p>Безопасное зеркало и гарантия на все работы.</p>
-    </div>
-</div>
-
 </section>
 
 <section>
-<h2 style="text-align:center;margin-bottom:30px;">Примеры наших работ</h2>
-
-<div class="photo-grid">
-    <div class="photo-item"><img src="https://i.ibb.co/35Fgc3gy/c426e7e.jpg"></div>
-    <div class="photo-item"><img src="https://i.ibb.co/v6cSNHYP/e8b7fce35e062878dde604d6b12cc6d2.jpg"></div>
-    <div class="photo-item"><img src="https://i.ibb.co/b58v28n8/7d8c.jpg"></div>
+<h2 class="section-title">Примеры наших работ</h2>
+<div id="photo-gallery" class="photo-grid">
+    <div>Загрузка...</div>
 </div>
+</section>
+
+<section>
+<h2 class="section-title">Видео наших работ</h2>
+<div id="video-gallery" class="video-grid">
+    <div>Загрузка...</div>
+</div>
+</section>
+
+<section class="cta-section">
+    <h2>Готовы обсудить ваш проект?</h2>
+    <div class="cta-buttons">
+        <a href="tel:+79264498797" class="btn btn-primary">Позвонить</a>
+        <a href="https://wa.me/79264498797" class="btn btn-secondary">WhatsApp</a>
+    </div>
 </section>
 
 </main>
 
-<!-- LIGHTBOX -->
+<footer>
+    <p>Контакты: +7 926 449-87-97</p>
+    <p>© 2026 PRO100MOLDING</p>
+</footer>
+
 <div class="lightbox" id="lightbox">
     <span class="lightbox-close">&times;</span>
-    <img src="" id="lightbox-img">
+    <img id="lightbox-img">
 </div>
 
 <script>
-const lightbox = document.getElementById('lightbox');
-const lightboxImg = document.getElementById('lightbox-img');
-const closeBtn = document.querySelector('.lightbox-close');
+/* PHOTO LOAD */
+fetch('mirrors-photos.json')
+.then(r=>r.json())
+.then(data=>{
+    const gallery=document.getElementById('photo-gallery');
+    gallery.innerHTML='';
+    data.photos.forEach(photo=>{
+        const div=document.createElement('div');
+        div.className='photo-item';
+        div.innerHTML=`<img src="${photo.url}" alt="${photo.alt}" loading="lazy">`;
+        gallery.appendChild(div);
+    });
+    initLightbox();
+});
 
-document.querySelectorAll('.photo-item img').forEach(img => {
-    img.addEventListener('click', () => {
-        lightbox.classList.add('active');
-        lightboxImg.src = img.src;
+/* VIDEO LOAD */
+fetch('mirrors-videos.json')
+.then(r=>r.json())
+.then(data=>{
+    const gallery=document.getElementById('video-gallery');
+    gallery.innerHTML='';
+    data.videos.forEach(video=>{
+        const div=document.createElement('div');
+        div.className='video-item';
+        div.innerHTML=`<iframe src="https://www.youtube.com/embed/${video.youtubeId}" allowfullscreen loading="lazy"></iframe>`;
+        gallery.appendChild(div);
     });
 });
 
-closeBtn.addEventListener('click', () => {
-    lightbox.classList.remove('active');
-});
-
-lightbox.addEventListener('click', e => {
-    if(e.target === lightbox) {
-        lightbox.classList.remove('active');
+/* LIGHTBOX */
+function initLightbox(){
+const lightbox=document.getElementById('lightbox');
+const imgBox=document.getElementById('lightbox-img');
+document.querySelectorAll('.photo-item img').forEach(img=>{
+    img.onclick=()=>{
+        lightbox.classList.add('active');
+        imgBox.src=img.src;
     }
 });
-
-document.addEventListener('keydown', e => {
-    if(e.key === "Escape") {
-        lightbox.classList.remove('active');
-    }
-});
+document.querySelector('.lightbox-close').onclick=()=>lightbox.classList.remove('active');
+lightbox.onclick=e=>{if(e.target===lightbox)lightbox.classList.remove('active');};
+document.onkeydown=e=>{if(e.key==="Escape")lightbox.classList.remove('active');};
+}
 </script>
 
 </body>
