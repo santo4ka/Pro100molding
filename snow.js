@@ -11,7 +11,7 @@
 
         const s = document.createElement('div');
         s.className = 'snowflake';
-        s.textContent = '❄';
+        s.textContent = '🍃';
 
         const size = Math.random() * 14 + 8;
         const left = Math.random() * 100;
