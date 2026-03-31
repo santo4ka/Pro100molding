@@ -45,7 +45,7 @@ function createLeaf() {
 function startSnow() {
     if (interval) return;
 
-    interval = setInterval(createLeaf, 200);
+    interval = setInterval(createLeaf, 600);
 }
 
 function stopSnow() {
