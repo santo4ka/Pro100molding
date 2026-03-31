@@ -251,9 +251,9 @@ footer{text-align:center;padding:20px 10px 30px}
 }
 
 @keyframes snow-sway {
-    0%   { transform: translateX(0); }
-    50%  { transform: translateX(40px); }
-    100% { transform: translateX(0); }
+    0%   { transform: translateX(0) rotate(0deg); }
+    50%  { transform: translateX(var(--sway)) rotate(180deg); }
+    100% { transform: translateX(0) rotate(360deg); }
 }
 
 
