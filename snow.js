@@ -6,7 +6,7 @@ let interval;
 let isActive = false;
 
 // разные листья
-const leafs = ['🍃','🌺','🌼'];
+const leafs = ['🍃','🌼'];
 
 function createLeaf() {
     const leaf = document.createElement('div');
